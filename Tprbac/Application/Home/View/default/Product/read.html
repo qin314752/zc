@@ -1,0 +1,77 @@
+<include file="Base:header" />
+<div class="head_title"><!-- HEAD TITLE -->
+    <div class="container_12">
+        <div class="grid_12">
+
+        </div>
+    </div>
+</div><!-- HEAD TITLE -->
+<div class="breadcrumbs"><!-- BREADCRUMBS -->
+    <div class="container_12">
+        <div class="grid_12">
+            <a href="__APP__">{$Think.lang.T_HOME}</a>
+            <a href='{:U("product/index")}' class="icon_meta">{$Think.lang.T_PRODUCT}</a>
+            <a class="icon_meta">{$info['title']}</a>
+            <form id="search" action="#" />
+            <fieldset>
+                <input type="text" name="search" />
+                <input type="submit" value="" />
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div><!-- END BREADCRUMBS -->
+<div class="main"><!-- MAIN -->
+    <div class="container_12">
+        <div class="grid_8">
+            <div class="container">
+                <ul class="portfolio_1_col group"><!-- PORTFOLIO ITEMS -->
+                    <li class="item" data-id="id-1" data-type="html">
+                        <volist name="images" id="vo">
+                           <a href="{$vo['savepath']}" rel="prettyPhoto[portfolio]">
+                               <if condition="$key eq 0"><img src="{$vo['savepath']}" alt="{$info.title}" /></if>
+                           </a>
+                        </volist>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid_4"><!-- SIDEBAR -->
+            <div id="portfolio_single">
+                <h3>{$Think.lang.T_PRODUCT_ABOUT}</h3>
+                <p>
+                    {$info['summary']}
+                </p><br />
+                <div class="divider2"></div>
+                <h3>{$Think.lang.T_PRODUCT_DETAIL}</h3>
+                <div class="list-type-3">
+                    <ul>
+                        <li>{$Think.lang.T_NAME}：{$info.title}</li>
+                        <li>
+                            {$Think.lang.T_PRICE}：{$Think.lang.T_F}{$info.price}
+                        </li>
+                        <li>
+                            {$Think.lang.T_PSIZE}：{$info.psize}
+                        </li>
+                        <li>
+                            {$Think.lang.T_CAT}：{$info.cname}
+                        </li>
+                    </ul>
+                </div>
+                <div class="divider3"></div>
+                <!-- large grey button -->
+                <a class="button large black" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$site.qq}&site=qq&menu=yes">{$Think.lang.T_COUNSEL}</a>
+                <a class="button large black" href="#content">{$Think.lang.T_PRODUCT_CONTENT}</a>
+                <!-- large grey button -->
+
+            </div>
+        </div><!-- END SIDEBAR -->
+    </div>
+    <div class="container_12">
+        <a name="content"></a>
+        <div class="container">
+            {$info['content']}
+        </div>
+    </div>
+</div><!-- END MAIN -->
+<include file="Base:footer" />

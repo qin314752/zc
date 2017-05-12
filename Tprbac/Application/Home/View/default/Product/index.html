@@ -1,0 +1,60 @@
+<include file="Base:header" />
+<script type="text/javascript" src="__JS__/jquery.quicksand.js"></script>
+<div class="head_title"><!-- HEAD TITLE -->
+    <div class="container_12">
+        <div class="grid_12">
+
+        </div>
+    </div>
+</div><!-- HEAD TITLE -->
+<div class="breadcrumbs"><!-- BREADCRUMBS -->
+    <div class="container_12">
+        <div class="grid_12">
+            <a href="__APP__">{$Think.lang.T_HOME}</a>
+            <a href="{:U('product/index')}" class="icon_meta">{$Think.lang.T_PRODUCT}</a>
+            <form id="search" action="#" />
+            <fieldset>
+                <input type="text" name="search" />
+                <input type="submit" value="" />
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div><!-- END BREADCRUMBS -->
+<div class="main"><!-- MAIN -->
+    <div class="container_12">
+        <div class="grid_12">
+            <dl class="group"><!-- CATEGORY FILTER -->
+                <dd>
+                    <ul class="filter group">
+                        <li class="current all">
+                            <a href="#">All</a>
+                        </li>
+                        <cat type="p" pid="0" >
+                            <li class="cat-{$cid}">
+                                <a href="#">{$name}</a>
+                            </li>
+                        </cat>
+                    </ul>
+                </dd>
+            </dl><!-- END CATEGORY FILTER -->
+            <ul class="portfolio_4_col group"><!-- PORTFOLIO ITEMS -->
+                <volist name="list" id="vo">
+                <li class="item" data-id="id-{$vo.id}" data-type="cat-{$vo.cid}">
+                    <a href="{:get_default_img($vo['image_id'])}" rel="prettyPhoto[portfolio]"><img src="{:get_default_img($vo['image_id'])}" alt="{$vo.title}" /></a>
+                    <h5 class="uppercase">
+                        {$vo.title}
+                    </h5>
+                    <p>
+                        {:cutStr($vo['summary'],40,0)}
+                    </p><a href="{:U('product/read',array('id'=>$vo['id']))}" class="link_bottom">{$Think.lang.T_VIEW}</a>
+                </li>
+                </volist>
+            </ul><!-- END PORTFOLIO ITEMS -->
+        </div>
+        <div class="pagination"><!-- PAGINATION -->
+            <a href="#">{$page}</a>
+        </div>
+    </div>
+</div><!-- END MAIN -->
+<include file="Base:footer" />

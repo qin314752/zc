@@ -1,0 +1,75 @@
+<include file="Base:header" />
+<div class="head_title"><!-- HEAD TITLE -->
+    <div class="container_12">
+        <div class="grid_12">
+
+        </div>
+    </div>
+</div><!-- HEAD TITLE -->
+<div class="breadcrumbs"><!-- BREADCRUMBS -->
+    <div class="container_12">
+        <div class="grid_12">
+            <a href="__APP__">{$Think.lang.T_HOME}</a>
+            <a href='{:U("news/index")}' class="icon_meta">{$Think.lang.T_NEWS}</a>
+            <a class="icon_meta">{$info['title']}</a>
+            <form id="search" action="#" />
+            <fieldset>
+                <input type="text" name="search" />
+                <input type="submit" value="" />
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div><!-- END BREADCRUMBS -->
+<div class="main"><!-- MAIN -->
+    <div class="container_12">
+        <div class="grid_3"><!-- SIDEBAR -->
+            <div id="sidebar">
+                <div class="sideblock">
+                    <h3 class="title">{$Think.lang.T_NEWS}</h3>
+                    <div class="list-type-sidebar">
+                        <ul>
+                            <cat type="n" pid="0">
+                                <li><a href='{:U("news/index",array("cid"=>$cid))}'>{$name}</a></li>
+                            </cat>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- END SIDEBAR -->
+        <div class="grid_9">
+            <dl class="group"><!-- CATEGORY FILTER -->
+                <dd>
+                    <ul class="filter group">
+                        <cat type="n" pid="$_GET[cid]">
+                            <li class="current all">
+                                <a href='{:U("news/index",array("cid"=>$cid))}'>{$name}</a>
+                            </li>
+                        </cat>
+                    </ul>
+                </dd>
+            </dl><!-- END CATEGORY FILTER -->
+        </div>
+        <div class="grid_9">
+            <h4 class="uppercase">{$info.title}</h4>
+            <div class="post-meta">
+                <p>{:date('Y-m-d',$info['published'])}
+                    <a href="javascript:;" class="icon_meta purple">{$auther}</a>
+                    <a href="javascript:;" class="icon_meta purple">{$Think.lang.T_VIEWTIMES}:{$info['click']}</a></p>
+            </div>
+
+            <div class="post-block"><!-- POST-BLOCK -->
+                <if condition="$info['image_id'] neq 0">
+                <a href="index.html"><img src="{:get_default_img($info['image_id'])}" alt="" width="700" height="280" border="0" /></a>
+
+                </if>
+                <p class="bottom">
+                {$info['content']}
+                </p>
+            </div><!-- END POST-BLOCK -->
+
+
+        </div>
+    </div>
+</div><!-- END MAIN -->
+<include file="Base:footer" />

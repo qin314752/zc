@@ -1,0 +1,66 @@
+<include file="Base:header" />
+<div class="head_title"><!-- HEAD TITLE -->
+    <div class="container_12">
+        <div class="grid_12">
+
+        </div>
+    </div>
+</div><!-- HEAD TITLE -->
+<div class="breadcrumbs"><!-- BREADCRUMBS -->
+    <div class="container_12">
+        <div class="grid_12">
+            <a href="__APP__">{$Think.lang.T_HOME}</a>
+            <a href='{:U("news/index")}' class="icon_meta">{$Think.lang.T_NEWS}</a>
+            <form id="search" action="#" />
+            <fieldset>
+                <input type="text" name="search" />
+                <input type="submit" value="" />
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div><!-- END BREADCRUMBS -->
+<div class="main"><!-- MAIN -->
+    <div class="container_12">
+        <div class="grid_3"><!-- SIDEBAR -->
+            <div id="sidebar">
+                <div class="sideblock">
+                    <h3 class="title">{$Think.lang.T_NEWS}</h3>
+                    <div class="list-type-sidebar">
+                        <ul>
+                            <cat type="n" pid="0">
+                            <li><a href='{:U("news/index",array("cid"=>$cid))}'>{$name}</a></li>
+                            </cat>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- END SIDEBAR -->
+        <div class="grid_9">
+            <dl class="group"><!-- CATEGORY FILTER -->
+                <dd>
+                    <ul class="filter group">
+                        <cat type="n" pid="$_GET[cid]">
+                        <li class="current all">
+                            <a href='{:U("news/index",array("cid"=>$cid))}'>{$name}</a>
+                        </li>
+                        </cat>
+                    </ul>
+                </dd>
+            </dl><!-- END CATEGORY FILTER -->
+        </div>
+        <div class="grid_9">
+            <div class="list-type">
+                <ul>
+            <volist name="list" id="vo">
+                    <li><a href="{:U('news/read',array('id'=>$vo['id']))}">{$vo.title}</a><span style="float: right;">{:date('Y/m/d',$vo['published'])}</span></li>
+            </volist>
+                </ul>
+            </div>
+        </div>
+        <div class="pagination"><!-- PAGINATION -->
+            <a href="#">{$page}</a>
+        </div>
+    </div>
+</div><!-- END MAIN -->
+<include file="Base:footer" />
