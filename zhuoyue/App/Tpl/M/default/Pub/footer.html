@@ -1,0 +1,63 @@
+<!-- 底部导航 start-->
+<div class="footer-top clear"></div>
+<div class="footer">
+    <div class="link-list float-left home-bg" id="home"><a href="/M" class="home-link"></a></div>
+    <div class="link-list float-left invest-bg-grey" id="invest"><a href="/M/Crowdinvest/index" class="invest-link"></a></div>
+    <div class="link-list float-left member-bg-grey" id="member"><a href="/M/user/index" class="invest-link"></a></div>
+    <div class="clear"></div>
+</div>
+<!-- 底部导航 end-->
+
+<script type="text/javascript">
+
+    // 切换底部导航
+    if(window.location.pathname == "/M/user/index.html" || window.location.pathname == "/M/user/index" || window.location.pathname == "/M/User/index")
+    {
+        $("#home").removeClass("home-bg");
+        $("#home").addClass("home-bg-grey");
+        $("#member").removeClass("member-bg-grey");
+        $("#member").addClass("member-bg");
+    }
+    if(window.location.pathname == "/M/Crowdinvest/index"){
+        $("#home").removeClass("home-bg");
+        $("#home").addClass("home-bg-grey");
+        $("#invest").removeClass("invest-bg-grey");
+        $("#invest").addClass("invest-bg");
+    }
+
+
+
+    var browser = navigator.userAgent
+  
+ // browser.indexOf('AppleWebKit') > -1 //苹果、谷歌内核
+  //browser.indexOf('Presto') > -1  //opera内核
+ // browser.indexOf('Trident') > -1 //IE内核
+ // browser.indexOf('Gecko') > -1 && browser.indexOf('KHTML') == -1 //火狐内核
+ // !!browser.match(/AppleWebKit.*Mobile.*/) //是否为移动终端 
+  //!!browser.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)  //ios终端
+  // browser.indexOf('Android') > -1 || browser.indexOf('Linux') > -1  
+   //android终端或uc浏览器
+ //  browser.indexOf('iPhone') > -1  //是否为iPhone或者QQHD浏览器
+ //  browser.indexOf('iPad') > -1  //是否iPad
+
+                               
+// 判断屏幕是否旋转
+function orientationChange() {
+    if(browser.indexOf('Android') > -1 || browser.indexOf('Linux') > -1){
+        manWidth(screen.width);
+    }
+    
+}
+
+function manWidth(width){
+    // width = width/2-12;
+     //$(".main").css('width',width+'px');
+}
+// 添加事件监听
+//addEventListener('load', function(){ 
+//    orientationChange();
+//    window.onorientationchange = orientationChange;
+//}); 
+</script> 
+</body>
+</html>

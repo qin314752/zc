@@ -1,0 +1,236 @@
+<include file="Public:header_new"/>
+<title>我要投资-{$glo.web_name}</title>
+<meta http-equiv="keywords" content="{$glo.web_keywords}"/>
+<meta http-equiv="description" content="{$glo.web_descript}"/>
+<link rel="stylesheet" href="__ROOT__/Style/H/css/fund.css"/>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/fancybox/jquery.fancybox-1.3.2.css" media="screen" />
+<script type="text/javascript" src="__ROOT__/Style/fancybox/jquery.fancybox-1.3.2.js"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/js/common.js" language="javascript"></script>
+<script type="text/javascript">
+    var Transfer_invest_url = "__APP__/fund";
+</script>
+<div class="width-100 heightauto color-bg-grey padtop_30 padbottom_30">
+    <div class="width1200 height350 color-bg-white border-all marbottom_15">
+        <div class="width-70 height300 martop_10 border-right float_left">
+            <div class="width-80 martop_20 marleft_30 ">
+                <span class="font30 main-color">{$vo.borrow_name|cnsubstr=###,22}</span>
+                <span>100.00元起 最高可投金额<if condition="$vo.borrow_max eq 0"> 不限<else />{$vo.max_money_l}元</if></span>
+            </div>
+            <div class="clear"></div>
+            <div class="width-90 martop_20 marleft_30 height100 border-bottom">
+                <div class="width-40 float_left border-right lineheight40">
+                    <span class="font14 color-grey">项目总额</span><br>
+                    <span class="font30 color-black">￥{$vo.borrow_money|getMoneyFormt=###}</span><font class="color-grey font18">元</font>
+                </div>
+                <div class="width-30 float_left border-right lineheight40">
+                    <span class="font14 color-grey marleft_30">收益率</span><br>
+                    <span class="font30 color-black marleft_30">{$vo.borrow_interest_rate}</span><span class="color-grey font18">%</span>
+                </div>
+                <div class="width-25 float_left lineheight40">
+                    <span class="font14 color-grey marleft_30">投资周期</span><br>
+                    <span class="font30 color-black marleft_30">{$vo.borrow_duration}</span><span class="color-grey font18">个月</span>
+                </div>
+            </div>
+            <div class="width-90 martop_10 marleft_30 height50">
+                <span class="font14 color-grey">筹集进度</span><br/>
+                <span class="progress invest_index_bggray float_left martop_20 color-bg-grey" style="width: 420px;height: 10px;"><span class="precent pbprecent fund_progress_color" style="width:{$vo.progress}%;"></span>
+                </span><span class="lineheight42 marleft_10 font18 fund_color_grey">{$vo.progress}%</span>
+            </div>
+            <div class="width-90 martop_20 marleft_30 height50 lineheight30">
+                <span class="font14 fund_color_grey">定期理财锁定期内本金自动复投，利息可以选择复投、返回账户。锁定结束返还本金和利息。</span><br/>
+                <span class="font14 fund_color_grey">发布时间： {$vo.add_time|mydate="Y-m-d",###}</span>
+            </div>
+        </div>
+        <div class="width-28 height300 float_right martop_10">
+            <form id="plan" method="post">
+                <if condition="session('u_id') ==''">
+                        <div class="width-100 text-left height300">
+                            <div class="width-100 martop_10 font18">投资金额</div>
+                            <div class="martop_30 marleft_20 height110 lineheight35">
+                                <span class="font14 fund_color_grey">优计划的年华收益</span><br/>
+                                <span class="font30 color-orange">8-13%</span><br/>
+                                <span class="font14 fund_color_grey">投资收益是银行定期存款2-4倍</span>
+                            </div>
+                            <div class="marleft_20 height50 ">
+                                <a class="main-bg-color show width-90 height45 color-white font22 text-center lineheight40 border-radius" href="/member/common/register/">免费注册</a>
+                            </div>
+                            <div class="height50 marleft_20 text-right martop_10">
+                                <span class="font14 marright_37">已有帐号？<a class="fund_a" href="/member/common/login">立即登录</a></span>
+                            </div>
+                        </div>
+                    <else/>
+                    <div class="width-100 text-left height300">
+                        <div class="width-100 martop_10 font18">投资金额</div>
+                        <div class="martop_30 marleft_20 height110 lineheight35">
+                            <span class="font14 fund_color_grey">每份金额：<strong><font class="font18 color-black">{$vo.per_transfer|getMoneyFormt=###}</font></strong>元</span><br/>
+                            <span class="font14 fund_color_grey">可投份数：<strong><font class="font18 color-black">{$vo['transfer_total']-$vo['transfer_out']}</font></strong>份</span><br/>
+                            <span class="font14 fund_color_grey">您的可用余额：{$investInfo['account_money']+$investInfo['back_money']|getMoneyFormt=###}元</span>
+                        </div>
+                        <div class="marleft_20 height90 ">
+                            <p style="padding-top:12px; padding-bottom:8px;">
+                                <input class="plus" type="button" onclick="minus({$vo.id})" value="-" />
+                                <input class="tnum" type="text" id="tnum_{$vo.id}" value="1份" />
+                                <input class="minus" type="button"  onclick="plus({$vo.id})" value="+" />
+                            </p>
+                            <p style="height:40px; padding-top:13px;">
+                                <input  type="radio" value="4"  name="radios" id="lixireturn" checked="checked"/>
+                                <label for='lixireturn' style='CURSOR:pointer;color:#697268'>按月还息</label>
+                                <input  type="radio" value="6" name="radios" id="lift"/>
+                                <label for='lift' style='CURSOR:pointer;color:#697268'>利息复投</label>
+                            </p>
+                        </div>
+                        <div class="marleft_20 height50">
+                            <if condition="($vo['transfer_out']-$vo['transfer_total'] eq 0) and ($vo['borrow_status'] eq 7)">
+                                <span class="invest_bg_color_black show width-90 height45 color-white font22 text-center lineheight40 border-radius">已完成</span>
+                            <elseif condition="($vo['transfer_out']-$vo['transfer_total'] eq 0) and ($vo['borrow_status'] eq 2)"/>
+                                <span class="invest_bg_color_black show width-90 height45 color-white font22 text-center lineheight40 border-radius">还款中</span>
+                            <elseif condition="session('u_id') !='' and ($vo['transfer_out']-$vo['transfer_total'] neq 0)" />
+                                <span class="main-bg-color show width-90 height45 color-white font22 text-center lineheight40 border-radius pointer" onclick="FTransfer({$vo.id})">立即加入</span>
+                            </if>
+                        </div>
+                    </div>
+
+                </if>
+            </form>
+        </div>
+
+    </div>
+    <!--分隔-->
+    <div class="width1200 color-bg-white height665 border-all martop_15">
+        <div class="height55 border-bottom width-100 font16">
+            <div class="title">
+                <a id="qq1a" class="current1"
+                   onclick="$('#qq1').css('display','block');$('#qq2').css('display','none');$('#qq1a').addClass('current1');$('#qq2a').removeClass('current1');">
+                    <span class="span" style="width: 15px;height: 15px;display: block;float: left;margin-top:18px;margin-right: 5px;border: 1px solid #dcdcdc"></span>产品详情</a>
+                <a id="qq2a"
+                   onclick="$('#qq1').css('display','none');$('#qq2').css('display','block');$('#qq2a').addClass('current1');$('#qq1a').removeClass('current1');"><span
+                        class="span" style="width: 15px;height: 15px;display: block;float: left;margin-top:18px;margin-right: 5px;border: 1px solid #dcdcdc"></span>加入记录<span class="main-color">({$count})</span></a>
+            </div>
+        </div>
+        <div id="qq1" class="width-90 martop_30 marginauto ">
+            <table class="font16 fund_table" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="width218 color-black border-all text-center">名称</td>
+                    <td class="width839 border-top fund_color border-bottom border-right padleft_20">{$vo.borrow_name|cnsubstr=###,22}</td>
+                </tr>
+                <tr>
+                    <td class="width218 color-black border-left border-bottom border-right text-center">介绍</td>
+                    <td class="width839 fund_color border-bottom border-right padleft_20">{$vo.borrow_breif}</td>
+                </tr>
+                <tr>
+                    <td class="width218 color-black border-left border-bottom border-right text-center">收益方式<BR>及年化收益率</td>
+                    <td class="width839 fund_color border-bottom border-right padleft_20">利息处理方式：a.转入出借人在{$glo.web_name}平台的账户，b.利息复投。<em>{$vo.borrow_interest_rate}</em>% - <em>{$Compound}</em>%年化利率</td>
+                </tr>
+                <tr>
+                    <td class="width218 color-black border-left border-bottom border-right text-center">发布时间</td>
+                    <td class="width839 fund_color border-bottom border-right padleft_20">{$vo.add_time|mydate="Y-m-d",###}</td>
+                </tr>
+                <tr>
+                    <td class="width218 color-black border-left border-bottom border-right text-center">加入条件</td>
+                    <td class="width839 fund_color border-bottom border-right padleft_20">加入金额 {$vo.per_transfer} 元起，且以 {$vo.per_transfer} 元的倍数递增</td>
+                </tr>
+                <tr>
+                    <td class="width218 color-black border-left border-bottom border-right text-center">单人最大购买额度</td>
+                    <td class="width839 fund_color border-bottom border-right padleft_20"><if condition="$vo['borrow_max'] gt 0">￥{$vo['per_transfer']*$vo['borrow_max']}<else/>无限制</if></td>
+                </tr>
+                <tr>
+                    <td class="width218 color-black border-left border-bottom border-right text-center">期限</td>
+                    <td class="width839 fund_color border-bottom border-right padleft_20">{$vo.borrow_duration}个月</td>
+                </tr>
+                <tr>
+                    <td class="width218 color-black border-left border-bottom border-right text-center">保障方式</td>
+                    <td class="width839 main-color border-bottom border-right padleft_20">100%本息保障</td>
+                </tr>
+            </table>
+        </div>
+        <div id="qq2" class="width-90 martop_30 marginauto color-black" style="display: none">
+            <div class="model-box rec-items">
+                <div class="investlist">
+                    <table  class="tdBordert" border=0 cellSpacing=0 width="100%" >
+                        <THEAD>
+                        <tr style="background-color:#E4E4E4">
+                            <td height="25" align="left" valign="middle">　认购人
+                            </th>
+                            <td align="left" valign="middle">认购份数
+                            </th>
+                            <td align="left" valign="middle">认购金额
+                            </th>
+                            <td align="left" valign="middle">当前利率
+                            </th>
+                            <td align="left" valign="middle">认购期限
+                            </th>
+                            <td align="left" valign="middle">认购方式
+                            </th>
+                            <td align="left" valign="middle">状态
+                            </th>
+                        </tr>
+                        </THEAD>
+                        <tbody id="investrecord"></tbody>
+                    </table>
+                    <div class="pages" style="width:930px; margin-left:50px;">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<SCRIPT language=javascript>
+    function qiehuan(num){
+        for(var id = 0;id<=1;id++)
+        {
+            if(id==num)
+            {
+                document.getElementById("qh_conn"+id).style.display="block";
+
+                document.getElementById("nav"+id).className = "jTab current";
+            }
+            else
+            {
+                document.getElementById("qh_conn"+id).style.display="none";
+
+                document.getElementById("nav"+id).className = "jTab";
+            }
+        }
+    }
+</SCRIPT>
+
+
+<!--页面层容器结束-->
+<script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+        ajax_show(1);
+    });
+    function ajax_show(p)
+    {
+        $.get("__URL__/investRecord?borrow_id={$borrow_id}&p="+p, function(data){
+            $("#investrecord").html(data);
+        });
+        $(".pages a").removeClass('current');
+        $(".pages a").eq(p).addClass("current");
+    }
+    //DIV隐显
+    bindpage();
+    function bindpage(){
+        $('.ajaxpagebar a').click(function(){
+            try{
+                var geturl = $(this).attr('href');
+                var id = $(this).parent().attr('data');
+                var x={};
+                $.ajax({
+                    url: geturl,
+                    data: x,
+                    timeout: 5000,
+                    cache: false,
+                    type: "get",
+                    dataType: "json",
+                    success: function (d, s, r) {
+                        if(d) $("#"+id).html(d.html);//更新客户端竞拍信息 作个判断，避免报错
+                    }
+                });
+            }catch(e){};
+            return false;
+        })
+    }
+
+</script>
+<include file="Public:bottom"/>

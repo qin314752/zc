@@ -1,0 +1,35 @@
+﻿<include file="Pub:header" /> 
+<!-- 标题 start-->
+<div class="header"><a class="back" href="/M/User/index"><返回</a>安全中心</div>
+<!-- 标题 end-->
+<div class="main">
+ <div class="box7">
+   <table cellpadding="0" cellspacing="0" border="0">
+    <tr align="left" height="28">
+        <td>实名认证：</td>
+        <td>
+            {$memberdetail.real_name|default="还未验证"}<if condition="$mstatus.id_status neq '1'">[<a href="{:U('M/user/idcard')}">实名认证</a>]</if>
+        </td>
+    </tr>
+    <tr align="left" height="28"><td>登录密码：</td><td>已设置[<a href="{:U("M/user/editpass")}">修改</a>]</td></tr>
+    <tr align="left" height="28"><td>支付密码：</td><td>
+        <empty name="paypass"><a href="{:U('M/user/setpaypass')}">尚未设置</a>
+            <else/>已设置 [<a href="{:U('M/user/editpaypass')}">修改</a>]</empty></td></tr>
+    <tr align="left" height="28">
+        <td>银行卡号：</td>
+        <td>
+            <if condition="$bank neq ''">{$bank|hidecard=3}[<a href="{:U('M/user/bank')}">修改</a>]<else/>[<a href="{:U('M/user/bank')}">设置</a>]</if>
+        </td>
+    </tr>
+    <tr align="left" height="28"><td>手机号码：</td><td>
+        {$memberinfo.user_phone|hidecard=###,2,"还未验证"}<if condition="$mstatus.phone_status neq '1'">[<a href="{:U('M/user/cellphone')}">手机认证</a>]</if>
+    <td></tr>
+    <tr align="left" height="28"><td>电子邮箱：</td><td>
+        {$memberinfo.user_email|default="还未验证"}
+    </td></tr>
+   </table>
+ </div>
+ 
+</div>
+
+﻿<include file="Pub:footer_inner" />

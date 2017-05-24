@@ -1,0 +1,15 @@
+
+<!--友情链接-->
+<div class="width-100 color-bg-grey friendly-link">
+    <div class="width1200 font14 color-black">
+        <h4 class="float_left friendly-h4">友情链接</h4>
+        <ul>
+            <volist id="vo" name="glo.friendList">
+                <li><a href="{$vo.link_href}" target="_blank">
+                    <!--<img src="__ROOT__/{$vo.link_img}">-->
+                    {$vo.link_txt}</a>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</div>

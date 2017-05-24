@@ -1,0 +1,63 @@
+<div class="foot width-100 color-bg-grey minwidth1200">
+    <div class="width1200 ">
+        <div class="float_left martop_30 width-35">
+            {:get_ad(9)}
+        </div>
+        <div class="float_left martop_30 foot-link width200">
+            <h2>关于我们</h2>
+            <ul>
+                <li><a href="__ROOT__/aboutus/intro.html">公司简介</a></li>
+                <li><a href="__ROOT__/aboutus/team.html">运营团队</a></li>
+                <li><a href="__ROOT__/aboutus/tariff.html">资费说明</a></li>
+                <li><a href="__ROOT__/aboutus/invite.html">招贤纳士</a></li>
+            </ul>
+        </div>
+        <div class="float_left martop_30 foot-link width200">
+            <h2>投资工具</h2>
+            <ul>
+                <li><a href="__ROOT__/tools/tool2.html">收益计算</a></li>
+                <li><a href="__ROOT__/member/promotion#fragment-1">推广返利</a></li>
+                <li><a href="__ROOT__/member/auto/index.html">自动投标</a></li>
+                <li><a href="__ROOT__/member/capital#fragment-2">资金记录</a></li>
+            </ul>
+        </div>
+        <div class="float_left martop_30 foot-link">
+            <h2>帮助信息</h2>
+            <ul>
+                <li><a href="__ROOT__/helpcenter/index.html">帮助中心</a></li>
+                <li><a href="__ROOT__/helpcenter/jiekuan_m.html">我要借款</a></li>
+                <li><a href="__ROOT__/helpcenter/licai_m.html">我要理财</a></li>
+                <li><a href="__ROOT__/aboutus/baozhang.html">安全保障</a></li>
+            </ul>
+        </div>
+        <div class="float_right martop_30 marright_20">
+            {:get_ad(8)}
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    //显示和隐藏威信二维码
+    function showdiv() {
+        document.getElementById("bg").style.display = "block";
+        document.getElementById("show").style.display = "block";
+    }
+    function hidediv() {
+        document.getElementById("bg").style.display = 'none';
+        document.getElementById("show").style.display = 'none';
+    }
+</script>
+<!-- 页头的微信弹出大图开始 -->
+<div class="end14" style="float: left; width: 60px;height: 60px;">
+    <div style="display: none;" id="bg"></div>
+    <div style="display: none;" id="show">
+        <div class="show_tit">
+            <div class="showtit_left">关注{$glo.web_name}官方微信</div>
+            <div class="showtit_rig"><img onclick="hidediv();" src="__ROOT__/Style/H/images/g1.png"></div>
+        </div>
+        <div class="show_con">
+            {:get_ad(33)}
+        </div>
+    </div>
+</div>
+<!-- 页头的微信弹出大图结束 -->

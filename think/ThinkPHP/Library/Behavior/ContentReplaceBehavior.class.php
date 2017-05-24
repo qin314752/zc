@@ -34,8 +34,10 @@ class ContentReplaceBehavior {
             '__ACTION__'    =>  __ACTION__,     // 当前操作地址
             '__SELF__'      =>  htmlentities(__SELF__),       // 当前页面地址
             '__CONTROLLER__'=>  __CONTROLLER__,
-            '__URL__'       =>  __CONTROLLER__,
+            // '__URL__'       =>  __CONTROLLER__,
             '__PUBLIC__'    =>  __ROOT__.'/Public',// 站点公共目录
+            '__Runtime__'   =>  __ROOT__.'Runtime',
+            '__URL__'=>$_SERVER['SERVER_NAME'].'/'.MODULE_NAME.'/'.CONTROLLER_NAME,
         );
         // 允许用户自定义模板的字符串替换
         if(is_array(C('TMPL_PARSE_STRING')) )

@@ -1,0 +1,1 @@
+INSERT INTO `shang_member_banks` (`uid`,`bank_num`,`bank_name`,`bank_address`,`bank_province`,`bank_city`,`add_ip`,`add_time`) VALUES ('27','1231231231231234','中国工商银行','www','5','73','60.213.232.44',1464010578)

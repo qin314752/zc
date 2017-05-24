@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'uid', 2 => 'kfid', 3 => 'province_now', 4 => 'city_now', 5 => 'area_now', 6 => 'des', 7 => 'add_time', 8 => 'status', 9 => 'deal_time', 10 => 'deal_user', 11 => 'deal_info', '_autoinc' => true, '_pk' => 'id', ); ?>

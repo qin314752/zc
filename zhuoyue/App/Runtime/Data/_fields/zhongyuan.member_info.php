@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'uid', 1 => 'sex', 2 => 'zy', 3 => 'cell_phone', 4 => 'info', 5 => 'marry', 6 => 'education', 7 => 'income', 8 => 'age', 9 => 'idcard', 10 => 'card_img', 11 => 'real_name', 12 => 'address', 13 => 'province', 14 => 'province_now', 15 => 'city', 16 => 'city_now', 17 => 'area', 18 => 'area_now', 19 => 'up_time', 20 => 'card_back_img', '_autoinc' => false, '_pk' => 'uid', ); ?>

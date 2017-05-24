@@ -1,10 +1,12 @@
 <!--_menu 作为公共模版分离出去-->
 <aside class="Hui-aside">
 	
+
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-admin">
 <div style="margin-left: 10%;">{$a}</php></div>
 		<dl id="menu-admin">
+			
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
@@ -31,10 +33,16 @@
 			<dd>
 				<ul>
 					<li><a data-href="" data-title="系统设置" href="{:U('System/index')}">系统设置</a></li>
-					<li><a data-href="system-category.html" data-title="栏目管理" href="javascript:void(0)">栏目管理</a></li>
-					<li><a data-href="system-data.html" data-title="数据字典" href="javascript:void(0)">数据字典</a></li>
-					<li><a data-href="system-shielding.html" data-title="屏蔽词" href="javascript:void(0)">屏蔽词</a></li>
-					<li><a data-href="system-log.html" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
+					
+				</ul>
+			</dd>
+		</dl>
+<dl >
+			<dt><i class="Hui-iconfont">&#xe62e;</i> 众筹<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="" data-title="系统设置" href="{:U('Crowd/index')}">发起项目</a></li>
+					
 				</ul>
 			</dd>
 		</dl>

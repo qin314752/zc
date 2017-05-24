@@ -1,0 +1,287 @@
+﻿<include file="Pub:header" />
+<script type="text/javascript" src="/Style/My97DatePicker/WdatePicker.js" language="javascript"></script>
+<script type="text/javascript" src="/Style/My97DatePicker/WdatePicker.js" language="javascript"></script>
+<!-- 标题 start-->
+<div class="header"><a class="back" href="/M/User/index"><返回</a>众筹预约</div>
+<!-- 标题 end-->
+
+<!-- 众筹预约 start-->
+<div class="main bg-white">
+    
+    <!-- 切换标签 start-->
+    <div class="detail-top bg-white"></div>
+    <div class="bg-white padbottom20">
+        <div class="swich-button">
+            <div class="swich-half float-left">
+                <a href="javascript:;" class="swich-link swich-active" data="swich-box-1">预约设置</a>
+            </div>
+            <div class="swich-half float-left">
+                <a href="javascript:;" class="swich-link" data="swich-box-2">新增预约</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 切换标签 end-->
+    
+    <div class="detail bg-white">
+        
+        <!-- 预约设置 start-->
+        <div id="swich-box-1">
+            
+            <!-- 众筹数据 start-->
+            <div class="wrapper-content">
+                <!-- 众筹数据第一行 start-->
+                <div class="reservation-data padtop40">
+                    <div class="reservation-half float-left">
+                        <div class="reservation-ico auto-bg-1 float-left"></div>
+                        <div class="float-left">
+                            <div class="left5 top3">总预约：<span class="color-red">{$all_count}</span>笔</div>
+                            <div class="left5">预约中：<span class="color-red">{$now_count}</span>笔</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="float-right reservation-right">
+                        <div class="reservation-ico auto-bg-2 float-left"></div>
+                        <div class="float-left">
+                            <div class="left5 top3">预约总人数：</div>
+                            <div class="left5"><span class="color-red">{$now_people}</span>人</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- 众筹数据第一行 end-->
+
+                <!-- 众筹数据第二行 start-->
+                <div class="reservation-data">
+                    <div class="reservation-half float-left">
+                        <div class="reservation-ico auto-bg-3 float-left"></div>
+                        <div class="float-left">
+                            <div class="left5 top3">预约总金额：</div>
+                            <div class="left5"><span class="color-red">{$all_money*100/100}</span>元</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="float-right reservation-right">
+                        <div class="reservation-ico auto-bg-4 float-left"></div>
+                        <div class="float-left">
+                            <div class="left5 top3">预计排名：</div>
+                            <div class="left5">第<span class="color-red">{$now_count+1}</span>名</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- 众筹数据第二行 end-->
+
+                <!-- 众筹数据第三行 start-->
+                <div class="reservation-data padbottom40">
+                    <div class="float-left">
+                        <div class="reservation-ico auto-bg-5 float-left"></div>
+                        <div class="float-left">
+                            <div class="left5 top3">前面排队金额：</div>
+                            <div class="left5"><span class="color-red">{$now_money*100/100}</span>元</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- 众筹数据第三行 end-->
+            </div>
+            <!-- 众筹数据 end-->
+            
+            <div class="list-top bg-grey"></div>
+            
+            <!-- 预约中记录 start-->
+            <div class="wrapper-content">
+                <div class="list-title ">预约中记录</div>
+                <div class="list-box padbottom20">
+                    <div class="list-row">
+                        <div class="data-list float-left border-top">序号</div>
+                        <div class="data-list float-left border-top">预约金额</div>
+                        <div class="data-list float-left border-top">已使用额度</div>
+                        <div class="clear"></div>
+                    </div>
+                    <volist name="list" id="vo">
+                        <div class="list-data <if condition="$key egt (count($list) - 1)">marbottom15</if>">
+                            <div class="data-list float-left">{$vo.id}</div>
+                            <div class="data-list float-left">{$vo.auto_money}</div>
+                            <div class="data-list float-left">{$vo.employ_money}</div>
+                            <div class="clear"></div>
+                        </div>
+                    </volist>
+                    <div class="list-row">
+                        <div class="data-list-2 float-left border-top">剩余额度</div>
+                        <div class="data-list-2 float-left border-top">截止时间</div>
+                        <div class="data-list-2 float-left border-top">排名</div>
+                        <div class="data-list-2 float-left border-top">操作</div>
+                        <div class="clear"></div>
+                    </div>
+                    <volist name="list" id="vo">
+                        <div class="list-data">
+                            <div class="data-list-2 float-left">{$vo.surplus_money}</div>
+                            <div class="data-list-2 float-left">{$vo.deadline|date="Y-m-d",###}</div>
+                            <div class="data-list-2 float-left">{$vo.row_number}</div>
+                            <div class="data-list-2 float-left"><a href="javascript:;" class="cancel-bth clear" onclick="cancle({$vo.id})">取消</a></div>
+                            <div class="clear"></div>
+                        </div>
+                    </volist>
+                    <div class="page-box">{$page}</div>
+                </div>
+            </div>
+            <!-- 预约中记录 end-->
+        </div>    
+            
+        <!-- 预约设置 end-->
+
+        <!-- 新增预约 start-->
+        <div id="swich-box-2" class="none">
+            
+            <!-- 预约说明 start-->
+            <div class="wrapper-content2">
+                <div class="reservation-detail agreement-up" onclick="up_down()" id="yy1">
+                    <div class="reservation-detail-title">预约说明</div>
+                    <div class="reservation-detail-title">《{$glo['web_name']}众筹项目预约投资协议》</div>
+                    <div>1． 预约工具目前仅适用于百胜众筹众筹项目</div>
+                    <div>2． 预约金额需要满足以下条件：</div>
+                    <div class="indent">a) 1000元的整数倍</div>
+                    <div class="indent">b) 不超过账户可用余额</div>
+                    <div class="indent">c) 预约总额不超过{$reservation_all_money}元</div>
+                    <div>3． 新增一笔预约后，预约资金将由网站冻结，不能用于其他投资或提现；</div>
+                    <div>4． 当您的预约状态为“排队等待中”时，您的资金正在等待百胜众筹众筹项目发布，您可以随时取消预约；</div>
+                    <div>5． 当您的预约状态为“众筹投资中”时，您的资金正在等待投资，您可以随时查看项目筹资状态，此时不可取消；</div>
+                    <div>6． 当您的预约状态为“众筹已满标”时，预约中转账户中的当笔资金将被投资到百胜众筹众筹项目中，等待众筹分红；</div>
+                    <div>7． 取消预约后，预约中转账户中的当笔资金将返还可用余额，预约额度也将加入本次预约的金额；</div>
+                    <div>8． 预约设置在众筹项目发布预告之前生效，众筹项目发布预告之后设置的预约将排队到以后的众筹项目中；</div>
+                    <div>9．若您的预约金额超过可投金额，将未投金额将自动生成一条新的预约记录。</div>
+                </div>
+                <div class="wrapper-content2 up-down-box"><a href="javascript:;" class="color-red up-down-button" onclick="up_down()"><span class="down-button"></span>展开</a></div>
+            </div>
+            <!-- 预约说明 end-->
+            
+            <div class="list-top bg-grey"></div>
+            
+            <!-- 预约 start-->
+            <div class="wrapper-content2 do-box">
+                <div class="do-reservation-list">您的可用余额：<span class="color-red">{$investInfo['account_money']+$investInfo['back_money']}</span>元</div>
+                <div class="do-reservation-list">截止时间：<input type="text" id="deadline" name="deadline" readonly="readonly" class="Wdate timeInput_Day input-time" onfocus="WdatePicker({minDate: '%y-%M-#{%d+1}' })" value="{$deadline|date='Y-m-d',###}"></div>
+                <div class="do-reservation-list">预约金额：<input type="text" name="money" id="money" class="input-money">元</div>
+                <div class="do-reservation-list">支付密码：<input type="password" name="pin_pass" id="pin_pass" class="input-money"></div>
+                <div class="reservation-agreement"><input type="checkbox" checked="checked" id="agreement" name="agreement"><label for="agreement"><a href="#yy1" class="color-red">同意《众筹预约协议》</a></label></div>
+            </div>
+            <a href="javascript:;" class="invest-button">我要预约</a>
+            <!-- 预约 end-->
+            
+        </div>
+        <!-- 新增预约 end-->
+        
+    </div>
+    
+</div>
+<!-- 众筹预约 end-->
+
+<script type="text/javascript">
+    
+    // 切换标签
+    $(".swich-link").click(function(){
+        
+       $(".swich-active").removeClass("swich-active");
+       $(this).addClass("swich-active");
+       
+       var tag = $(this).attr("data");
+       $("#"+tag).siblings().addClass("none");
+       $("#"+tag).siblings().removeClass("block");
+       $("#"+tag).removeClass("none");
+       $("#"+tag).addClass("block");
+       
+    });
+    
+    // 展开/收缩预约说明
+    function up_down(){
+        if($(".reservation-detail").hasClass("agreement-up")){
+            $(".reservation-detail").removeClass("agreement-up");
+            $(".up-down-button").html('<span class="up-button"></span>收缩');
+        }else{
+            $(".reservation-detail").addClass("agreement-up");
+            $(".up-down-button").html('<span class="down-button"></span>展开');
+        }
+    }
+    
+    // 分页显示
+    function ajax_show(p){
+        if(p == ''){
+            alert("数据有误！");
+            return;
+        }else{
+            $.get("?p="+p, function(d){
+                $(".list-box").html(d);
+                $(".page-box a").removeClass('current');
+                $(".page-box a").eq(parseInt(p)-parseInt(1)).addClass("current");
+            });
+        }
+    }
+    
+    // 取消预约
+    function cancle(id){
+        if(id == ''){
+            alert("数据有误！");
+            return;
+        }else{
+            $.post("__URL__/cancle",{id:id},function(d){
+                if(d.status == 1){
+                    alert(d.message);
+                    location.reload();
+                }else{
+                    alert(d.message);
+                }
+            },'json');
+        }
+    }
+    
+    // 添加预约
+    $(".invest-button").click(function(){
+        var remain_money = {$remain_money};
+        var member_money = {$investInfo['account_money']+$investInfo['back_money']};
+        var deadline = $("#deadline").val();
+        var money = $("#money").val();
+        var pin_pass = $("#pin_pass").val();
+
+        if ($("input[name='agreement']").attr("checked") !="checked") {
+            alert("阅读并同意《众筹预约协议》后才能添加预约！");
+            return false;
+        }
+        if(deadline == '' || money == '' || pin_pass == ''){
+            alert("数据有误！");
+            return;
+        }
+        if(deadline){
+
+        }
+        if(money % 1000 != 0){
+            alert("预约金额必须为1000的整倍数！");
+            return;
+        }
+        if(money > member_money){
+            alert("账户余额不足！");
+            return;
+        }
+        if(money > remain_money){
+            alert("预约额度不足！");
+            return;
+        }
+
+        $.post("__URL__/add",{pin_pass:pin_pass,money:money,deadline:deadline},function(d){
+            if(d.status == 1){
+                alert(d.message);
+                location.reload();
+            }else{
+                alert(d.message);
+            }
+        },'json');
+
+
+
+    });
+   
+</script>
+﻿<include file="Pub:footer_inner" />

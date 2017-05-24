@@ -1,0 +1,115 @@
+<style>
+    body{font-size: 12px !important;}
+</style>
+<div class="width-100" style="_height:300px;height: auto;float: left;min-height: 300px;">
+    <div class="width-100" style="height: 190px;">
+        <div class="float_left martop_50 " style="padding-left: 40px;width: 160px;border-right: 1px solid #d7d7d7;height: 140px;">
+            <img src="__ROOT__/Style/H/images/crowdinvest/auto1.png" alt=""/>
+            <div class="font14 martop_10" style="color: #333">平台总预约：<span style="color: #fc8936;font-size: 20px;">{$all_count|default=0}</span>笔</div>
+            <div class="font14" style="color: #333">当前预约中：<span style="color: #fc8936;font-size: 20px;">{$now_count|default=0}</span>笔</div>
+        </div>
+        <div class="float_left martop_50" style="width: 145px;border-right: 1px solid #d7d7d7;height: 140px;padding-left: 45px;">
+            <img src="__ROOT__/Style/H/images/crowdinvest/auto2.png" alt=""/>
+            <div class="font14 martop_10" style="color: #333">平台目前预约人数</div>
+            <div class="font14 martop_10" style="color: #333"><span style="color: #fc8936;font-size: 20px;">{$now_people|default=0}</span>人</div>
+        </div>
+        <div class="float_left martop_50" style="width: 160px;border-right: 1px solid #d7d7d7;height: 140px;padding-left: 45px;">
+            <img src="__ROOT__/Style/H/images/crowdinvest/auto3.png" alt=""/>
+            <div class="font14 martop_10" style="color: #333">平台预约总金额</div>
+            <div class="font14 martop_10" style="color: #333"><span style="color: #fc8936;font-size: 20px;">{$all_money|default=0}</span>元</div>
+        </div>
+        <div class="float_left martop_50" style="width: 145px;border-right: 1px solid #d7d7d7;height: 140px;padding-left: 45px;">
+            <img src="__ROOT__/Style/H/images/crowdinvest/auto4.png" alt=""/>
+            <div class="font14 martop_10" style="color: #333">预计排名</div>
+            <div class="font14 martop_10" style="color: #333"><span style="color: #fc8936;font-size: 20px;">{$now_count+1}</span>名</div>
+        </div>
+        <div class="float_left martop_50" style="width: 126px;height: 140px;padding-left: 45px;">
+            <img src="__ROOT__/Style/H/images/crowdinvest/auto5.png" alt=""/>
+            <div class="font14 martop_10" style="color: #333">前面排队资金</div>
+            <div class="font14 martop_10" style="color: #333"><span style="color: #fc8936;font-size: 20px;">{$now_money|default=0}</span>元</div>
+        </div>
+    </div>
+    <div class="width-90" style="margin:0 auto;height: 70px;padding-top: 40px;border-bottom: 1px dotted #D1D1D1">
+        <a href="javascript:void(0)" id="add_auto"  class="a-small-button main-bg-color color-white text-center font16 invest-a height45  font16" style="width: 146px;height: 40px !important;margin: 0 auto;line-height: 39px;border-radius: 10px;">新增预约</a>
+    </div>
+    <div class="width-90" style="_height:100px;height: auto;border: 1px solid #e5e5e5;min-height: 100px;margin: 30px auto 10px;">
+            <div class="width-100" style="height: 50px;background: #f5f5f5;border-bottom: 1px solid #e5e5e5"><span style="display: block;height: 50px;margin-left: 25px;line-height: 50px;font-size: 17px;">预约中记录</span></div>
+        <table class="table invest_detail_color lineheight30 text-center invest_table" width="95%"  cellspacing="1" cellpadding="1" style="margin: 10px auto;">
+            <tr class="">
+                <td>序号</td>
+                <td>预约金额</td>
+                <td>已使用额度</td>
+                <td>剩余额度</td>
+                <td>预约截至时间</td>
+                <td>排名</td>
+                <td>操作</td>
+            </tr>
+            <tbody id="investrecord" class="tender-list">
+            <volist name="auto_list" id="al">
+                <tr>
+                    <td class="tdContent1">{$al.id}</td>
+                    <td class="tdContent1">{$al.auto_money}</td>
+                    <td class="tdContent1">{$al.employ_money}</td>
+                    <td class="tdContent1"><span style="color: #fc8936;font-size: 14px;">{$al.surplus_money}</span></td>
+                    <td class="tdContent1">{$al.deadline|date="Y-m-d H:i:s",###}</td>
+                    <td class="tdContent1">第<span style="color: #fc8936;font-size: 14px;">{$al.row_number}</span>名</td>
+                    <td class="tdContent1"><span style="display: block;height: 26px;width: 60px;cursor: pointer;border-radius: 5px;background: #1BB8E2;margin: 0 auto;color: #fff" onclick="crowd_cancel({$al.id})">取消预约</span></td>
+                </tr>
+            </volist>
+            </tbody>
+            <tr>
+                <td colspan="6">
+                    <div data="fragment-1" id="pager" style="float: right; text-align: right; width: 500px; padding-right: 0px;" class="yahoo2 ajaxpagebar">{$pagebar}</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.ajaxpagebar a').click(function(){
+        try{
+            var geturl = $(this).attr('href');
+            var id = $(this).parent().attr('data');
+            var x={};
+            $.ajax({
+                url: geturl,
+                data: x,
+                timeout: 5000,
+                cache: false,
+                type: "get",
+                dataType: "json",
+                success: function (d, s, r) {
+                    if(d) $("#"+id).html(d.html);//更新客户端竞拍信息 作个判断，避免报错
+                }
+            });
+        }catch(e){};
+        return false;
+    })
+    function crowd_cancel(autoid){
+        var submit  = function(v,h,f){
+            if(v == 'ok'){
+                $.ajax({
+                    url: "__URL__/crowd_cancel",
+                    data: {"id":autoid},
+                    timeout: 5000,
+                    cache: false,
+                    type: "post",
+                    dataType: "json",
+                    success: function (d, s, r) {
+                        if(d.status == 1){
+                            $.jBox.tip("预约取消成功！",'success');
+                            setTimeout("location.reload()",2000);
+                        }else{
+                            $.jBox.tip("预约取消失败！",'error');
+                        }
+                    }
+                });
+            }
+        }
+        $.jBox.confirm("确定要取消该笔预约吗？",'提示',submit);
+    }
+    $("#add_auto").click(function(){
+        $('a[href=\'#fragment-2\']').click();
+    })
+</script>

@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'link_txt', 2 => 'link_href', 3 => 'link_img', 4 => 'link_order', 5 => 'link_type', 6 => 'is_show', 7 => 'game_id', 8 => 'game_name', 9 => 'type', '_autoinc' => true, '_pk' => 'id', ); ?>

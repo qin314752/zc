@@ -1,0 +1,52 @@
+<include file="Public:_header_common" />
+<title>我的账户-- {$glo.web_name}</title>
+<style type="text/css">
+.m_oauth{ float:left; width:100%; height:auto; overflow:hidden; margin-bottom:10px; padding:10px 20px; border-bottom:1px solid #dedede}
+.oauth_title{ height:30px; line-height:30px; font-size:14px; font-weight:bold;}
+.oauth_title img{ margin-top:-5px;}
+.m_oauth ul{float:left; width:340px; margin:5px 24px; overflow:hidden;}
+.m_oauth ul li{height:25px; line-height:25px; width:320px; float:left; }
+.m_oauth ul li span{float:right; }
+.m_oauth ul li span a{color:#259;}
+</style>
+<include file="default:Public:_header_main" group="Home"/>
+<!--中部开始-->
+<div class="wrap2">
+  <div id="hy_left"> <include file="Public:_left" /> </div>
+  <div id="hy_right">
+    <div class="box">
+      <div class="Menubox1" id="rotate">
+        <ul class="menu ajaxdata">
+          <li><a href="#fragment-1">快捷登录管理</a></li>
+        </ul>
+      </div>
+      <div class="contentright">
+        <div id="fragment-1" style="display:none">
+          <div style=" margin:10px 20px; overflow:hidden">
+            <if condition="$loginconfig['sina']['enable'] eq '1'">
+              <div class="m_oauth">
+                <div class="oauth_title"><img src="/Style/H/images/sina_n.png"> <a href="{:U("add_oauth", array('type'=>'sina'))}" >新浪微博绑定</a></div>
+                <ul>
+                  <volist name="sina_list" id="sina">
+                    <li>{$sina.nickname}<span><a href="{:U("del_oauth", array('id'=>$sina['id']))}">解除绑定</a></span></li>
+                  </volist>
+                </ul>
+              </div>
+            </if>
+            <if condition="$loginconfig['qq']['enable'] eq '1'">
+              <div class="m_oauth">
+                <div class="oauth_title"><img src="/Style/H/images/qq_n.png"> <a href="{:U("add_oauth", array('type'=>'qq'))}">QQ登录绑定</a></div>
+                <ul>
+                  <volist name="qq_list" id="qq">
+                    <li>{$qq.nickname}<span><a href="{:U("del_oauth", array('id'=>$qq['id']))}">解除绑定</a></span></li>
+                  </volist>
+                </ul>
+              </div>
+            </if>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<include file="default:Public:_footer" group="Home" />

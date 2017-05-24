@@ -1,0 +1,187 @@
+/*************header******************/
+.shi_header
+{
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	border: 0px solid #e1e1e1;
+}
+.hidd {
+    display: block;
+    height: 141px!important;
+    width: 100%;
+}
+
+.shi_top
+{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #f4f4f4;
+	border-bottom:0px solid #E1E1E1;
+
+
+}
+.top_left
+{
+	float:left;	
+}
+.top-xszy-a:hover,.top-bzzx-a:hover
+{
+	color:#666!important;
+}
+.top-box
+{
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+}
+ .top-box img
+{
+	vertical-align: middle;
+}
+.top-menu
+{
+	float: right;
+}
+.top-menu a:hover
+{
+	text-decoration:underline;
+}
+.top-box a
+{
+	margin: 0 5px;
+}
+.top-menu
+{
+	color: #d9d9d9;
+}
+.header-nav
+{
+	width: 100%;
+	background-color: #fff;
+	height: 100px;
+}
+.header-nav-check
+{
+	border-bottom: 2px solid #14a9ff;
+    color: #14a9ff!important;
+}
+.header-nav-box
+{
+	width: 1200px;
+	margin: 0 auto;
+	height: 100px;
+
+}
+.header-nav-box img
+{
+	margin-top: 20px;
+}
+.header-nav-box-left
+{
+	float: left;
+}
+.header-nav-box-right
+{
+	float: left;
+}
+.header-nav-ul
+{
+	margin-left: 30px;
+}
+.header-nav-ul li
+{
+	float: left;
+ 	margin: 34px 18px;
+	height: 35px;
+}
+.header-nav-ul li a
+{
+	font-size: 18px;
+}
+.header-nav-active
+{
+	color: #14a9ff;
+	border-bottom: 2px solid #14a9ff;
+}
+.header-nav-active a
+{
+	color: #14a9ff;
+	
+}
+.header-nav-box
+{
+	position: relative;
+	z-index: 100;
+}
+.wb-text
+{
+	position: absolute;
+	background: url(../images/wb-text.png) no-repeat;
+	width: 167px;
+	height: 81px;
+	text-align: center;
+	font-size: 14px;
+	padding-top: 25px;
+	line-height: 25px;
+	display: none;
+	left: -63px;
+	z-index: 9999;
+	color:#666;
+	top:33px;
+}
+.wx-text
+{
+	position: absolute;
+	background: url(../images/wx-text.png) no-repeat;
+	width: 169px;
+	height: 186px;
+	text-align: center;
+	font-size: 14px;
+	padding-top: 25px;
+	line-height: 25px;
+	z-index: 100;
+	display: none;
+	left: -56px;
+	z-index: 9999;
+	cursor: pointer;
+	color:#666;
+	top:33px;
+	
+}
+.weibo
+{
+	position: relative;
+}
+
+.weixin
+{
+	cursor: pointer;
+	position: relative;
+}
+.wx-text img
+{
+	margin-top: 0;
+}
+#Member
+{
+	margin-top:25px;
+	float:left;
+}
+#Member-a
+{
+	line-height:38px;
+	text-align:center;
+	width:104px;
+	height:38px;
+	display:block;
+	background:url(../images/index/member.jpg) no-repeat;
+	font-size:16px;
+	color:#14a9ff;
+	padding-left:20px;
+}

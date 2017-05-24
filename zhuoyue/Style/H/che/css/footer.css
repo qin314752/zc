@@ -1,0 +1,128 @@
+/************footer***************/
+.footer a:hover
+{
+	color:#14a9ff;
+}
+.footer_layout
+{
+	background-color: #fff;
+	width: 100%;
+	height: 272px;
+	border-top: 1px solid #eee;
+
+}
+.footer
+{
+
+	width: 1160px;
+	height: 200px;
+	margin:0 auto;
+	padding:20px;
+
+}
+.friendlink
+{
+	color: #666;
+	font-size: 14px;
+	margin-bottom: 20px;
+	line-height:30px;
+
+}
+.friendlink a
+{
+	color: #666;
+	font-size: 14px;
+	font-weight: 100;
+	margin: 10px 12px 10px 0;
+}
+.footer-menu div
+{
+	float: left;
+}
+.footer-menu li
+{
+	line-height: 25px;
+}
+.footer-menu-1
+{
+	width: 155px;
+	
+}
+.footer-menu-1 ul
+{
+	width: 105px;
+	border-right:1px solid #eee;
+}
+.footer-menu-2
+{
+	width: 178px;
+}
+.footer-menu-2 ul
+{
+	width: 115px;
+	border-right:1px solid #eee;
+}
+.footer-menu-3
+{
+	width: 205px;
+}
+.footer-menu-3 ul
+{
+	width: 140px;
+	border-right:1px solid #eee;
+}
+.footer-menu-4
+{
+	width: 245px;
+	border-right:1px solid #eee;
+	margin-right: 30px;
+	height: 127px;
+}
+
+.footer-menu-4 p
+{
+	color: #919191;
+	font-size: 14px;
+	line-height: 30px;
+}
+.footer-menu ul li a
+{
+	font-size: 14px;
+	color: #919191;
+}
+.footer-menu-5 img
+{
+	width: 98px;
+	height: 98px;
+}
+.footer-menu-5 p
+{
+	font-size: 14px;
+	color: #7b7b7b;
+}
+.footer-menu-5 table
+{
+	float: right;
+}
+.footer_layout .wrap
+{
+	height: 68px;
+	line-height: 68px;
+    text-align: center;
+    color: #979797;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+.footer_layout .wrap img
+{
+	width: 97px;
+	margin-left: 10px;
+	vertical-align: middle;
+
+}
+.footer_layout .partner-box img
+{
+	width: 145px;
+	height: 55px
+}
+

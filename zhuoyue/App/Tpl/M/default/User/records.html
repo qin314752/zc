@@ -1,0 +1,22 @@
+﻿<include file="Pub:header" /> 
+<!-- 标题 start-->
+<div class="header"><a class="back" href="/M/User/index"><返回</a>资金记录</div>
+<!-- 标题 end-->
+<div class="main">
+    <div class="box7"> 
+        <volist name="list" id="vo">
+        <div class="r_list">
+           <span><php>echo date("y年m月d日", $vo['add_time'])</php></span>
+           <ul>
+            <li style="font-size: 20px;">{$vo.type}<if condition="$vo.affect_money lt 0"><font class="r_right" style="color: red"><else/><font class="r_right" style="color: green"></if>{$vo.affect_money|MFormt=###}</font></li>
+
+
+           <li>可用：<font>{:MFormt($vo['account_money']+$vo['back_money'])}</font>，冻结：<font>{$vo.freeze_money|MFormt=###}</font></li>
+           </ul>
+        </div>
+        </volist>
+    </div>
+    <div class="page">{$pagebar}</div>
+</div>
+
+﻿<include file="Pub:footer_inner" /> 

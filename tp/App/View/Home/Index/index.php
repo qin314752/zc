@@ -1,1 +1,0 @@
-<extend name='./App/View/Home/Index/head.php' />

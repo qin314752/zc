@@ -1,0 +1,113 @@
+<script type="text/javascript">
+function videoverify(){
+	$.jBox.confirm("申请视频认证后会直接从帐户扣除认证费用{$glo.fee_video|default=0}元，然后客服会联系您进行认证。<br/><font style='color:red'>确定要申请认证吗?</font>", "视频认证", dovideo, { buttons: { '确认申请': true, '暂不申请': false} });
+}
+function dovideo(v, h, f) {
+	if (v == true){
+        $.ajax({
+            url: "__APP__/common/video",
+            data: {},
+            timeout: 5000,
+            cache: false,
+            type: "get",
+            dataType: "json",
+            success: function (d, s, r) {
+              	if(d){
+					if(d.status==1) $.jBox.tip(d.message, 'success');
+					else $.jBox.tip(d.message, 'fail');
+				}
+            }
+        });
+	}
+	return true;
+};
+// 自定义按钮
+function faceverify(){
+	$.jBox.confirm("<font style='color:red'>确定要申请现场认证吗?</font>", "现场认证", doface, { buttons: { '确认申请': true, '暂不申请': false} });
+}
+function doface(v, h, f) {
+	if (v == true){
+        $.ajax({
+            url: "__APP__/common/face",
+            data: {},
+            timeout: 5000,
+            cache: false,
+            type: "get",
+            dataType: "json",
+            success: function (d, s, r) {
+              	if(d){
+					if(d.status==1) $.jBox.tip(d.message, 'success');
+					else $.jBox.tip(d.message, 'fail');
+				}
+            }
+        });
+	}
+	return true;
+};
+  $(function  () {
+   	 var xiaowei_p= $("#xiaowei li");
+   	 if(true)
+   	 {
+   	   xiaowei_p.parent().parent().css('background','url(__ROOT__/Style/H/images/hover_bg.gif) no-repeat center right');
+
+
+   	 }
+   })
+
+  
+</script>
+<script type=text/javascript><!--//--><![CDATA[//><!--
+function menuFix() {
+var ele_ = document.getElementById("nav");
+	if(!ele_) return;
+var sfEls = ele_.getElementsByTagName("li");
+for (var i=0; i<sfEls.length; i++) {
+sfEls[i].onmouseover=function() {
+this.className+=(this.className.length>0? " ": "") + "sfhover";
+}
+sfEls[i].onMouseDown=function() {
+this.className+=(this.className.length>0? " ": "") + "sfhover";
+}
+sfEls[i].onMouseUp=function() {
+this.className+=(this.className.length>0? " ": "") + "sfhover";
+}
+sfEls[i].onmouseout=function() {
+this.className=this.className.replace(new RegExp("( ?|^)sfhover\\b"),
+"");
+}
+}
+}
+window.onload=menuFix;
+//--><!]]></script>
+<script type="text/javascript">
+        function  erji(a, b, c, d) {
+            $(a).children(b).each(function() {
+                var a1 = $(this).children(c),
+                        b2 = $(this).children(d),
+                        index=$(this).index();
+                if (a1.html()) $(this).hover(function() {
+                    a1.show();
+
+                    index==0 && $(this).css({'background-position':'0px -62px'});
+                    index==1 && $(this).css({'background-position':'0px -124px'});
+                    b2.css({
+
+                        'color':'#cfcfcf'
+                    });
+                }, function() {
+                    a1.hide();
+                    index==0 && $(this).css({'background-position':'0px -31px'});
+                    index==1 && $(this).css({'background-position':'0px -93px'});
+                    b2.css({
+
+                        'color':'#b1b1b1'
+                    });
+                });
+            });
+        }
+        erji('#erji','li','div','h1');
+    </script>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/css/home.css" />
+</head><body style="font-size:12px;">
+
+<include file="default:Public:menu" group="Home"/>

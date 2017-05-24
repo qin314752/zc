@@ -11,7 +11,15 @@ class IndexController extends CommonController {
 	$aa = new Mail();
 	$aa->sendMail();
 }
+	
+	public function del(){
+		$a = Rmall(C('Runtime'));
+		if($a)
+		{
+			echo 1;
+		}
 
+	}
 
 
 }

@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'crowd_id', 2 => 'crowd_money', 3 => 'vote_money', 4 => 'ratio', 5 => 'failure', 6 => 'status', 7 => 'add_time', 8 => 'deadline', 9 => 'has_vote_people', 10 => 'not_agree_people', '_autoinc' => true, '_pk' => 'id', ); ?>

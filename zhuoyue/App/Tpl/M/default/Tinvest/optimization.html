@@ -1,0 +1,98 @@
+<include file="Pub:header" />
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/fancybox/jquery.fancybox-1.3.2.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/css/detail.css" />
+<link href="__ROOT__/Style/H/css/tdetail.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__ROOT__/Style/fancybox/jquery.fancybox-1.3.2.js"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/js/common.js" language="javascript"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/js/lrtk.js"></script>
+<script type="text/javascript">
+    var Transfer_invest_url = "__ROOT__/cfxf";
+</script>
+<style type="text/css">
+    a.current_1{background:#dd4457;   padding-left:20px; padding-right:20px; margin-right:5px; color:#222; float:left; height:32px; line-height:34px; cursor: pointer;width: 35%;color:#fff;}
+    a.current_2:hover
+    {
+        background-color:yellow;
+    }
+</style>
+<div class="login_top_lex" style="background: #fff;color: black;border-top:1px solid #dcdcdc;">
+    <link type="text/css" href="__ROOT__/Style/H/css/lrtk2.css" rel="stylesheet" />
+    <link type="text/css" href="__ROOT__/Style/H/css/prettyPhoto.css" rel="stylesheet" />
+    <div class="login_left_lex" style="color: #dd4457;"><<a href="/M/index/index4.html" style="font-size: 16px;color: #dd4457;line-height: 57px;">返回</a></div>
+    <div class="login_right_lex" style="color: #000;line-height: 57px;">创富消费</div>
+</div>
+<div style="width: 100%;height: 16px;background: #f0f0f0;"></div>
+        <div style=" width:99%;height:220px; border-bottom: 1px solid #bfbfbf;">
+            <div style="height: 60px; background: #ffffff ;">
+                <div style="float: left">
+                    <span><img src="/Style/H/images/cfxf/pic_l_03.png" class="ll_ar05" /></span>
+                </div>
+                <div style="height: 49px;line-height: 48px;font-size: 20px;margin-left: 60px;">
+                   {$list[0]['borrow_name']}
+                </div>
+                <div>
+                    <div style="float: left;">
+                    <span style="float: left">
+                        <img src="/{$list[0]['borrow_img'][0]['img']}" style="border:1px solid #e0e0e0; margin-top:10px; margin-left:15px;width:150px;height:110px;">
+                    </span>
+                        </div>
+                    <div style="float: right; width:40%; margin-top: 20px;">
+                        <div>
+                        <input id="tnum_{$list[0]['id']}" type="text" value="1" style="width:90px; height: 30px; border: 1px solid #dd4457; " />
+                        <span style="color:#dd4457;font-size: 10px; ">
+                            (元)
+                        </span>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <input  type="radio" value="5" name="radios" id="lift" checked="checked" style="display:none;"/>
+                        <span ><img src="/Style/H/images/cfxf/pic_ll_03.png" width="100px;" height="30px;" style="cursor: pointer" onclick="invest_opt()"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="width96 margin-auto top15">
+    <div class="invest-info-box">
+        <div class="invest-info-select2" id="2td0" onclick="javascript:secBoard_more('2td','2tr',2,0,'invest-info-select2','invest-info-title2','','')"><a href="javascript:;">项目详情</a></div>
+        <div class="invest-info-title2" id="2td1" onclick="javascript:secBoard_more('2td','2tr',2,1,'invest-info-select2','invest-info-title2','','')"><a href="javascript:;">投资记录</a></div>
+        <div class="clear-both"></div>
+    </div>
+    <!--基本资料-->
+    <div class="top15 table-plan" id="2tr0">
+            <div class="detail_lex" style="width: 100%;margin: 0 auto;">
+                {$list[0]['borrow_breif']}
+            </div>
+    </div>
+    <!--投资计划-->
+    <div class="top15" id="2tr1" style="display:none;">
+        <div class="tab">
+            <div class="float-left tab1">认购人</div>
+            <div class="float-left tab2">认购份数</div>
+            <div class="float-left tab3">认购金额</div>
+            <div class="clear-both"></div>
+        </div>
+        <volist name="list_invest" id="v">
+            <div class="tab">
+                <div class="float-left tab1">{$v.user_name|hidecard=###,4}</div>
+                <div class="float-left tab2">{$v.transfer_num}份</div>
+                <div class="float-left tab3">{$v.investor_capital}元</div>
+                <div class="clear-both"></div>
+            </div>
+        </volist>
+    </div>
+</div>
+<script>
+    function invest_opt(){
+        var id="<php>echo $list[0]['id']</php>";
+        if(!confirm('此产品为线下消费返利产品，需在项目合作方“情缘盛宴”婚礼宫进行消费后才可加入。详询：4007918881。\n\n继续要加入么？')){
+            return;
+        }
+        FTransfer(id);
+
+//        if(ck.checked){
+//            FTransfer(id);
+//        }else{
+//            alert("预约需同意科银信贷服务协议！");
+//        }
+    }
+</script>

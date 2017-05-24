@@ -1,0 +1,55 @@
+﻿<include file="Pub:header" />
+<!-- 标题 start-->
+<div class="header"><a class="back" href="/M/User/index"><返回</a>我要提现</div>
+<!-- 标题 end-->
+<div class="main">
+ <div class="box7">
+   <form action="" method="post" name="cashForm" id="cashForm">
+   <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px;">
+    <tr align="left" height="28" width=200><td>银行账号：</td><td>{$vo.bank_num|hidecard=###,3,'还没有登记您的银行账号'} {$vo.bank_name} </td></tr>
+    <tr align="left" height="28"><td>真实姓名：</td><td>{$vo.real_name|hidecard=###,5}</td></tr>
+    <tr align="left" height="28"><td>联络手机：</td><td>{$vo.user_phone|default="还未验证"}</td></tr>
+    <tr align="left" height="28"><td>提现期限：</td><td>72小时/24小时</td></tr>
+    <tr align="left" height="28"><td>可提现金额：</td><td>￥{$vo.all_money}</td></tr>
+    <tr align="left" height="28"><td>提现金额：</td><td><input type="text" name='money' id="money" class="box7_wbk" /></td></tr>
+    <tr align="left" height="28"><td>支付密码：</td><td><input type="password" name="paypass" id="paypass" class="box7_wbk" /></td></tr>
+    <tr align="center" height="54"><td colspan="2" style="text-align: left;"><input type="button" id="dobutton" style="width:100px;height:30px;color:#fff;-webkit-appearance:none;background-color:#ef5c52;border:0px;" value="确认提现"/></td></tr>
+   </table>
+   </form>
+ </div>
+ 
+</div>
+<script language="javascript">
+$(function() {
+    $("#dobutton").click(function() {
+        var e = $("#money").val(),
+            t = $("#paypass").val(),
+            r = "money=" + e + "&paypass=" + t;
+        if (!(/^\d+(.)?\d{1,2}$/.test(e))) {
+            return Apprise("<font color=red>请输入正确的提现金额，如100。</font>");
+        }
+        if (parseFloat(e) < 100) {
+            return Apprise("<font color=red>提现金额不能小于100。</font>");
+        }
+        if (parseFloat(e) % 100 != 0) {
+            return Apprise("<font color=red>提现金额必须为100的倍数。</font>");
+        }
+        if ($.trim(e) == "") return Apprise("<font color=red>请输入要提取的金额!</font>"), !1;
+        if ($.trim(t) == "") return Apprise("<font color=red>请输入支付密码！</font>"), !1;
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: r,
+            success: function(e) {
+                e == "TRUE" ? (Apprise("恭喜您申请成功，等待网站处理！"), $("#apprise-btn-confirm").click(function() {
+                    window.location.href = "{:U('M/user/index')}"
+                })) : Apprise("<font color=red>" + e + "</font>")
+            },
+            error: function(e) {
+                Apprise("<font color=red>提交发生错误！请重试</font>"),!1;
+            }
+        })
+    })
+})
+</script>
+﻿<include file="Pub:footer_inner" /> 

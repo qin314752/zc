@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'repayment_time', 2 => 'borrow_id', 3 => 'invest_id', 4 => 'investor_uid', 5 => 'borrow_uid', 6 => 'capital', 7 => 'interest', 8 => 'interest_fee', 9 => 'interestratecoupon_money', 10 => 'status', 11 => 'receive_interest', 12 => 'receive_capital', 13 => 'receive_interestratecoupon_money', 14 => 'sort_order', 15 => 'total', 16 => 'deadline', 17 => 'expired_money', 18 => 'expired_days', 19 => 'call_fee', 20 => 'substitute_money', 21 => 'substitute_time', '_autoinc' => true, '_pk' => 'id', ); ?>

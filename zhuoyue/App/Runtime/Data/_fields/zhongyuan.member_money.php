@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'uid', 1 => 'money_freeze', 2 => 'money_collect', 3 => 'account_money', 4 => 'back_money', 5 => 'credit_limit', 6 => 'credit_cuse', 7 => 'borrow_vouch_limit', 8 => 'borrow_vouch_cuse', 9 => 'invest_vouch_limit', 10 => 'invest_vouch_cuse', '_autoinc' => false, '_pk' => 'uid', ); ?>

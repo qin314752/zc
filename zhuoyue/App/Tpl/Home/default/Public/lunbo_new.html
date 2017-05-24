@@ -1,0 +1,24 @@
+<link href="__ROOT__/style/H/lanren/css/lanrenzhijia.css" type="text/css" rel="stylesheet" />
+	
+	<div class="flexslider">
+	<ul class="slides">
+	
+		<volist name=":get_ad(4)" id="va" key="k">
+		    <li ><a href="{$va.url}"><img src="{$va.img}"/></a></li>
+		</volist>
+	</ul>
+   </div>
+
+	
+<!-- js调用部分begin -->
+<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+<script src="__ROOT__/style/H/lanren/js/jquery.flexslider-min.js"></script>
+<script>
+$(function(){
+	$('.flexslider').flexslider({
+		directionNav: true,
+		pauseOnAction: false
+	});
+});
+</script>
+<!-- js调用部分end -->

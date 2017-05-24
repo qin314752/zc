@@ -1,0 +1,225 @@
+<include file="Public:_header" />
+<script type="text/javascript" src="__ROOT__/Style/My97DatePicker/WdatePicker.js" language="javascript"></script>
+<tagLib name="htmlA" />
+<script type="text/javascript">
+    function changestr(para){
+
+        para = para.replace(/^[^1-9]/g,'');
+
+        para = para.replace(/[^0-9]/g,'');
+
+        return para;
+    }
+    function subcheck(){
+//        var begin = document.getElementById("begin").value;
+//        var over = document.getElementById("over").value;
+//        var money = document.getElementById("money").value;
+//        var apr = document.getElementById("apr").value;
+//        var duration = document.getElementById("duration").value;
+
+        var title=$('#title').val();
+        var money=$('#money').val();
+        var rate=$('#rate').val();
+        var begin=$('#begin').val();
+        var over=$('#over').val();
+        var ad_type=$("input[name='ad_type']:checked").val();
+        var principal=$('#principal').val();
+        var number=$('#number').val();
+        var isopen=$("input[name='isopen']:checked").val();
+
+
+        if(title.length==0 || title.length>20){
+            alert("标题不能为空或者字数超过20字！");
+            return false;
+        }
+
+        //去除变量前面的0
+        money=money.replace(/\b(0+)/gi,"");
+        if(money.length==0){
+            alert("金额不能为空");
+            return false;
+        }
+        if(isNaN(money)){
+            alert("输入的金额有误！");
+            return false;
+        }
+
+        rate=rate.replace(/\b(0+)/gi,"");
+        if(rate>24||rate==0){
+            alert("年利率不能大于24或小于1");
+            return false;
+        }
+        if(isNaN(rate)){
+            alert("输入的利率有误！");
+            return false;
+        }
+
+//        var matchArray = begin.match(/^[0-9]+-[0-1][0-9]-[0-3][0-9]$/);
+        if (begin.length == 0 || over.length == 0) {
+            alert("开始或结束时间不能为空");
+            return false;
+        }
+//        var matchArray = over.match(/^[0-9]+-[0-1][0-9]-[0-3][0-9]$/);
+//        if (matchArray == null) {
+//            alert("结束时间格式不正确");
+//            return false;
+//        }
+
+        var sdate1 = new Date(begin);
+        var time1 = sdate1.getTime();
+        var sdate2 = new Date(over);
+        var time2 = sdate2.getTime();
+        //起始时间必须小于或等于结束时间
+        //  alert("起始时间-"+begin+"-"+time1+"结束时间-"+over+"-"+time2);
+        if(time1>time2){
+            alert("起始时间必须小于或等于结束时间");
+            return false;
+        }
+
+//        principal=principal.replace(/\b(0+)/gi,"");
+//        if(ad_type!=3){
+//            if(principal.length>0){
+//                alert("只有领取条件为待收本金时才可以输入对应的金额！");
+//                return false;
+//            }
+//        }
+
+        var ad_type=[];
+        $("input[name='ad_type[]']:checked").each(function(){
+            ad_type.push($(this).val());
+        });
+
+        if(ad_type.length==0){
+            alert("请选择领取条件");
+            return false;
+        }
+
+        Array.prototype.in_array = function(e){
+            for(var i=0;i<this.length;i++){
+                if(this[i]==e) return false;
+            }
+            return true;
+        }
+
+        if(ad_type.in_array(3)){
+            if(principal.length>0){
+                alert("只有领取条件为待收本金时才可以输入对应的金额！");
+                return false;
+            }
+        }else{
+            if(principal.length==0){
+                alert("请输入待收本金对应的金额！");
+                return false;
+            }
+        }
+
+
+        if(isNaN(principal)){
+            alert("输入的待收本金有误！");
+            return false;
+        }
+
+        number=number.replace(/\b(0+)/gi,"");
+        if(number.length==0){
+            alert("天数不能为空"+number);
+            return false;
+        }
+        if(isNaN(number)){
+            alert("输入的领取次数有误！");
+            return false;
+        }
+
+    }
+</script>
+<tagLib name="htmlA" />
+    <div class="so_main">
+
+        <div class="page_tit">修改红包</div>
+        <div class="page_tab"></div>
+        <div class="form2">
+            <form method="post" action="__URL__/doadd" onsubmit="return subcheck();" enctype="multipart/form-data">
+                <input type="hidden" id="test" name="test" value="{$data.id}" />
+                <table style=" width: 100%">
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">活动标题:</td>
+                        <td><input style="width: 300px;height: 20px;" type="text"  id="title" name="title" value="{$data.name}" /></td><td>最大字数为20字</td>
+                    </tr>
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">红包金额:</td>
+                        <td><input style="width: 300px;height: 20px;" type="text"  id="money" name="money" onkeyup="value=changestr(value)" value="{$data.money}" /></td><td>*</td>
+                    </tr>
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">年 利 率: </td>
+                        <td>
+                            <input style="width: 300px;height: 20px;" type="text"  id="rate" name="rate"  onkeyup="value=changestr(value)" value="{$data.rate}"/></td><td>%(1~24)</td>
+                    </tr>
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">开始时间:</td>
+                        <td><htmlA:timer id="begin" name="begin" tip='*' arg="{dateFmt:'yyyy-MM-dd ',alwaysUseStartDate:true}"  class="Wdate" value="{$data.begin_time}"/>
+                            </td><td>格式:2015-02-03</td>
+                    </tr>
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">结束时间:</td>
+                        <td><htmlA:timer id="over" name="over" tip='*' arg="{dateFmt:'yyyy-MM-dd ',alwaysUseStartDate:true}"  class="Wdate" value="{$data.over_time}"/>
+                            </td><td>格式:2015-02-03</td>
+                    </tr>
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">领取条件:</td>
+                        <td>
+                            <if condition="$data.shouji eq 1">
+                            <input type="checkbox" id="ad_type" name="ad_type[]" value="0" checked="checked" />手机认证
+                            <else />
+                                <input type="checkbox" id="ad_type" name="ad_type[]" value="0"/>手机认证
+                            </if>
+
+
+                            <if condition="$data.shiming eq 1">
+                            <input type="checkbox" id="ad_type" name="ad_type[]" value="1" checked="checked"/>实名认证
+                                <else />
+                                <input type="checkbox" id="ad_type" name="ad_type[]" value="1"/>实名认证
+                            </if>
+
+
+                            <if condition="$data.youxiang eq 1">
+                            <input type="checkbox" id="ad_type" name="ad_type[]" value="2" checked="checked"/>邮箱认证
+                                <else />
+                                <input type="checkbox" id="ad_type" name="ad_type[]" value="2"/>邮箱认证
+                            </if>
+
+
+                            <if condition="$data.daishou eq 1">
+                            <input type="checkbox" id="ad_type" name="ad_type[]" value="3" checked="checked"/>在投金额<td><input style="width: 100px;height: 20px;" type="text"  id="principal" name="principal" onkeyup="value=changestr(value)" value="{$data.status_due_money}" />  只有在选择在投金额时才可以在该输入框输入对应的金额！
+                            <else />
+                                <input type="checkbox" id="ad_type" name="ad_type[]" value="3" />在投金额<td><input style="width: 100px;height: 20px;" type="text"  id="principal" name="principal" onkeyup="value=changestr(value)"  />  只有在选择在投金额时才可以在该输入框输入对应的金额！
+                            </if>
+                        </td>
+
+                    </tr>
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">收益有效天数:</td>
+                        <td><input style="width: 300px;height: 20px;" type="text"  id="number" name="number" onkeyup="value=changestr(value)" value="{$data.biggest}" /></td><td>一天收益生效一次</td>
+                    </tr>
+                    <tr style="display:block; padding: 6px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td style="">是否开启:</td>
+                        <if condition="$data.isopen eq 0">
+                            <td>
+                                <input type="radio" id="isopen" name="isopen" value="0" checked="checked" />开启
+                                <input type="radio" id="isopen" name="isopen" value="1" />关闭 </td>
+                            <else/>
+                            <td>
+                                <input type="radio" id="isopen" name="isopen" value="0" />开启
+                                <input type="radio" id="isopen" name="isopen" value="1" checked="checked" />关闭 </td>
+                        </if>
+
+                    </tr>
+
+                    <tr style="display:block; padding: 5px;border-bottom: 1px dashed #e2e2e2;margin-left: 20px;">
+                        <td><input type="submit" class="btn_b" id="sub" value="确定"/></td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+    </div>
+
+<include file="Public:_footer" />

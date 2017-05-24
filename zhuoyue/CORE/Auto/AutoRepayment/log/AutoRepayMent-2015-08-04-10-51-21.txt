@@ -1,0 +1,217 @@
+
+list=
+array (
+  0 => 
+  array (
+    'id' => '3',
+    'invest_id' => '1',
+    'interest' => '4250.00',
+    'investor_uid' => '4',
+    'borrow_uid' => '8',
+    'borrow_id' => '1',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '3',
+    'total' => '9',
+  ),
+  1 => 
+  array (
+    'id' => '12',
+    'invest_id' => '2',
+    'interest' => '2833.33',
+    'investor_uid' => '4',
+    'borrow_uid' => '8',
+    'borrow_id' => '1',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '3',
+    'total' => '9',
+  ),
+)
+borrow_id=1
+detail_id=3
+borrow_uid=8
+investor_uid=4
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -4250,
+  'account_money' => 550725.18,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对1号企业直投进行还款',
+  'add_time' => 1438656681,
+  'add_ip' => '220.175.54.236',
+  'target_uid' => '4',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 550725.18,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '1',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+4250.00-0.00',
+  ),
+  'back_time' => 1438656681,
+)
+update_borrow=
+NULL
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+4250.00-0.00',
+  ),
+  'repayment_time' => 1438656681,
+)
+update_borrow=
+NULL
+datamoney=
+array (
+  'uid' => '4',
+  'type' => '44',
+  'affect_money' => 4250,
+  'account_money' => '601665.34',
+  'back_money' => 18416.66,
+  'collect_money' => 545435.81,
+  'freeze_money' => '260.00',
+  'info' => '收到借款人对1号企业直投的还款',
+  'add_time' => 1438656681,
+  'add_ip' => '220.175.54.236',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '260.00',
+  'money_collect' => 545435.81,
+  'account_money' => '601665.34',
+  'back_money' => 18416.66,
+)
+moneynewid_x=2431
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2432
+xid=1
+
+
+borrow_id=1
+detail_id=12
+borrow_uid=8
+investor_uid=4
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -2833.33,
+  'account_money' => 547891.85,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对1号企业直投进行还款',
+  'add_time' => 1438656681,
+  'add_ip' => '220.175.54.236',
+  'target_uid' => '4',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 547891.85,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '2',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+2833.33-0.00',
+  ),
+  'back_time' => 1438656681,
+)
+update_borrow=
+NULL
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+2833.33-0.00',
+  ),
+  'repayment_time' => 1438656681,
+)
+update_borrow=
+NULL
+datamoney=
+array (
+  'uid' => '4',
+  'type' => '44',
+  'affect_money' => 2833.33,
+  'account_money' => '601665.34',
+  'back_money' => 21249.99,
+  'collect_money' => 542602.48,
+  'freeze_money' => '260.00',
+  'info' => '收到借款人对1号企业直投的还款',
+  'add_time' => 1438656681,
+  'add_ip' => '220.175.54.236',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '260.00',
+  'money_collect' => 542602.48,
+  'account_money' => '601665.34',
+  'back_money' => 21249.99,
+)
+moneynewid_x=2433
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2434
+xid=1
+
+
+moneynewid_x_temp=1
+bxid_temp=1
+investor_temp=1
+summary_temp=1
+detail_temp=1
+moneynewid_temp=1
+xid_temp=1

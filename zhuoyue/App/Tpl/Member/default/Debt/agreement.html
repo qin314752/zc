@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>借款协议-{$glo.web_name}</title>
+<style>
+  .Lending_Agreement {
+      width:100%;
+      height:auto;
+      margin:0px;
+      padding:0px;
+  }
+  .Lending_Agreement_center {
+      width:1024px;
+      height:auto;
+      margin:0 auto;
+      border:1px solid #EEEEEE;
+  }
+  .lending_ageeement_tit {
+      width:960px;
+      height:45px;
+      line-height:45px;
+      color:#666666;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:16px;
+      font-weight:bold;
+      text-align:center;
+      margin:0 auto;
+      margin-top:30px;
+      border-bottom:1px solid #EEEEEE;
+  }
+  .ageeement_content {
+      width:1000px;
+      height:auto;
+      margin:0 auto;
+      margin-top:30px;
+      font-size:14px;
+      font-weight:bold;
+      color:#666666;
+      overflow:auto;
+      font-family:Arial, Helvetica, sans-serif;
+  }
+  .ageeement_content h3 {
+      font-size:14px;
+      font-weight:bold;
+      color:#999999;
+      font-family:Arial, Helvetica, sans-serif;
+      padding-left:10px;
+  }
+  .font_lendig {
+      font-size:14px;
+      font-weight:bold;
+      color:#666666;
+      font-family:Arial, Helvetica, sans-serif;
+      padding-left:10px;
+      margin-bottom:10px;
+      display:block;
+      margin-top:20px;
+  }
+  .ageeement_content p {
+      line-height:26px;
+      font-family:Tahoma, Geneva, sans-serif;
+      font-size:14px;
+      color:#999999;
+      margin:0px;
+      font-weight:normal;
+      padding-left:10px;
+      margin-top:6px;
+  }
+  .ageement_tab {
+      height:40px;
+      line-height:40px;
+  }
+  .ageement_tab_ite {
+      height:40px;
+      line-height:40px;
+      font-weight:normal;
+  }
+  .lending_top_inf {
+      width:1000px;
+      height:auto;
+      margin-left:10px;
+  }
+  .lending_logo {
+      width:1000px;
+      height:100px;
+
+  }
+  .lenging_left_logo {
+      width:252px;
+      height:100px;
+      float:left;
+      border-bottom:2px solid #00ADEE;
+  }
+  .name_inf {
+      width:400px;
+      height:65px;
+      float:left;
+      margin-left:40px;
+      margin-top:2px;
+  }
+  .lenging_right_inf {
+      width:260px;
+      height:50px;
+      float:left;
+      margin-top:9px;
+  }
+  .lenging_right_inf ul {
+      margin:0px;
+      padding:0px;
+  }
+  .lenging_right_inf ul li {
+      width:400px;
+      height:25px;
+      line-height:25px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:14px;
+      color:#999999;
+      list-style:none;
+      float:left;
+      padding-left:0px;
+  }
+  .lenging_right_inf ul li a {
+      color:#999999;
+      text-decoration:none;
+  }
+  .lenging_right_inf ul li a:hover {
+      color:#FF9900;
+      text-decoration:none;
+  }
+  .Seal {
+      width:auto;
+      height:auto;
+      margin-right:20px;
+      float:right;
+      text-align:center;
+  }
+  .seal_text {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:13px;
+      color:#999999;
+      margin-top:6px;
+      margin-bottom:40px;
+      display:block;
+      font-weight:normal;
+  }
+  .Agreement_pic {
+      width:200px;
+      height:45px;
+      margin:0 auto;
+  }
+  a,a:visited{color: #1f76df; text-decoration:none;}
+</style>
+<script type="text/javascript" language="javascript">
+    function printht(){
+        window.print();
+    } 
+</script>
+</head>
+<body>
+<div class="Lending_Agreement">
+  <div class="Lending_Agreement_center">
+    <!--顶部信息开始-->
+    <div class="lending_top_inf">
+      <div class="lending_logo">
+        <div class="lenging_left_logo"><a href="/" target="_blank">{:get_ad(1)}</a></div>
+        <div class="name_inf"></div>
+        
+      </div>
+    </div>
+    <!--顶部信息结束-->
+    <div class="lending_ageeement_tit"><span class="Agreement_pic">{$title}</span><span style="float:right; padding-right:10px;">【<a href="javascrīpt:void(0);" onclick="printht();" target="_self">打印合同</a>】【<a href="__URL__/download?invest_id={$invest_id}" target="_blank">下载合同</a>】 </span></div>
+    <div class="ageeement_content">
+      <p align="left">债权转让协议号：SDHT-D- {$debt.serialid}</p>
+      <p align="left">转让人： {$debt.user_name}</p> 
+      <p align="left">受让人： {$buy_user}</p> 
+      <p align="left">签订日期： {$debt.buy_time|date='Y-m-d',###}</p> 
+      
+      <table  width="980" border="1px" bordercolor="#EEEEEE" cellspacing="0px" style="border-collapse:collapse;margin-top:20px;margin-left:10px;">
+        <tr class="ageement_tab">
+          <td width="196" height="40" align="center" valign="middle">投标标题</td>
+          <td width="96" height="40" align="center" valign="middle">利率 </td>
+          <td width="196" height="40" align="center" valign="middle">待还期数/总期数</td>
+          <td width="156" height="40" align="center" valign="middle">待收本息</td>
+          <td width="96" height="40" align="center" valign="middle">转让价格</td>
+          <td width="196" height="40" align="center" valign="middle">转让时间</td>
+          <td width="196" height="40" align="center" valign="middle">购买人</td>
+        </tr>
+        <tr class="ageement_tab_ite">
+          <td width="196" height="40" align="center" valign="middle">{$debt.borrow_name}</td>
+          <td width="96" height="40" align="center" valign="middle">{$debt.borrow_interest_rate}%</td>
+          <td width="196" height="40" align="center" valign="middle">{$debt['total']-$debt['has_pay']}期/{$debt.total}期</td>
+          <td width="156" height="40" align="center" valign="middle">￥{$debt_total['capital']+$debt_total['interest']}</td>
+          <td width="96" height="40" align="center" valign="middle">￥{$debt.transfer_price}</td>
+          <td width="196" height="40" align="center" valign="middle">{$debt.buy_time|date='Y-m-d H:i:s',###}</td>
+          <td width="196" height="40" align="center" valign="middle">{$buy_user}</td>
+        </tr>
+      </table>
+      <p> <font color="red">（注：因计算中存在四舍五入，最后一期应收本息与之前略有不同！）</font></p>
+      {$content}
+      <div class="Seal">
+        居间人：<br>
+      <img src="/{$ht.hetong_img}" border="0" width="100px" height="100px"> <br> 
+        <span class="seal_text">{$debt.buy_time|date='Y-m-d',###}</span> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

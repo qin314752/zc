@@ -1,0 +1,89 @@
+<include file="Pub:header" />
+<div class="login_top_lex" style="background: #fff;color: black;border-top:1px solid #dcdcdc;">
+    <div class="login_left_lex" style="color: #ef5c52;"><<a href="/M/index.html" style="font-size: 16px;color: #ef5c52;line-height: 57px;">返回</a></div>
+    <div class="login_right_lex" style="color: #000;line-height: 57px;">项目列表</div>
+</div>
+<div style="width: 100%;height: 16px;background: #f0f0f0"></div>
+<div class="main">
+    <div class="m_top">
+        <div onclick="window.location.href='/M/index/index2'" class=" m_title m_l">优选理财</div>
+        <div  class="m_current m_title m_r">汽百胜众筹</div>
+        <!--<div onclick="window.location.href='/M/index/index4'" class="m_title m_r">活期理财</div>-->
+    </div>
+    <volist name="list.list" id='tvo'>
+        <div style="height: 200px;width: 100%;margin: 0 auto;">
+            <div style="height: 24px;padding-top: 20px;">
+                <span style="padding-left: 10px;"><a href="{:U('M/crowdinvest/detail', array('id'=>$tvo['id']))}"  style="color:#535353;">{$tvo.crowd_name|cnsubstr=###,13}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<if condition="$tvo.reward_num neq 0"><span class="invest-reward">奖励+{$tvo.reward_num}%</span><else /><span class="invest-danbao-cooperation">本息保障</span></if></span>
+            </div>
+            <div style="height: 30px;">
+                <div style="height: 30px;float: left;margin-left:10px;">
+
+                </div>
+            </div>
+            <div style="height:70px;width:100%;text-align: center ">
+                <div style="width: 33.3%;height: 68px;float: left;line-height: 30px;padding-top: 10px;">
+                    <div style="width: 99%;float: left">
+                        <p style="font-size: 16px;color: #ff9600;"><span style="font-size:25px; ">{$tvo.record_count}</span>人</p>
+                        <p style="color: #b0b0b0;">认筹人数</p>
+                    </div>
+                    <div style="width: 1px;display: block;height: 80%;float: right;background: #dcdcdc"></div>
+                </div>
+                <div style="width: 66.6%;height: 78px;float: right">
+                    <div style="width: 50%;height: 68px;float: left;line-height: 30px;padding-top: 10px;">
+                        <div style="width: 99%;float: left">
+                            <p style="font-size: 16px;color: #ff9600"><span style="font-size:20px; "><if condition="$tvo['remain_time']['day'] neq 0">{$tvo['remain_time']['day']}天</if>
+                                    <if condition="$tvo['remain_time']['hour'] neq 0">{$tvo['remain_time']['hour']}小时</if>
+                                    <if condition="$tvo['remain_time']['day'] eq 0 && $tvo['remain_time']['hour'] eq 0">0天</if> </span></p></span></p>
+                            <p style="color: #b0b0b0">剩余筹资时间</p>
+                        </div>
+                        <div style="width: 1px;display: block;height: 80%;float: right;background: #dcdcdc"></div>
+                    </div>
+                    <div style="width: 50%;height: 78px;float: right;line-height: 30px;padding-top: 10px;">
+                        <p style="font-size: 14px;color: #ff9600;"><span style="font-size:18px; ">{$tvo.crowd_money|getMoneyFormt=###}元</span></p>
+                        <p style="color: #b0b0b0">众筹金额</p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%;height: 20px;line-height: 11px;">
+              <span class="progress1">
+              <span class="precent1" style="width:{$tvo.rate}%;"></span></span>
+                &nbsp;进度：{$tvo.rate}%
+            </div>
+            <div style="width: 80%;height: 45px;margin: 4px auto;">
+                {$tvo.status|crowd_status=$tvo['id'],###}
+            </div>
+        </div>
+        <div style="width: 100%;height:10px;background: #f0f0f0; "></div>
+    </volist>
+    <!-- 列表结束-->
+</div>
+<div class="fixed_div" style="padding-top:10px"><a style="width: 30%;margin: 0 auto;line-height: 20px;" href="javascript:void(0)" onclick="getInfo()" class="tz_bt">更多投资项目</a></div>
+<script type="text/javascript">
+    var nowPage = {$list.page.nowPage};
+    var total = {$list.page.total};
+    $(function(){
+        if(nowPage ==total){
+            jQuery(".fixed_div").hide();
+        }
+    });
+    function getInfo() {
+        nextPage = nowPage+1;
+        $.ajax({
+            url: location.href,
+            data: { p: nextPage },
+            type: 'get',
+            async: true,
+            success: function (res) {
+                jQuery(".main").append(res);
+                if (total == nextPage) {
+                    jQuery(".fixed_div").hide();
+                }
+                nowPage++;
+            },
+            error: function () {
+                //document.getElementById('result').innerHTML = "";
+            }
+        });
+    }
+</script>
+﻿<include file="Pub:footer" />

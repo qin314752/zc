@@ -1,0 +1,113 @@
+<include file="Public:header_new"/>
+<title>红包-{$glo.web_name}</title>
+<meta http-equiv="keywords" content="{$glo.web_keywords}"/>
+<meta http-equiv="description" content="{$glo.web_descript}"/>
+<link rel="stylesheet" href="__ROOT__/Style/H/css/privilege.css"/>
+<!--特权金开始-->
+<div class="tqj-main width-100 padtop_515 minwidth1236 font20">
+    <!--特权金列表开始-->
+    <div class="width1200 marbottom_20">
+        <div class="tqj-title marginauto afrel text-center font40 lineheight85">领取红包专区</div>
+        <div class="tqj-content border-radius">
+            <volist name="count" id="tqj">
+                <div class="tqj-list-box border-radius marbottom_30">
+                    <div class="tqj-list-left float_left">
+                        <div class="font34 fontbold marbottom_20">{$tqj.name}</div>
+                        <div class="marbottom_10">
+                            <div class="tqj-width390 float_left">红包金额：{$tqj.money}元</div>
+                            <div class="inline-block float_left">年利率：{$tqj.rate}%</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="marbottom_10">
+                            <div class="tqj-width390 float_left">开始时间：{$tqj.begin_time}</div>
+                            <div class="inline-block float_left">结束时间：{$tqj.over_time}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div>
+                            领取条件：
+                            <if condition="$tqj.shouji eq 手机认证">
+                                {$tqj.shouji}&nbsp;
+                            </if>
+                            <if condition="$tqj.shiming eq 实名认证">
+                                {$tqj.shiming}&nbsp;
+                            </if>
+                            <if condition="$tqj.youxiang eq 邮箱认证">
+                                {$tqj.youxiang}&nbsp;
+                            </if>
+                            <if condition="$tqj.daishou eq 在投金额">
+                                {$tqj.daishou}:{$tqj.status_due_money}元
+                            </if>
+                        </div>
+                    </div>
+                    <if condition="$tqj.over eq 1">
+                        <div class="tqj-list-right float_right tqj-list-right-bg2"></div>
+                    <else/>
+                        <div class="tqj-list-right float_right martop_10 tqj-list-right-bg1"><a href="#" onclick="receive()" money="{$tqj.money}" rate="{$tqj.rate}"  biggest="{$tqj.biggest}" class="test block tqj-height55" id="{$tqj.id}"></a></div>
+                    </if>
+                    <div class="clear"></div>
+                </div>
+            </volist>
+            <div class="text-center font20 martop_20 tqj-list-page">{$pagebar}</div>
+        </div>
+    </div>
+    <!--特权金列表结束-->
+    <!--活动说明开始-->
+    <div class="width1200 padbottom_150">
+        <div class="tqj-title marginauto afrel text-center font40 lineheight85">活动说明</div>
+        <div class="tqj-content border-radius color-white afrel">
+            <div class="marbottom_15 padleft_60"><span class="tqj-circle border-radius50 text-center inline-block lineheight30 marright_10">1</span>红包收益直接进入到我的账户--可用余额。</div>
+            <div class="marbottom_15 marbottom_15 padleft_60"><span class="tqj-circle border-radius50 text-center inline-block lineheight30 marright_10">2</span>收益可用于投资，也可用于提现。</div>
+            <div class="marbottom_15 marbottom_15 padleft_60"><span class="tqj-circle border-radius50 text-center inline-block lineheight30 marright_10">3</span>本活动金最终解释权归平台所有。</div>
+            <div class="padleft_60 marbottom_30"><span class="tqj-circle border-radius50 text-center inline-block lineheight30 marright_10">4</span>红包收益每日凌晨0:00点自动返现到用户账户。</div>
+            <div class="afabs tqj-detail-packet"></div>
+            <div class="tqj-detail-bottom afabs marginauto"></div>
+        </div>
+    </div>
+    <!--活动说明结束-->
+    <div class="clear"></div>
+</div>
+<!--特权金结束-->
+<script type="text/javascript">
+    $(".test").click(function(){
+        var id=$(this).attr('id');
+        var money = $(this).attr('money');
+        var rate = $(this).attr('rate');
+        var biggest = $(this).attr('biggest');
+
+        if(confirm("红包金额："+money+"元  年利率："+rate+"%  收益次数："+biggest+"次\n您确定要领取吗？")){
+            $.ajax({
+                url:"__URL__/receive",
+                type:"post",
+                data:{"id":id},
+                dataType:"json",
+                success:function(i){
+                    if(i==1){
+                        alert("领取成功");
+                    }else if(i==0){
+                        alert("你还没有通过认证");
+                    }else if(i==2){
+                        alert("已经领取");
+                    }else if(i==3){
+                        alert("待收本金不足");
+                    }else if(i==4){
+                        if(confirm("登录后才可领取红包，是否跳转登录页？")) {
+                            //如果是true ，那么就把页面转向登陆页
+                            location.href="__ROOT__/member/common/login";
+                        }
+
+                    }else if(i==5){
+                        alert("活动还未开始");
+                    }else if(i==6){
+                        alert("活动已经结束");
+                    }else if(i==7){
+                        alert("活动已经关闭");
+                    }
+                }
+
+            })
+        }
+
+
+    });
+</script>
+<include file="Public:bottom"/>

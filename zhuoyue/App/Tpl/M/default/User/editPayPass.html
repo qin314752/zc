@@ -1,0 +1,63 @@
+﻿<include file="Pub:header" />
+<!-- 标题 start-->
+<div class="header"><a class="back" href="/M/User/index"><返回</a>设置支付密码</div>
+<!-- 标题 end-->
+<div class="main">
+<form  action="" method="post" name="setpayForm" id="setpayForm">
+<div class="login">
+ <div class="name"><label>&nbsp;&nbsp;&nbsp;&nbsp;旧支付密码：</label><input type="password" name='oldpass' id="oldpass" class="wbk" /><font color=red>*</font></div>
+ <div class="name"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支付密码：</label><input type="password" name="paypass" id="paypass" class="wbk" /><font color=red>*</font></div>
+ <div class="name"><label>确认支付密码：</label><input type="password" name="paypass2" id="paypass2" class="wbk"  /><font color=red>*</font>
+  </div>     
+ <div class="button"><input type="button" class="butt" value="确&nbsp;&nbsp; 定" /></div>
+</div> 
+</form>
+</div>
+<script language="javascript">
+$(function(){
+    $(".butt").click(function(){
+        var oldpass = $.trim($("#oldpass").val());
+        var paypass = $.trim($("#paypass").val());
+        var paypass2 = $.trim($("#paypass2").val());
+        if(!oldpass){
+            Apprise('<font color=red>请输入旧支付密码！</font>');
+            return false;
+        }
+        if(!paypass){
+            Apprise('<font color=red>请输入新的支付密码！</font>'); 
+            return false;
+        }
+        if(!paypass2){
+            Apprise('<font color=red>请输入确认支付密码！</font>'); 
+            return false;
+        }
+        if(paypass2 != paypass){
+            Apprise('<font color=red>两次支付密码不相同！</font>'); 
+            return false;
+        }
+        if(paypass.length<6){
+            Apprise('<font color=red>支付密码必须大于等于6位字符</font>'); 
+            return false;
+        }
+        $.ajax({
+           type: "POST",
+           url: "",
+           data: 'oldpass='+oldpass+'&paypass='+paypass+'&paypass2='+paypass2,
+           success: function(msg){
+               if(msg=='TRUE'){
+                  Apprise("恭喜支付密码设置完成");
+                  $("#apprise-btn-confirm").click(function(){
+                     window.location.href="{:U('M/user/index')}";
+                  })
+               }else{
+                  Apprise('<font color=red>'+msg+'</font>');
+               }
+           },
+           error:function(err){
+               Apprise("<font color=red>提交发生错误！请重试</font>");
+           }
+       });
+    })
+})
+</script>
+﻿<include file="Pub:footer" />

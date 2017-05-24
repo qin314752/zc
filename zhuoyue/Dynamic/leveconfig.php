@@ -1,0 +1,2 @@
+<?php
+return array ( 1 => array ( 'name' => 'HR', 'start' => '0', 'end' => '20', 'icoName' => 'hr.png', ), 2 => array ( 'name' => 'E', 'start' => '21', 'end' => '70', 'icoName' => 'e.png', ), 3 => array ( 'name' => 'D', 'start' => '71', 'end' => '120', 'icoName' => 'd.png', ), 4 => array ( 'name' => 'C', 'start' => '121', 'end' => '150', 'icoName' => 'c.png', ), 5 => array ( 'name' => 'B', 'start' => '151', 'end' => '170', 'icoName' => 'b.png', ), 6 => array ( 'name' => 'A', 'start' => '171', 'end' => '99999999999999', 'icoName' => 'a.png', ), ); ?>

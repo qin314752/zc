@@ -1,0 +1,81 @@
+<style type="text/css">
+.pop-tb-con{padding-top:0px}
+.text-red{color:#cc3300}
+.mar20{margin:20px 0px}
+INPUT.btn-action{border-bottom:#cc0000 0px solid;text-align:center;border-left:#cc0000 0px solid;line-height:28px;width:80px;display:inline-block;background:url(../bg/btn-red.jpg) #cc0000 0px 0px;height:28px;color:#fff;border-top:#cc0000 0px solid;border-right:#cc0000 0px solid; cursor: pointer; margin-top: 5px;}
+.pop-tb{border-bottom:#d5d5d5 1px solid;border-left:#d5d5d5 1px solid;background-color:#fff;margin:20px auto;width:700px;height:310px;border-top:#d5d5d5 1px solid;border-right:#d5d5d5 1px solid}
+.pop-tb-l{border-bottom:#e5e5e5 0px solid;border-left:#e5e5e5 0px solid;background-color:#fdffe5;width:198px;float:left;height:260px;border-top:#e5e5e5 0px solid;border-right:#e5e5e5 1px solid;padding-top:10px}
+.pop-tb-l UL LI{line-height:30px;padding-left:20px;height:30px}
+.pop-tb-l UL LI STRONG{color:#fc8936;font-size:14px}
+.pop-tb-r{padding-left:20px;width:400px;float:right;padding-top:10px}
+.pop-tb-r UL LI{line-height:30px;height:30px}
+.pop-tb-r UL LI A{color:#c30;margin-left:30px}
+.invest_input{border:1px solid #CCC; padding:3px}
+</style>
+<table style=" margin:10px; font-size:12px; text-align:left; line-height:24px;" width="300" id="tips">
+<tbody>
+<if condition="$pin_pass.pin_pass neq ''">
+    <tr>
+        <td>债权总额：￥{$debt.money}元</td>
+    </tr>
+    <tr>
+        <td>购买价格：￥{$debt.transfer_price}元</td>
+    </tr>
+    <tr>
+        <td>可用余额：￥{$account}元【<a href="/member/charge#fragment-1" target="_blank">充值</a>】</td>
+    </tr>
+    <tr>
+        <td>支付密码:<input type="password" name="paypass"  id="paypass" style="width:120px; height:20px; line-height:20px" />&nbsp;<font color="red">*</font></td>
+    </tr>
+
+    <tr>
+        <td align="center">
+        <input type="hidden" name="invest_id" id="invest_id" value="{$invest_id}">
+        <input type="button" name="dosubmit" id="dosubmit" class="btn-action" value="确认购买">
+
+        </td>
+    </tr>
+<else />
+    <tr>
+        <td>您还未设置支付密码，请【<a href="/member/user#fragment-3" style='color:#12adff;'>设置</a>】后再购买债权。</td>
+    </tr>
+</if>
+</tbody></table>
+<script type="text/javascript">
+function myrefresh() 
+{ 
+    window.location.reload(); 
+}
+$("#dosubmit").click(function(){
+    var paypass = $("#paypass").val();
+    var invest_id = $("#invest_id").val();
+    if(!invest_id){
+        alert("缺少参数，请与客服联系！");
+        return false;
+    }
+    if(!paypass){
+        alert("请输入支付密码！");
+        return false;
+    }
+    if(confirm('你确定购买该债权吗?')){
+        $.jBox.tip("数据处理中，请稍候......",'loading');
+        $.ajax({
+            url: "__URL__/buy/",
+            data: {"paypass":paypass, "invest_id":invest_id},
+            timeout: 4000,
+            cache: false,
+            type: "post",
+            dataType: "json",
+            success: function (d, s, r) {
+                    if(d.status==1){
+                        $.jBox.tip(d.message,"success");
+                        setTimeout('myrefresh()',1000); 
+                    }else{
+                        $.jBox.tip(d.message,"fail");
+                    }
+            },
+           
+        });
+    }
+})
+</script>

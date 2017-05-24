@@ -1,0 +1,40 @@
+<include file="Public:_header" />
+<tagLib name="htmlA" />
+<div class="so_main">
+  <div class="page_tit">实名验证接口管理</div>
+  <div class="page_tab"><span data="tab_1">实名验证接口</span></div>
+  <div class="form2">
+    <form method="post" action="__URL__/save" onsubmit="return subcheck();" enctype="multipart/form-data">
+      <div id="tab_1">
+        <dl class="lineD">
+          <dt>是否启用：</dt>
+          <dd>
+            <htmlA:radio id="id5[enable]" value="key|id5_config.enable" default="1|是,0|否" />
+          </dd>
+        </dl>
+        <dl class="lineD">
+          <dt>商户ID：</dt>
+          <dd>
+            <htmlA:input  id="id5[ID5ID]" value="{$id5_config.ID5ID}" />
+          </dd>
+        </dl>
+          <dl class="lineD">
+          <dt>MD5密钥：</dt>
+          <dd>
+            <htmlA:input  id="id5[md5_key]" value="{$id5_config.md5_key}" />
+          </dd>
+        </dl>
+          <dl class="lineD">
+          <dt>DES密钥：</dt>
+          <dd>
+            <htmlA:input  id="id5[des_key]" value="{$id5_config.des_key}" />
+          </dd>
+        </dl>
+      </div>
+      <div class="page_btm">
+        <input type="submit" class="btn_b" value="确定" />
+      </div>
+    </form>
+  </div>
+</div>
+<include file="Public:_footer" />

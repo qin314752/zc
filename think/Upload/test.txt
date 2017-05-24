@@ -1,0 +1,6 @@
+array (
+  'dirname' => '.',
+  'basename' => '_20170523100319.png',
+  'extension' => 'png',
+  'filename' => '_20170523100319',
+)

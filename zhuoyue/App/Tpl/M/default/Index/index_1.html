@@ -1,0 +1,133 @@
+﻿<include file="Pub:header" />
+<script language="javascript" type="text/javascript" src="/Style/Mobile/public.js"></script>
+<script type="text/javascript" src="/Style/Mobile/jquery.SuperSlide.js"></script>
+<div class="main">
+    <div class="mBan2">
+        <div id="slideBox" class="slideBox">
+            <div class="hd">
+                <ul><volist name=":get_ad(32)" id="vo"><li></li></volist></ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <volist name=":get_ad(32)" id="va">
+                        <li><if condition="$va['url']==''"><img src="__ROOT__/{$va.img}" /><else/><a href="{$va.url}" target='_blank'><img src="__ROOT__/{$va.img}" /></a></if></li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTime(tuanid, time_distance) {
+            this.tuanid = tuanid;
+            //PHP时间是秒，JS时间是微秒
+            this.time_distance = time_distance * 1000;
+        }
+        showTime.prototype.setTimeShow = function () {
+            var timer = $("#lefttime_" + this.tuanid);
+            var str_time;
+            var int_day, int_hour, int_minute, int_second;
+            time_distance = this.time_distance;
+            this.time_distance = this.time_distance - 1;
+            if (time_distance > 0) {
+                var day1 = Math.floor(time_distance / (60 * 60 * 24));
+                var hour = Math.floor((time_distance - day1 * 24 * 60 * 60) / 3600);
+                var minute = Math.floor((time_distance - day1 * 24 * 60 * 60 - hour * 3600) / 60);
+                var second = Math.floor(time_distance - day1 * 24 * 60 * 60 - hour * 3600 - minute * 60);
+                str_time = day1 + "天" + hour + "小时" + minute + "分" + second + "秒";
+                timer.text(str_time);
+                var self = this;
+                setTimeout(function () { self.setTimeShow(); }, 1000); //D:正确
+            } else {
+                timer.text("众筹开始");
+                //location.reload();
+                return;
+            }
+        }
+    </script>
+
+    <div style="clear: both;"></div>
+    <div class="recommend-project">众筹预告</div>
+
+      <div style="height: 300px;width: 100%;margin: 0 auto;">
+          <div style="clear: both;height: 10px;"></div>
+          <div style="height: 15px;padding-top: 20px; background:#eeeeee;border-top: 6px solid #fc554d;">
+             <div style="margin-left: 15px;margin-top: -15px;float: left;"><img src="__APP__/Style/M/images/img_2.png"></div>
+              <span style="padding-left: 5px;line-height:0px;">{$votelist.crowd_name|cnsubstr=###,40}</span>
+          </div>
+          <div style="height:170px;width:100%;padding-top:10px;text-align: center ">
+              <img src="{$votelist['img'][0]['img']}" style="width: 90%;height: 100%;">
+          </div>
+          <div style="height: 70px;width: 90%;margin: 0 auto;">
+              <div style="float: left; width: 70%; height: 99%;">
+                  <div style=" padding-top: 20px;">
+                      <input type="hidden" id="auto_remain_time" value="{$votelist.auto_remain_time}" />
+                      <p style="    float: left;">据项目开始时间：</p>
+                      <span id="lefttime_{$votelist.id}"></span>
+                      <script>
+                          var st = new showTime();
+                          st.tuanid = "{$votelist.id}";
+                          st.time_distance = parseInt($("#auto_remain_time").val(), 10);
+                          st.setTimeShow();
+                      </script>
+                  </div>
+                  <div style=" padding-top: 3px;"><p style="    float: left;">众筹目标：</p>
+                      <span >{$votelist.crowd_money}元</span>
+                  </div>
+              </div>
+              <div style="float: right; width: 30%;height: 35px;background: #fc554c;border-radius: 5px;text-align: center;margin-top: 25px;">
+                  <a href="#" style="color: #ffffff;line-height: 35px;">我要预约</a>
+              </div>
+          </div>
+
+      </div>
+      <div style="width: 100%;height:10px;background: #f0f0f0; "></div>
+
+  <div class="recommend-project">全部项目</div>
+  <!---众筹--->
+  <volist name="list.list" id='tvo'>
+
+      <div style="height: 300px;width: 100%;margin: 0 auto;">
+          <div style="clear: both;height: 10px;"></div>
+          <div style="height: 15px;padding-top: 20px; background:#eeeeee;border-top: 6px solid #fc554d;">
+              <div style="margin-left: 15px;margin-top: -15px;float: left;"><img src="__APP__/Style/M/images/img_2.png"></div>
+              <span style="padding-left: 5px;line-height:0px;">{$tvo.crowd_name|cnsubstr=###,40}</span>
+          </div>
+          <div style="height:170px;width:100%;padding-top:10px;text-align: center ">
+              <img src="{$tvo['img'][0]['img']}" style="width: 90%;height: 100%;">
+          </div>
+          <div style="height: 70px;width: 90%;margin: 0 auto;">
+              <div style="float: left; width: 70%; height: 99%;">
+                  <div style=" padding-top: 20px;">
+                      <input type="hidden" id="auto_remain_time" value="{$tvo.auto_remain_time}" />
+                      <p style="    float: left;">据项目开始时间：</p>
+                      <span id="lefttime_{$tvo.id}"></span>
+                      <script>
+                          var st = new showTime();
+                          st.tuanid = "{$tvo.id}";
+                          st.time_distance = parseInt($("#auto_remain_time").val(), 10);
+                          st.setTimeShow();
+                      </script>
+                  </div>
+                  <div style=" padding-top: 3px;"><p style="    float: left;">众筹目标：</p>
+                      <span >{$tvo.crowd_money}元</span>
+                  </div>
+              </div>
+              <div style="float: right; width: 30%;height: 35px;background: #fc554c;border-radius: 5px;text-align: center;margin-top: 25px;">
+                  <a href="#" style="color: #ffffff;line-height: 35px;">我要预约</a>
+              </div>
+          </div>
+
+      </div>
+
+  </volist>
+    <!-- 列表结束-->
+    <div style="clear: both;"></div>
+    <div style="height: 42px;width: 100%;text-align: center;padding-top:30px;">
+        <a href="/M/index/index2" style="display: block;height: 42px;width: 60%;border: 2px solid #ef5c52;border-radius: 25px;color: #ef5c52;font-size: 20px;margin: 0 auto;line-height: 40px;">更多优质项目</a>
+    </div>
+</div>
+<script language="javascript">
+    jQuery(".slideBox").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,trigger:"click"});
+</script>
+﻿<include file="Pub:footer_M" />

@@ -14,7 +14,7 @@
 			</nav>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 				<ul class="cl">
-					<li>超级管理员</li>
+					<li> <a href="javascript:;" onclick="del()" >清除缓存</a></li>
 					<li class="dropDown dropDown_hover">&nbsp; &nbsp;&nbsp;&nbsp;admin &nbsp;
 						
 			</li>
@@ -28,3 +28,14 @@
 </div>
 </header>
 <!--/_header 作为公共模版分离出去-->
+<!-- <script type="text/javascript">
+	function del(){
+		$.get('/Admin/Index/del',function(data){
+			if(data){
+				layer.msg('已清除缓存',{icon: 1,time:3000});
+			}else{
+				layer.Hui-msg('清除缓存失败',{icon: 2,time:3000});
+			}
+		} );
+	}
+</script> -->

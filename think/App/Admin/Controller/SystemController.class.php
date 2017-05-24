@@ -23,7 +23,16 @@ class SystemController extends CommonController {
     	var_dump($arr);
 
     }
+    public function upload()
+    {
+      upload();
+    } 
    
+   public function upload_del()
+   {
+     upload_del($_GET['src']);   
+
+   }
 }
 
 

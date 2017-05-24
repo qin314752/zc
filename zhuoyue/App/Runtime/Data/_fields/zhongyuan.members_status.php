@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'uid', 1 => 'phone_status', 2 => 'phone_credits', 3 => 'id_status', 4 => 'id_credits', 5 => 'face_status', 6 => 'face_credits', 7 => 'email_status', 8 => 'email_credits', 9 => 'account_status', 10 => 'account_credits', 11 => 'credit_status', 12 => 'credit_credits', 13 => 'safequestion_status', 14 => 'safequestion_credits', 15 => 'video_status', 16 => 'video_credits', 17 => 'vip_status', 18 => 'vip_credits', '_autoinc' => false, '_pk' => 'uid', ); ?>

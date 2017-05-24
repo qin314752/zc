@@ -1,0 +1,32 @@
+<FORM method="post" name="investForm" id="investForm" class="ajax-invest" action="__URL__/investmoney">
+<input type="hidden" name="T_borrow_id" id="T_borrow_id" value="{$vo.id}" />
+<input type="hidden" name="per_transfer" id="per_transfer" value="{$vo.per_transfer}" />
+<input type="hidden" name="chooseWay" id="chooseWay" value="{$chooseway}" />
+<input type="hidden" name="transfer_invest_num" id="transfer_invest_num" value="{$num}" />
+<input type="hidden" name="transfer_invest_month" id="transfer_invest_month" value="{$vo.borrow_duration}" />
+
+ <ul class="item">
+			<if condition="$has_pin eq 'yes'">
+				<li>
+					<h6>支付密码</h6>
+					<input type="password" id="T_pin" name="T_pin" />
+				</li>
+				<li>
+					<div>
+					<a href="javascript:void(0);" class="center" onclick="T_PostData()">立即投资</a>
+					</div>
+				</li>
+			<else/>
+				<li>
+					<a href='__APP__/member/user#fragment-3' target="_blank" onclick="$.jBox.close();" class="center">请设置支付密码</a>
+				</li>
+			</if>
+	</ul>
+</FORM>
+<script type="text/javascript">
+T_transfer_num = {$vo['transfer_total']-$vo['transfer_out']};
+T_month_min = {$vo.min_month};
+T_month_max = {$vo.borrow_duration};
+//T_month_max = {$vo.deadline|getTransferLeftmonth=###};
+showFMoney({$vo.borrow_interest_rate},{$vo.reward_rate},{$vo.increase_rate},{$chooseway},{$vo.shouyi4},{$vo.shouyi6});
+</script>

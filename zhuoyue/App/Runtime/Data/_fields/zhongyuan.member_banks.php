@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'uid', 1 => 'bank_num', 2 => 'bank_province', 3 => 'bank_city', 4 => 'bank_address', 5 => 'bank_name', 6 => 'add_time', 7 => 'add_ip', '_autoinc' => false, '_pk' => 'uid', ); ?>

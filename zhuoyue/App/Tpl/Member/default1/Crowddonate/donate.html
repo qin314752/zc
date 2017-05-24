@@ -1,0 +1,65 @@
+<tagLib name="htmlA" />
+<style type="text/css">
+    .tables{font-size: 12px;}
+    #pager { margin: 10px 4px 3px 0px; }
+        .content a { font-size: 12px; color: #092fa9; }
+       .notes_frame div { padding-top: 13px; }
+       .operaframe ul { padding: 0px; margin: 0px; text-align: left; overflow: hidden; line-height: 25px; }
+    .operaframe ul li { float: left; line-height: 25px; }
+    .hb_ky{
+        background: url("/Style/H/crowd/images/hb1.png");
+        color: #ffeb26;
+    }
+    .hb_sy{
+        background: url("/Style/H/crowd/images/hb2.png");
+        color: #ffffff;
+    }
+    .hb_gq{
+        background: url("/Style/H/crowd/images/hb3.png");
+        color: #ffffff;
+    }
+   </style>
+
+
+<div style="overflow: hidden; width: 100%;">
+    <div style="width: 100%; overflow: hidden; padding-top: 20px;">
+      
+            <volist name="list" id="vo">
+                <!--<tr style="height: 40px; ">
+                    <td style="border: 1px solid #dedede ;" >
+                        投资金额大于等于{$vo.pay_money}元
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        {$vo.bid_money}元
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        {$vo.add_time|date="Y-m-d H:i:s",###}
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        {$vo.end_time|date="Y-m-d H:i:s",###}
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        <if condition="$vo.status eq 1"><font color="#fc8936" >可用</font><elseif condition="$vo.status eq 2" />已使用<else/><font color="#009900" >已过期</font></if>
+                    </td>
+                </tr>-->
+                <div class="<if condition='$vo.status eq 1'> hb_ky <elseif condition='$vo.status eq 2'/> hb_sy <elseif condition='$vo.status eq 3'/> hb_gq </if>" style="width: 215px;height: 110px;float: left;position:relative;">
+                    <div class="<if condition='$vo.status eq 1'> font_color_1 <elseif condition='$vo.status eq 2'/> font_color_2 <elseif condition='$vo.status eq 3'/> font_color_3 </if>" style="width: 150px;height: 45px;text-align: center;font-size: 35px;margin-left: 12px;margin-top: 15px;">{$vo.bid_money}<span style="font-size: 22px;">元</span></div>
+                    <div>
+                        <div style="font-size: 14px;margin-left: 18px;margin-top: 2px">满{$vo.pay_money}元使用</div>
+                        <div style="font-size: 14px;margin-left: 18px;">到期时间:{$vo.end_time|date="Y-m-d ",###}</div>
+                    </div>
+                    <if condition='$vo.status eq 2'>
+                        <div style="position:absolute;width: 90px;height: 85px; left: 41px;top:16px;background: url('/Style/H/crowd/images/sy.png')"></div>
+
+                        <elseif condition='$vo.status eq 3'/>
+                        <div style="position:absolute;width: 90px;height: 85px; left: 41px;top:16px;background: url('/Style/H/crowd/images/gq.png')"></div>
+
+                    </if>
+                </div>
+            </volist>
+           
+    </div>
+
+
+   <!-- <div data="fragment-1" id="pager" style="float: right; text-align: right; width: 700px; padding-right: 0px;" class="yahoo2 ajaxpagebar">{$pagebar}</div>-->
+</div>

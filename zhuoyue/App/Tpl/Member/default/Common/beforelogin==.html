@@ -1,0 +1,48 @@
+ <div class="first_top">
+		<div class="dv_header top ">
+
+<!--迷你导航-->
+
+<div class="dw_bgx dw_mini">
+<div class="Cmml00">
+<?php
+ $dws= session('u_user_name');
+?>
+<div class="fl dw_Cbg zuo">
+<div class="fl" ><?php $dw_kefu=get_qq(2);echo($dw_kefu[0]["qq_num"]); ?></div>
+
+</div>
+<div class="fr">
+<div class="fl">
+<a href="/member/common/register/" class="fl" >注册</a> <a class="fl"  href="/member/common/login/">登录</a><a class="fl"  href="/helpcenter/index.html">帮助中心</a>
+</div>
+<!--
+<div class="fl " id="dw_qun">
+<ul id="erji">
+<li class=" dw_Cbg eq1">
+<h1>官方群号</h1>
+<div>
+<volist name=":get_qq(1)" id="vq">
+<p>{$vq.qq_num}</p>
+  </volist>
+</div>
+</li>
+<li class="dw_Cbg eq2">
+<h1>在线客服</h1>
+<div class="eq201">
+        <volist name=":get_qq(0)" id="vq">
+ <a class="icoTc" href="tencent://Message/?Uin={$vq.qq_num}&amp;websiteName={$vq.qq_title}&amp;Menu=ye"><img border="0" src="http://wpa.qq.com/pa?p=2:{$vq.qq_num}:52" alt="点击这里给我发消息" title="点击这里给我发消息"/>&nbsp;{$vq.qq_title|cnsubstr=###,6,0,"utf-8",false}</a>
+        </volist>
+</div>
+</li>
+</ul>
+</div>
+<div class="fl" > <div id="dw_kefu">  <div class="QQkefu"></div>   <div class="dw_show"></div></div></div>-->
+</div>
+</div>
+</div>
+<!--迷你导航结束-->	
+		</div>
+	</div>
+	
+

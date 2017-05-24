@@ -1,0 +1,57 @@
+<include file="../Public/_header" />
+<tagLib name="htmlA" />
+<div class="so_main">
+    <div class="page_tit">已经完成项目列表</div>
+    <!--搜索/筛选会员-->
+    <!--<include file="search" />-->
+    <!--搜索/筛选会员-->
+
+    <div class="Toolbar_inbox">
+        <div class="page right">{$pagebar}</div>
+        <!--<htmlA:commonBtn type="jsfun" action="dosearch();" value="搜索/筛选众筹" style="search_action" />-->
+    </div>
+
+    <div class="list">
+        <table id="area_list" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th style="width:30px;">
+                    <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+                    <label for="checkbox"></label>
+                </th>
+                <th class="line_l">ID</th>
+                <th class="line_l">众筹项目名称</th>
+                <th class="line_l">发起人</th>
+                <th class="line_l">项目金额</th>
+                <th class="line_l">筹标金额</th>
+                <th class="line_l">投票金额</th>
+                <th class="line_l">发布时间</th>
+                <th class="line_l">最长持有期限</th>
+                <th class="line_l">完成状态</th>
+                <th class="line_l">查看</th>
+            </tr>
+            <volist id="vo" name="list">
+                <tr overstyle='on' id="list_{$vo.id}">
+                    <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.crowd_name|cnsubstr=###,12}</td>
+                    <td>{$vo.user_name}</td>
+                    <td>{$vo.crowd_money|Fmoney=###}</td>
+                    <td>{$vo.has_crowd_money|Fmoney=###}</td>
+                    <td>{$vo.vote_money|Fmoney=###}</td>
+                    <td>{$vo.add_time|date="Y-m-d H:i",###}</td>
+                    <td>{$vo.max_duration}个月</td>
+                    <td><if condition="$vo.status eq 5"><span style="color: #008000">正常完成</span><else /><span style="color: red">溢价回购完成</span></if></td>
+                    <td><a href="__URL__/complete_detail?crowd_id={$vo.id}">投资详情</a></td>
+                </tr>
+            </volist>
+        </table>
+
+    </div>
+
+    <div class="Toolbar_inbox">
+        <div class="page right">{$page}</div>
+        <!--<htmlA:commonBtn type="jsfun" action="dosearch();" value="搜索/筛选众筹" style="search_action" />-->
+    </div>
+</div>
+</body>
+</html>

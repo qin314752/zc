@@ -16,5 +16,11 @@
 <title>H-ui.admin v3.0</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<!-- 图片上传 -->
+		<script type="text/javascript" src="__PUBLIC__/upload/js/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/upload/js/swfupload.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/upload/js/handlers.js"></script>
+        <link href="__PUBLIC__/upload/css/default.css" rel="stylesheet" type="text/css" />
+<!-- 图片上传 end-->
 </head>
 <body>

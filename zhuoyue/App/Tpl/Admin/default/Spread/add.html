@@ -1,0 +1,76 @@
+<style type="text/css">
+    .x_member_form{width:400px;}
+    .x_member_form .form2{height:260px;}
+
+    .x_member_form .form2 .lineD {overflow:hidden; width:95%; display:block;padding: 10px 0;}
+    .x_member_form .form2 .lineD label{margin-right:15px;}
+    .x_member_form .form2 .lineD dt{width:150px; color:#9CB8CC; font-weight:bold}
+    .x_member_form .form2 .lineD dd{width:200px; float:left; margin-left:0px}
+
+
+    .page_btm {border-top: 1px solid #9CB8CC;padding: 15px 0 10px 355px;bottom: 0;}
+</style>
+
+<div class="so_main x_member_form">
+    <div class="form2">
+
+        <div id="tab_1">
+            <form action="sendsms" method="post" class="sendsms1" onsubmit="return subcheck();">
+                <input id="rid" type="hidden" name="rid" value="{$m.id}">
+                <dl class="lineD">
+                    <dt>关联用户：</dt>
+                    <dd>{$m.user_name}</dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>关联推广人用户名：</dt>
+                    <dd><input id="uname" type="text" name="uname" value="{$user_name}"/></dd>
+                </dl>
+                <dl class="lineD" style="text-align:center;">
+                    <img class="img_button" data="1" src="/Style/H/images/sub_offline.jpg" style="cursor: pointer;" alt="确认提交">
+                </dl>
+            </form>
+        </div>
+
+        <div class="page_btm">
+            <input type="submit" class="btn_b" value="关闭" end="1" onclick="closeui();" />
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    function closeui(){
+        ui.box.close();
+    }
+
+    $(document).ready(function(){
+
+        $('.img_button').click(function(){
+            var str = $('#uname').val();
+            if(str.replace(/(^\s+)|(\s+$)/g,"")==""){
+                alert('关联推广人用户名不能为空!');
+                return ;
+            }
+            $.post('/admin/spread/doadd',
+                {id:$('#rid').val(),name:$('#uname').val(),ra:Math.random()},
+                function(d,s){
+                    if(d==2)alert('参数有错误！');
+                    if(d==4)alert('关联推广人用户名不存在!');
+                    if(d==5)alert('推荐人与被推荐人不能是同一个人!');
+                    if(d==1){alert('恭喜，关联成功!');ui.box.close();window.location.reload();}
+                    if(d==0){alert('关联失败，请重试!');ui.box.close();window.location.reload();}
+//                    $(".btn_b").attr('end',1);
+                }
+            );
+        });
+    });
+
+    var cansub = true;
+    function subcheck(){
+        if(!cansub){
+            alert("请不要重复提交，如网速慢，请耐心等待！");
+            return false;
+        }
+        cansub = false;
+        return true;
+    }
+</script>

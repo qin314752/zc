@@ -1,0 +1,72 @@
+[ 2017-05-24T11:23:54+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+ERR: 无法加载模块:Favicon
+
+[ 2017-05-24T12:03:07+08:00 ] 127.0.0.1 /Upload/2cfd0604edc1db4323b0a9b7e5a29085.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+ERR: 无法加载模块:Upload
+
+[ 2017-05-24T12:03:11+08:00 ] 127.0.0.1 /Upload/2cfd0604edc1db4323b0a9b7e5a29085.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+ERR: 无法加载模块:Upload
+
+[ 2017-05-24T12:04:38+08:00 ] 127.0.0.1 /Upload/71d802fa58f5e8e5c3b8a2cfb2b45d9e.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000301s ]
+ERR: 无法加载模块:Upload
+
+[ 2017-05-24T12:05:09+08:00 ] 127.0.0.1 /Upload/71d802fa58f5e8e5c3b8a2cfb2b45d9e.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000350s ]
+ERR: 无法加载模块:Upload
+
+[ 2017-05-24T15:00:59+08:00 ] 127.0.0.1 /Public/Admin/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001242s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-24T15:02:04+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000398s ]
+ERR: 无法加载模块:Favicon
+
+[ 2017-05-24T15:02:04+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000330s ]
+ERR: 无法加载模块:Favicon
+
+[ 2017-05-24T15:40:31+08:00 ] 127.0.0.1 /Upload/a9a79e3029dca3f12402cac689954c22.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000390s ]
+ERR: 无法加载模块:Upload
+
+[ 2017-05-24T15:44:32+08:00 ] 127.0.0.1 /Upload/ca8861f36d549496dadf82a7273f6f26.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000352s ]
+ERR: 无法加载模块:Upload
+
+[ 2017-05-24T15:44:38+08:00 ] 127.0.0.1 /Upload/ca8861f36d549496dadf82a7273f6f26.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+ERR: 无法加载模块:Upload
+
+[ 2017-05-24T15:44:42+08:00 ] 127.0.0.1 /Upload/ca8861f36d549496dadf82a7273f6f26.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000737s ]
+ERR: 无法加载模块:Upload
+

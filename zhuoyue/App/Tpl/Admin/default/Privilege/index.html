@@ -1,0 +1,71 @@
+<include file="Public:_header" />
+<tagLib name="htmlA" />
+
+<div class="so_main">
+    <div class="page_tit">红包设置</div>
+    <div class="Toolbar_inbox">
+
+        <htmlA:commonBtn type="href" action="{:U('/admin/Privilege/addtqj')}" value="添加红包"/>
+    </div>
+        <div class="list" >
+            <table style="width: 100%">
+                <tr class="Toolbar_inbox" >
+                    <td width="200px">ID</td>
+                    <td  width="300px">标题</td>
+                    <td  width="200px">特权金额</td>
+                    <td  width="200px">活动开始时间</td>
+                    <td  width="200px">活动结束时间</td>
+                    <td  width="200px">年利率</td>
+                    <td  width="200px">领取条件</td>
+                    <td  width="200px">领取次数</td>
+                    <td width="200px">状态</td>
+                    <td width="200px">操作</td>
+                    <td  width="200px">领取记录</td>
+
+                </tr>
+                <volist name="count" id="tqj">
+                <tr>
+                    <td>{$tqj.id}</td>
+                    <td>{$tqj.name}</td>
+                    <td>{$tqj.money}</td>
+                    <td>{$tqj.begin_time}</td>
+                    <td>{$tqj.over_time}</td>
+                    <td>{$tqj.rate}%</td>
+                    <td style="text-align: center">
+                        <if condition="$tqj.shouji eq 手机认证">
+                            {$tqj.shouji}<br/>
+                        </if>
+                        <if condition="$tqj.shiming eq 实名认证">
+                            {$tqj.shiming}<br/>
+                        </if>
+                        <if condition="$tqj.youxiang eq 邮箱认证">
+                            {$tqj.youxiang}<br/>
+                        </if>
+                        <if condition="$tqj.daishou eq 在投金额">
+                            {$tqj.daishou}:{$tqj.status_due_money}元
+                        </if></td>
+
+                    <td>{$tqj.biggest}次</td>
+
+                    <if condition="$tqj.isopen eq 0"><td>开启</td><else/><td>关闭</td></if>
+                    <td><a href="__URL__/amend?id={$tqj.id}">修改</a></td>
+                    <td><a href="__URL__/record?id={$tqj.id}" >查看</a></td>
+                    <!--<td><a href="__URL__/amend?id={$tqj.id}">修改</a>/<a href="#"  class="del" id="{$tqj.id}" >删除</a></td>-->
+                </tr>
+                </volist>
+            </table>
+            <div class="page right">{$pagebar}</div>
+        </div>
+
+</div>
+<script type="text/javascript">
+
+    $(".del").click(function(){
+        var id=$(this).attr('id');
+        if(confirm("你确定要删除该信息吗？")){
+            location.href="__URL__/delete?id="+id;
+        }
+    });
+
+
+</script>

@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'to_user_id', 2 => 'to_user_name', 3 => 'to_phone', 4 => 'content', 5 => 'addtime', 6 => 'addtime_des', 7 => 'back_status', 8 => 'back_status_des', 9 => 'add_ip', '_autoinc' => true, '_pk' => 'id', ); ?>

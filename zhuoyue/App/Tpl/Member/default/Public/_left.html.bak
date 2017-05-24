@@ -1,0 +1,98 @@
+<div class="user_list" > <a class="dw_top" href="/member" style="border-top:1px solid #D2D2D2;">帐户总览</a>
+  <div id="dw_m_left">
+    <div class="dv_r_5" > <a class="bt6"><span></span>基本设置</a> </div>
+    <div class="dw_navlist">
+      <ul>
+        <li><a href="__APP__/member/memberinfo#fragment-1">基本资料</a></li>
+        <li><a href="__APP__/member/user#fragment-1">头像与密码</a></li>
+        <li><a href="__APP__/member/verify?id=1#fragment-1">认证中心</a></li>
+        <if condition="$loginconfig['qq']['enable'] eq '0' and $loginconfig['sina']['enable'] eq '0'">
+          <li class="last"><a href="__APP__/member/msg#fragment-1">系统消息</a></li>
+          <else/>
+          <li><a href="__APP__/member/msg#fragment-1">系统消息</a></li>
+          <li class="last"><a  href="__APP__/member/oauthlogin">快捷登录</a></li>
+        </if>
+      </ul>
+    </div>
+    <div class="dv_r_5" > <a class="bt3"><span></span>资金管理</a> </div>
+    <div class="dw_navlist">
+      <ul>
+        <li><a href="__APP__/member/capital#fragment-1">资金统计</a></li>     
+        <li><a href="__APP__/member/charge#fragment-1">我要充值</a></li>
+        <li><a href="__APP__/member/withdraw#fragment-1">我要提现</a></li>
+        <li><a href="__APP__/member/bank#fragment-1">银行帐户</a></li>
+        <li class="last"><a href="__APP__/member/credit#fragment-1">积分记录</a></li>
+      </ul>
+    </div>
+    <div class="dv_r_5"> <a class="bt4"><span></span>投资管理</a> </div>
+    <div class="dw_navlist">
+      <ul>
+        <li><a href="__APP__/member/tendout#fragment-3">散标投资</a></li>
+        <li><a href="__APP__/member/tborrow#fragment-2">企业直投投资</a></li>
+        <li><a href="__APP__/member/debt#fragment-1">债权转让</a></li>
+        <li  class="last"><a href="__APP__/member/auto/index.html">自动投标</a></li>
+      </ul>
+    </div>
+    <div class="dv_r_5" > <a class="bt2"><span></span>借款管理</a> </div>
+    <div class="dw_navlist">
+      <ul>
+        <li><a href="__APP__/member/borrowin#fragment-3">借款总表</a></li>
+        <li ><a href="__APP__/member/moneylimit#fragment-1">额度申请</a></li>
+        <li class="last"><a href="__APP__/member/verify#fragment-7">资料上传</a></li>
+      </ul>
+    </div>
+    <div class="dv_r_5" > <a class="bt5"><span></span>好友管理</a> </div>
+    <div class="dw_navlist">
+      <ul>
+        <li><a href="/member/friend#fragment-1">好友列表</a></li>
+        <li><a href="/member/friend#fragment-2">好友申请</a></li>
+        <li><a href="/member/friend#fragment-3">会员留言</a></li>
+      </ul>
+    </div>
+       <div class="dv_r_5" > <a class="bt7"><span></span>邀请有奖</a> </div>
+    <div class="dw_navlist">
+      <ul>
+
+        <li><a href="/member/promotion#fragment-1">邀请好友</a></li>
+        <li class="last"><a href="/member/promotion#fragment-2">奖金记录</a></li>
+      </ul>
+    </div>
+  </div>
+  <a href="__APP__/member/auto/index.html" class="dw_autotou"></a> </div>
+<script type="text/javascript">
+
+dw_solid =function (a,b,c){
+var a1=$(a).children(),
+b1=$(a).children(b),
+c1=$(a).children(c),
+lh=location.href;
+lh=lh.split(location.host)[1];
+c1.hide();
+lh=="/member/verify?id=1#fragment-3" && a1.eq(1).show();
+
+b1.each(function(){
+var next=$(this).next(),
+index=next.index(),
+sp=$('span',this),
+sibp=$('span',$(this).siblings(b)),
+aa=$('a',next);
+aa.each(function(){
+var ah=$(this).attr('href');
+if(lh==ah){
+a1.eq(index).show();
+sp.addClass('on');
+}
+});
+$(this).click(function(){
+sp.toggleClass('on');
+sibp.removeClass('on');
+next.slideToggle().siblings(c).slideUp();
+})
+});
+
+}
+dw_solid("#dw_m_left",".dv_r_5",".dw_navlist");
+$(window).load(function(){
+$('body,html').animate({scrollTop:0},1);
+});
+</script>

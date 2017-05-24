@@ -1,0 +1,259 @@
+<if condition="$web_close.isopen eq 2">
+<div class="web_close" style="text-align: center;font-size: 30px;margin-top:200px;">
+    <span>{$web_close.title}</span>
+</div>
+<else/>
+<include file="default:Public:header_new" group="Home"/>
+<title>我的账户--{$glo.web_name}</title>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/Member/css/member.css" />
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/css/Mbmber.css" />
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/JQtip/tip-yellowsimple/tip-yellowsimple.css" />
+<script type="text/javascript" src="/Style/H/js/highcharts/highcharts.js"></script>
+<script type="text/javascript">
+    //投资走势
+    $(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        credits:{
+            enabled:0
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [<?php foreach($data as $time){echo "\'".$time['month']."月份\',";}?>]
+        },
+        yAxis: {
+            title: {
+                text: '投资金额'
+            },
+            labels: {
+                formatter:function(){
+                    if(this.value <=10) {
+                        return this.value+"元";
+                    }else if(this.value >10 && this.value <=20) {
+                        return this.value+"元";
+                    }else if(this.value >10 && this.value <=20) {
+                        return this.value + "元";
+                    }else if(this.value >20 && this.value <=30) {
+                        return this.value + "元";
+                    }else if(this.value >30 && this.value <=40) {
+                        return this.value + "元";
+                    }else {
+                        return this.value+"元";
+                    }
+                }
+
+
+            }
+        },
+        tooltip: {
+            enabled: false,
+            formatter: function() {
+                return "<b>"+ this.series.name +'</b><br/>'+this.x +': '+ this.y +'°C';
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: true
+            }
+        },
+        series: [{
+            name: '投资走势',
+            color:'#fc8026',
+            data: [<?php foreach($data as $time){echo $time['money'].',';}?>]
+        }, ]
+    });
+});
+</script>
+<!--顶部用户信息开始-->
+<div class="width-100 member-banner marbottom_25 minwidth1200">
+    <div class="width1200 padtop_20">
+        <div class="member-photo float_left marright_15 marleft_40"><a href="__APP__/member/user#fragment-1" title="点击进行头像更换"> <img  alt="点击进行头像更换" src="{$UID|get_avatar=###}" class="border-radius50" /></a></div>
+        <div class="float_left color-black font14">
+            <div class="font18 marbottom_10">{$day_time}，{:session('u_user_name')}</div>
+            <div class="marbottom_10">
+                <div class="float_left">信息完整度：</div>
+                <div class="float_left martop_3"><span class="member-proprogress border-radius member-bg-gray inline-block"><span class="member-height15 border-radius member-bg-blue inline-block" style="width:{$member_info_progress}%;"></span></span></div>
+                <div class="float_left marleft_5">{$member_info_progress}%</div>
+                <div class="clear"></div>
+            </div>
+            <div class="member-verify">认证情况：{$minfo.id|getVerify_ucenter=###}</div>
+            <div><span class="marright_10">信用等级：</span><span class="marright_20" title="积分：{$minfo.credits|default=0}分">{$minfo.credits|getLeveIco=###,2}</span><span class="marright_10">投资等级：</span><span class="marright_10" title="投资积分：{$minfo.integral|default=0}分">{$minfo.integral|getInvestLeveIco=###,2}</span></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--顶部用户信息结束-->
+<!--中间内容开始-->
+<div class="width1200 marbottom_50">
+    <!--左边导航开始-->
+    <div class="member-left float_left">
+        <include file="Public:_left"/>
+    </div>
+    <!--左边导航结束-->
+    <!--右边内容开始-->
+    <div class="member-right float_right font14">
+        <!--第一行内容开始-->
+        <div class="border-all">
+            <div class="member-width345 float_left padtop_20 border-right member-height172">
+                <div class="marbottom_10 font18">
+                    <div class="member-width100 text-right float_left">可用余额:&nbsp;</div>
+                    <div class="float_left"><span class="member-color-orange">{:Fmoney($minfo['account_money']+$minfo['back_money'])}</span></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="marbottom_10 member-color-gray">
+                    <div class="member-width100 text-right float_left">账户余额:&nbsp;</div>
+                    <div class="float_left">{:Fmoney($minfo['account_money']+$minfo['back_money']+$minfo['money_collect']+$minfo['money_freeze'])}</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="marbottom_15 member-color-gray">
+                    <div class="member-width100 text-right float_left">冻结余额:&nbsp;</div>
+                    <div class="float_left">{$minfo.money_freeze|Fmoney=###}</div>
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <div class="member-width100  text-right float_left member-button-tx"><a href="__APP__/member/charge#fragment-1" class="a-small-button member-bg-red member-button-width65 float_right border-radius  text-center color-white">充值</a></div>
+                    <div class="float_left member-button-tx"><a href="__APP__/member/withdraw#fragment-1" class="a-small-button member-bg-gray2 member-button-width65 border-radius  text-center color-white marleft_20">提现</a></div>
+                    <div class="float_left marleft_50 member-link"><img src="/Style/Member/images/index/member_question.png" title="更详细的资金明细" />&nbsp;<a href="/member/capital#fragment-2" class="member-color-gray" >资金明细</a></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="member-width345 float_left padtop_20  member-height172">
+                <div class="marbottom_10 font18 padleft_30">其他资产：</div>
+                <div class="marbottom_10 padleft_30 member-color-gray member-link"><img src="/Style/Member/images/index/member_money.png" />&nbsp;红包：&nbsp;{$tqj|Fmoney=###}<span class="marleft_20"><img src="/Style/Member/images/index/member_question.png" title="了解红包"/>&nbsp;<a href="__URL__/tqj_details#fragment-1" class="member-color-red">了解红包？</a></span></div>
+                <!--<div class="marbottom_10 padleft_30 member-color-gray member-link"><img src="/Style/Member/images/index/member_quan.png" />&nbsp;加息券：&nbsp;{$voucher_num}张<span class="marleft_20"><img src="/Style/Member/images/index/member_question.png" title="了解特权金"/>&nbsp;<a href="/member/interestratecoupon/index#fragment-1" class="member-color-red">了解加息券？</a></span></div>-->
+            </div>
+            <div class="member-width338 float_left member-height16 padtop_20" style="display: none;">
+                <!--<div class="marbottom_10 font18 padleft_30">聚财宝</div>
+                <div>
+                    <div class="float_left marbottom_10 padleft_30 member-color-gray member-link">
+                        <div class="marbottom_10">&nbsp;昨日收益(元)：&nbsp;&nbsp;<span class="member-color-orange font18 text-center">{$yuebao_yesterday_log.affect_money|Fmoney=###|default='￥0.00'}</span></div>
+                        <div>总金额：{:Fmoney($yuebao_info_data['money']+$yuebao_info_data['interest'])}</div>
+                    </div>
+                    <div class="float_left padleft_30 member-color-gray member-link">
+                        <div class="marbottom_10">&nbsp;当前活期年化利率：&nbsp;&nbsp;<span class="member-color-orange font18 text-center">{:floatval($yuebao_rule[1])}%</span></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="marbottom_10">
+                    <div class="member-width100  text-right float_left member-button-tx"><a href="javascript:;" class="yuebaoin a-small-button member-bg-red member-button-width65 float_right border-radius  text-center color-white">转入</a></div>
+                    <div class="float_left member-button-tx"><a href="javascript:;" class="yuebaoout a-small-button member-bg-gray2 member-button-width65 border-radius  text-center color-white marleft_20">转出</a></div>
+                    <div class="float_left marleft_50 member-link"><img src="/Style/Member/images/index/member_question.png" title="更详细的资金明细" />&nbsp;<a href="/member/yuebao/index#fragment-1" class="member-color-gray" >资金明细</a></div>
+                    <div class="clear"></div>
+                </div>-->
+                <div class="padleft_20 font18 marbottom_20">我的推荐：</div>
+                <div class="marbottom_25 padleft_20"><span class="border-all-red member-color-red pad3"><a href="/member/promotion#fragment-1" title="邀请好友，获得奖励！"><img src="/Style/Member/images/index/member_recommend.png" /></a>&nbsp;当前推荐了{$promotion_num|default="0"}个好友</span></div>
+                <div class="padleft_20 marbottom_20 member-color-gray">我推荐了{$promotion_num|default="0"}个人</div>
+                <div class="padleft_20 member-color-gray">奖励{$promotion_money|default="0"}元<span class="marleft_40 member-link"><img src="/Style/Member/images/index/member_recommend.png" />&nbsp;<a href="/member/promotion#fragment-1" class="member-color-red" title="邀请好友，获得奖励！">邀请好友，</a>获得奖励！</span></div>
+
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--第一行内容结束-->
+        <!--第二行内容开始-->
+        <div class="border-left border-right border-bottom marbottom_30">
+            <div class="float_left member-width691 member-height180">
+                <div class="member-width691 border-right float_left">
+                    <div class="member-height35 padleft_20 lineheight35 font18">我的资产</div>
+                    <div>
+                        <div class="member-width230 float_left">
+                            <div class="member-height3 color-bg-orange"></div>
+                            <div class="member-height170 border-right padtop_10">
+                                <div class="marbottom_15 padleft_15 font18 member-color-orange"><span class="member-border-orange border-radius50 member-height42 member-width42 inline-block font22 text-center lineheight42 marright_10">总</span>账户总览</div>
+                                <div class="padleft_25 member-color-gray marbottom_10">账户总额：{:Fmoney($minfo['account_money']+$minfo['back_money']+$minfo['money_collect']+$minfo['money_freeze'])}</div>
+                                <div class="padleft_25 member-color-gray marbottom_10">众筹待收本金：{$crowds.capital|Fmoney=###}</div>
+                                <div class="padleft_25 member-color-gray marbottom_10">众筹待回款项目个数：{$crowds.id|0}</div>
+                                <!--<div class="padleft_25 member-color-gray marbottom_10">待还本金：{$out.capital_pay|Fmoney=###}</div>-->
+                                <!--<div class="padleft_25 member-color-gray marbottom_10">待还利息：{$out.interest_pay|Fmoney=###}</div>-->
+                                <div class="padleft_25 member-color-gray marbottom_10 member-link"><a href="/member/capital#fragment-2" class="member-color-gray" title='查看详情'>查看详情</a></div>
+                            </div>
+                        </div>
+                        <div class="member-width230 float_left">
+                            <div class="member-height3 color-bg-blue"></div>
+                            <div class="member-height170 border-right padtop_10">
+                                <div class="marbottom_15 padleft_15 font18 member-color-blue"><span class="member-border-blue border-radius50 member-height42 member-width42 inline-block font22 text-center lineheight42 marright_10">收</span>收益</div>
+                                <div class="padleft_25 member-color-gray marbottom_10">净赚利息：{$all_benefit|Fmoney=###}</div>
+                                <!--<div class="padleft_25 member-color-gray marbottom_10">投标奖励：{$benefit.ireward|Fmoney=###}</div>-->
+                                <div class="padleft_25 member-color-gray marbottom_10">推广奖励：{$benefit.spread_reward|Fmoney=###}</div>
+                                <div class="padleft_25 member-color-gray marbottom_10">线下充值奖励：{$benefit.re_reward|Fmoney=###}</div>
+                                <div class="padleft_25 member-link"><a href="/crowdinvest/index" class="member-color-gray" title='立即投资'>立即投资</a>
+                                    <!--<span class="marleft_30"><a href="/member/borrowin#fragment-3" class="member-color-gray" title='借款详情'>借款详情</a></span>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-width230 float_left">
+                            <div class="member-height3 color-bg-green"></div>
+                            <div class="member-height170 padtop_10">
+                                <div class="marbottom_15 padleft_15 font18 member-color-green"><span class="member-border-green border-radius50 member-height42 member-width42 inline-block font22 text-center lineheight42 marright_10">支</span>支出</div>
+                                <!--<div class="padleft_25 member-color-gray marbottom_10">-->
+                                <!--<div class="member-width160 float_left">支付利息：{$out.interest|Fmoney=###}</div>-->
+                                <!--<div class="float_left">借款管理费：{$out.borrow_manage|Fmoney=###}</div>-->
+                                <!--<div class="clear"></div>-->
+                                <!--</div>-->
+                                <!--<div class="padleft_25 member-color-gray marbottom_10">-->
+                                <!--<div class="member-width160 float_left">投标奖励：{$out.pay_tender|Fmoney=###}</div>-->
+                                <!--<div class="float_left">逾期及催收费：{$out.overdue|Fmoney=###}</div>-->
+                                <!--<div class="clear"></div>-->
+                                <!--</div>-->
+                                <div class="padleft_25 member-color-gray marbottom_10">提现手续费：{$out.withdraw_fee|Fmoney=###}</div>
+                                <div class="padleft_25 member-color-gray marbottom_40">会员及认证费用：{$out.authenticate|Fmoney=###}</div>
+                                <div class="text-center member-link"><a href="/member/capital#fragment-2" class="member-color-gray" title='资金明细'>资金明细</a><span class="marleft_30"><a href="/member/infocrowd#fragment-1" class="member-color-gray" title='投资详情'>投资详情</a></span></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="float_left member-width338 member-height210 padtop_20 border-left" style="display: none">
+                <div class="padleft_20 font18 marbottom_20">我的推荐：</div>
+                <div class="marbottom_25 padleft_20"><span class="border-all-red member-color-red pad3"><a href="/member/promotion#fragment-1" title="邀请好友，获得奖励！"><img src="/Style/Member/images/index/member_recommend.png" /></a>&nbsp;当前推荐了{$promotion_num|default="0"}个好友</span></div>
+                <div class="padleft_20 marbottom_20 member-color-gray">我推荐了{$promotion_num|default="0"}个人</div>
+                <div class="padleft_20 member-color-gray">奖励{$promotion_money|default="0"}元<span class="marleft_40 member-link"><img src="/Style/Member/images/index/member_recommend.png" />&nbsp;<a href="/member/promotion#fragment-1" class="member-color-red" title="邀请好友，获得奖励！">邀请好友，</a>获得奖励！</span></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--第二行内容结束-->
+        <!--第三行内容开始-->
+        <!--第三行内容结束-->
+        <div class="border-all" style="margin-top: 20px;">
+            <div class=""><div id="container" style="width:100%;height:276px"></div></div>
+        </div>
+    </div>
+    <!--右边内容结束-->
+    <div class="clear"></div>
+</div>
+<!--中间内容结束-->
+<script type="text/javascript">
+    $(function(){
+        $('.yuebaoin').click(function(){
+            $.jBox("get:__APP__/member/yuebao/in?id=&ra="+Math.random(), {
+                title: "聚财宝转入",
+                width: "auto",
+                height: 350,
+                buttons: {}
+            });
+        });
+        $('.yuebaoout').click(function(){
+            $.jBox("get:__APP__/member/yuebao/out?id=&ra="+Math.random(), {
+                title: "聚财宝转出",
+                width: "auto",
+                height: 350,
+                buttons: {}
+            });
+        });
+    });
+</script>
+<include file="default:Public:bottom" group="Home"/>
+
+</if>

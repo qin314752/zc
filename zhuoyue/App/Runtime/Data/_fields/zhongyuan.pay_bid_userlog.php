@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'pid', 2 => 'uid', 3 => 'pay_money', 4 => 'bid_money', 5 => 'add_time', 6 => 'end_time', 7 => 'status', 8 => 'borrow_id', 9 => 'crowd_id', '_autoinc' => true, '_pk' => 'id', ); ?>

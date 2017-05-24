@@ -1,0 +1,214 @@
+﻿<include file="Pub:header" />
+<!-- 标题 start-->
+<div class="header">项目列表</div>
+<!-- 标题 end-->
+
+<div class="main bg-grey">
+    
+    <!-- 众筹项目 start-->
+    <div class="project-nav">
+        <div class="project-nav-list float-left">
+            <a href="javascript:;" class="red" onclick="project(this,0)">全部</a>
+        </div>
+        <div class="project-nav-list float-left">
+            <a href="javascript:;" onclick="project(this,1)">众筹中</a>
+        </div>
+        <div class="project-nav-list float-left">
+            <a href="javascript:;" onclick="project(this,2)">出售中</a>
+        </div>
+        <div class="project-nav-list float-left">
+            <a href="javascript:;" onclick="project(this,5)">已完成</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="project">
+        <volist name="list.list" id="vo">
+            <div class="project-top"></div>
+            <div class="project-box">
+                <div class="project-title"><span class="project-ico"></span><a href="{:U('/M/Crowdinvest/detail',array('id'=>$vo['id']))}">{$vo.crowd_name|cnsubstr=15}</a></div>
+                <div class="project-content">
+                    <div class="project-img marbottom15">
+                        <a href="{:U('/M/Crowdinvest/detail',array('id'=>$vo['id']))}">
+                            <img src="{$vo['img'][0]['img']}"/>
+                            <!--众筹状态 start-->
+                            <if condition="($vo.status eq 1) AND ($vo.start_time elt time())">
+                                <!-- 众筹中 -->
+                                <img src="/Style/Mobile/images/index/zcz.png" class="project-status"/>
+                            <elseif condition="($vo.status eq 1) AND ($vo.start_time gt time())"/>
+                                <!-- 预告中 -->
+                                <img src="/Style/Mobile/images/index/ygz.png" class="project-status"/>
+                            <elseif condition="$vo.status eq 2"/>
+                                <!-- 出售中 -->
+                                <img src="/Style/Mobile/images/index/csz.png" class="project-status"/>
+                            <elseif condition="$vo.status eq 3"/>
+                                <!-- 投票中 -->
+                                <img src="/Style/Mobile/images/index/tpz.png" class="project-status"/>
+                            <elseif condition="$vo.status eq 4"/>
+                                <!-- 待回款 -->
+                                <img src="/Style/Mobile/images/index/dhk.png" class="project-status"/>
+                            <elseif condition="$vo.status eq 5"/>
+                                <!-- 已售出 -->
+                                <img src="/Style/Mobile/images/index/ysc.png" class="project-status"/>
+                                <div class="project-rate">{$vo['voting']*100}%</div>
+                            <elseif condition="$vo.status eq 9"/>
+                                <!-- 溢价回购完成 -->
+                                <img src="/Style/Mobile/images/index/yjhgwc.png" class="project-status"/>
+                            <else/>
+                                <!-- 溢价回购 -->
+                                <img src="/Style/Mobile/images/index/yjhg.png" class="project-status"/>
+                            </if>
+                        </a>
+                        <!--众筹状态 end-->
+                    </div>
+                    <if condition="$vo.start_time elt time()">
+                        <div class="progree">
+                            <div class="progress-right">{$vo.rate}%</div>
+                            <div class="progress-left">
+                                <span class="progress-box">
+                                    <span class="progress-content" style="width:{$vo.rate}%;"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </if>
+                    <div>
+                        <div class="project-left float-left">
+                            <if condition="($vo.status eq 1) AND ($vo.start_time gt time())">
+                                <div class="project-detail left_time" data="{$vo['start_time']-time()}">
+                                    <img src="/Style/Mobile/images/index/time.png" class="ico-right5"/>距开始还有: 
+                                    <em class="s day">0</em>
+                                    <em class="l">天</em>
+                                    <em class="s hour">0</em>
+                                    <em class="l">时</em>
+                                    <em class="s min">0</em>
+                                    <em class="l">分</em>
+        <!--                            <em class="s sec">--</em>
+                                    <em class="l">秒</em>-->
+                                </div>
+                            <else />
+                                <div class="project-detail"><img src="/Style/Mobile/images/index/people.png" class="ico-right5"/>众筹笔数: {$vo.record_count}笔</div>
+                            </if>
+                            <div class="project-detail"><img src="/Style/Mobile/images/index/money.png" class="ico-right10"/>众筹目标: {$vo.crowd_money}元</div>
+                        </div>
+                        <div class="project-right float-right">
+                            <!--众筹状态 start-->
+                            <if condition="($vo.status eq 1) AND ($vo.start_time elt time())">
+                                <!-- 众筹中 -->
+                                <a href="{:U('/M/Crowdinvest/detail',array('id'=>$vo['id']))}" class="project-button">我要认筹</a>
+                            <elseif condition="($vo.status eq 1) AND ($vo.start_time gt time())"/>
+                                <!-- 预告中 -->    
+                                <a href="/M/Reservation/index" class="project-button">我要预约</a>
+                            <elseif condition="$vo.status eq 2"/>
+                                <!-- 出售中 -->
+                                <span class="project-button-grey">出售中</span>
+                            <elseif condition="$vo.status eq 3"/>
+                                <!-- 投票中 -->
+                                <span class="project-button-grey">投票中</span>
+                            <elseif condition="$vo.status eq 4"/>
+                                <!-- 待回款 -->
+                                <span class="project-button-grey">待回款</span>
+                            <elseif condition="$vo.status eq 5"/>
+                                <!-- 已售出 -->
+                                <span class="project-button-grey">已售出</span>
+                            <elseif condition="$vo.status eq 9"/>
+                                <!-- 溢价回购完成 -->
+                                <span class="project-button-grey">回购完成</span>
+                            <else/>
+                                <!-- 溢价回购 -->
+                                <span class="project-button-grey">溢价回购</span>
+                            </if>
+                            <!--众筹状态 end-->
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </div>
+    <!-- 众筹项目 end-->
+    
+    <!-- 获取更多众筹项目 start-->
+    <a href="javascript:void(0)" onclick="getInfo()" class="info-button">更多众筹项目</a>
+    <input type="hidden" name="status" value="0">
+    <input type="hidden" name="nowPage" value="{$list.page.nowPage}">
+    <input type="hidden" name="total" value="{$list.page.total}">
+    <!-- 获取更多众筹项目 end--> 
+    
+</div>
+
+<script type="text/javascript">
+    leftTimeAct();
+    // 未开始项目倒计时
+    function leftTimeAct(){
+        var leftTimeActInv = null;
+        clearTimeout(leftTimeActInv);
+        $(".left_time").each(function(){
+            var leftTime = parseInt($(this).attr("data"));
+            if(leftTime > 0)
+           {
+               var day  =  parseInt(leftTime / 24 /3600);
+               var hour = parseInt((leftTime % (24 *3600)) / 3600);
+               var min = parseInt((leftTime % 3600) / 60);
+               var sec = parseInt((leftTime % 3600) % 60);
+               $(this).find(".day").html((day<10?"0"+day:day));
+               $(this).find(".hour").html((hour<10?"0"+hour:hour));
+               $(this).find(".min").html((min<10?"0"+min:min));
+               $(this).find(".sec").html((sec<10?"0"+sec:sec));
+               leftTime--;
+               $(this).attr("data",leftTime);
+           }
+           else{
+               $(".herald").remove();
+               return false;
+           }
+       });
+       leftTimeActInv = setTimeout(function(){
+           leftTimeAct();
+       },1000);
+    }
+    
+    // 根据众筹项目状态筛选列表
+    function project(name,status){
+        $.post("__URL__",{status:status},function(d){
+            $(".red").removeClass("red");
+            $(name).addClass("red");
+            $(".project").html(d.html);
+            $("input[name='status']").val(d.status);
+            $("input[name='nowPage']").val(d.nowPage);
+            $("input[name='total']").val(d.total);
+            if(d.nowPage >= d.total){
+                $(".info-button").hide();
+            }else{
+                $(".info-button").show();
+            }
+        },'json');
+    }
+
+    // 获取更多众筹项目
+    var nowPage = $("input[name='nowPage']").val();
+    var total = $("input[name='total']").val();
+    $(function(){
+        if(nowPage >=total){
+            $(".info-button").hide();
+        }
+    });
+    function getInfo() {
+        nextPage = parseInt($("input[name='nowPage']").val()) + parseInt(1);
+        var status = $("input[name='status']").val();
+        $.ajax({
+            url: location.href,
+            data: { p: nextPage,status:status},
+            type: 'get',
+            async: true,
+            dataType: "json",
+            success: function (res) {
+                $(".project").append(res.html);
+                $("input[name='nowPage']").val(parseInt($("input[name='nowPage']").val()) + parseInt(1));
+                if ($("input[name='nowPage']").val() == $("input[name='total']").val()) {
+                    $(".info-button").hide();
+                }
+            },
+        });
+    }
+</script>
+﻿<include file="Pub:footer" />

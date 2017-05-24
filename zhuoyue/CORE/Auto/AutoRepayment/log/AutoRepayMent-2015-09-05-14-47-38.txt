@@ -1,0 +1,1772 @@
+
+list=
+array (
+  0 => 
+  array (
+    'id' => '4',
+    'invest_id' => '1',
+    'interest' => '4250.00',
+    'investor_uid' => '4',
+    'borrow_uid' => '8',
+    'borrow_id' => '1',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '4',
+    'total' => '9',
+  ),
+  1 => 
+  array (
+    'id' => '13',
+    'invest_id' => '2',
+    'interest' => '2833.33',
+    'investor_uid' => '4',
+    'borrow_uid' => '8',
+    'borrow_id' => '1',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '4',
+    'total' => '9',
+  ),
+  2 => 
+  array (
+    'id' => '21',
+    'invest_id' => '3',
+    'interest' => '1.08',
+    'investor_uid' => '30',
+    'borrow_uid' => '8',
+    'borrow_id' => '2',
+    'capital' => '100.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '3',
+    'total' => '3',
+  ),
+  3 => 
+  array (
+    'id' => '24',
+    'invest_id' => '4',
+    'interest' => '2.17',
+    'investor_uid' => '32',
+    'borrow_uid' => '8',
+    'borrow_id' => '2',
+    'capital' => '200.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '3',
+    'total' => '3',
+  ),
+  4 => 
+  array (
+    'id' => '27',
+    'invest_id' => '5',
+    'interest' => '1.08',
+    'investor_uid' => '32',
+    'borrow_uid' => '8',
+    'borrow_id' => '2',
+    'capital' => '100.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '3',
+    'total' => '3',
+  ),
+  5 => 
+  array (
+    'id' => '28',
+    'invest_id' => '6',
+    'interest' => '315.39',
+    'investor_uid' => '32',
+    'borrow_uid' => '8',
+    'borrow_id' => '2',
+    'capital' => '9600.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '1',
+  ),
+  6 => 
+  array (
+    'id' => '36',
+    'invest_id' => '14',
+    'interest' => '1.67',
+    'investor_uid' => '53',
+    'borrow_uid' => '8',
+    'borrow_id' => '5',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '3',
+  ),
+  7 => 
+  array (
+    'id' => '39',
+    'invest_id' => '15',
+    'interest' => '1.67',
+    'investor_uid' => '53',
+    'borrow_uid' => '8',
+    'borrow_id' => '5',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '3',
+  ),
+  8 => 
+  array (
+    'id' => '42',
+    'invest_id' => '16',
+    'interest' => '1.67',
+    'investor_uid' => '53',
+    'borrow_uid' => '8',
+    'borrow_id' => '5',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '3',
+  ),
+  9 => 
+  array (
+    'id' => '45',
+    'invest_id' => '17',
+    'interest' => '1.67',
+    'investor_uid' => '53',
+    'borrow_uid' => '8',
+    'borrow_id' => '5',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '3',
+  ),
+  10 => 
+  array (
+    'id' => '48',
+    'invest_id' => '18',
+    'interest' => '83.33',
+    'investor_uid' => '78',
+    'borrow_uid' => '8',
+    'borrow_id' => '7',
+    'capital' => '10000.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '1',
+  ),
+  11 => 
+  array (
+    'id' => '49',
+    'invest_id' => '19',
+    'interest' => '333.33',
+    'investor_uid' => '78',
+    'borrow_uid' => '8',
+    'borrow_id' => '7',
+    'capital' => '40000.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '1',
+  ),
+  12 => 
+  array (
+    'id' => '50',
+    'invest_id' => '20',
+    'interest' => '3.75',
+    'investor_uid' => '78',
+    'borrow_uid' => '8',
+    'borrow_id' => '8',
+    'capital' => '0.00',
+    'interest_fee' => '0.00',
+    'sort_order' => '1',
+    'total' => '3',
+  ),
+  13 => 
+  array (
+    'id' => '57',
+    'invest_id' => '23',
+    'interest' => '0.83',
+    'investor_uid' => '89',
+    'borrow_uid' => '8',
+    'borrow_id' => '9',
+    'capital' => '100.00',
+    'interest_fee' => '0.57',
+    'sort_order' => '1',
+    'total' => '1',
+  ),
+  14 => 
+  array (
+    'id' => '58',
+    'invest_id' => '24',
+    'interest' => '0.83',
+    'investor_uid' => '32',
+    'borrow_uid' => '8',
+    'borrow_id' => '9',
+    'capital' => '100.00',
+    'interest_fee' => '0.57',
+    'sort_order' => '1',
+    'total' => '1',
+  ),
+)
+borrow_id=1
+detail_id=4
+borrow_uid=8
+investor_uid=4
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -4250,
+  'account_money' => 544141.85,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对1号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '4',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 544141.85,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '1',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+4250.00-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+NULL
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+4250.00-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+NULL
+datamoney=
+array (
+  'uid' => '4',
+  'type' => '44',
+  'affect_money' => 4250,
+  'account_money' => '601665.34',
+  'back_money' => 25499.99,
+  'collect_money' => 538352.48,
+  'freeze_money' => '260.00',
+  'info' => '收到借款人对1号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '260.00',
+  'money_collect' => 538352.48,
+  'account_money' => '601665.34',
+  'back_money' => 25499.99,
+)
+moneynewid_x=2508
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2509
+xid=1
+
+
+borrow_id=1
+detail_id=13
+borrow_uid=8
+investor_uid=4
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -2833.33,
+  'account_money' => 541308.52,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对1号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '4',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 541308.52,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '2',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+2833.33-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+NULL
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+2833.33-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+NULL
+datamoney=
+array (
+  'uid' => '4',
+  'type' => '44',
+  'affect_money' => 2833.33,
+  'account_money' => '601665.34',
+  'back_money' => 28333.32,
+  'collect_money' => 535519.15,
+  'freeze_money' => '260.00',
+  'info' => '收到借款人对1号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '260.00',
+  'money_collect' => 535519.15,
+  'account_money' => '601665.34',
+  'back_money' => 28333.32,
+)
+moneynewid_x=2510
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2511
+xid=1
+
+
+borrow_id=2
+detail_id=21
+borrow_uid=8
+investor_uid=30
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -101.08,
+  'account_money' => 541207.44,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对2号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '30',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 541207.44,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '3',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.08-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.08-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '30',
+  'type' => '44',
+  'affect_money' => 101.08,
+  'account_money' => '907628.56',
+  'back_money' => 81311.12,
+  'collect_money' => 15384.03,
+  'freeze_money' => '701.35',
+  'info' => '收到借款人对2号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '701.35',
+  'money_collect' => 15384.03,
+  'account_money' => '907628.56',
+  'back_money' => 81311.12,
+)
+moneynewid_x=2512
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2513
+xid=1
+
+
+borrow_id=2
+detail_id=24
+borrow_uid=8
+investor_uid=32
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -202.17,
+  'account_money' => 541005.27,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对2号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '32',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 541005.27,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '4',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+200.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+2.17-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+2',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+200.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+2.17-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+2',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '32',
+  'type' => '44',
+  'affect_money' => 202.17,
+  'account_money' => '22264.69',
+  'back_money' => 202.17,
+  'collect_money' => 110116.71,
+  'freeze_money' => '1104.00',
+  'info' => '收到借款人对2号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '1104.00',
+  'money_collect' => 110116.71,
+  'account_money' => '22264.69',
+  'back_money' => 202.17,
+)
+moneynewid_x=2514
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2515
+xid=1
+
+
+borrow_id=2
+detail_id=27
+borrow_uid=8
+investor_uid=32
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -101.08,
+  'account_money' => 540904.19,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对2号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '32',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 540904.19,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '5',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.08-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.08-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '32',
+  'type' => '44',
+  'affect_money' => 101.08,
+  'account_money' => '22264.69',
+  'back_money' => 303.25,
+  'collect_money' => 110015.63,
+  'freeze_money' => '1104.00',
+  'info' => '收到借款人对2号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '1104.00',
+  'money_collect' => 110015.63,
+  'account_money' => '22264.69',
+  'back_money' => 303.25,
+)
+moneynewid_x=2516
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2517
+xid=1
+
+
+borrow_id=2
+detail_id=28
+borrow_uid=8
+investor_uid=32
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -9915.39,
+  'account_money' => 530988.8,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对2号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '32',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 530988.8,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '6',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+9600.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+315.39-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+9600.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+315.39-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '32',
+  'type' => '44',
+  'affect_money' => 9915.39,
+  'account_money' => '22264.69',
+  'back_money' => 10218.64,
+  'collect_money' => 100100.24,
+  'freeze_money' => '1104.00',
+  'info' => '收到借款人对2号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '1104.00',
+  'money_collect' => 100100.24,
+  'account_money' => '22264.69',
+  'back_money' => 10218.64,
+)
+moneynewid_x=2518
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2519
+xid=1
+
+
+borrow_id=5
+detail_id=36
+borrow_uid=8
+investor_uid=53
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -1.67,
+  'account_money' => 530987.13,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对5号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '53',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 530987.13,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '14',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '53',
+  'type' => '44',
+  'affect_money' => 1.67,
+  'account_money' => '999998090.00',
+  'back_money' => 1.67,
+  'collect_money' => 1945.37,
+  'freeze_money' => '0.00',
+  'info' => '收到借款人对5号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => 1945.37,
+  'account_money' => '999998090.00',
+  'back_money' => 1.67,
+)
+moneynewid_x=2520
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2521
+xid=1
+
+
+borrow_id=5
+detail_id=39
+borrow_uid=8
+investor_uid=53
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -1.67,
+  'account_money' => 530985.46,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对5号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '53',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 530985.46,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '15',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '53',
+  'type' => '44',
+  'affect_money' => 1.67,
+  'account_money' => '999998090.00',
+  'back_money' => 3.34,
+  'collect_money' => 1943.7,
+  'freeze_money' => '0.00',
+  'info' => '收到借款人对5号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => 1943.7,
+  'account_money' => '999998090.00',
+  'back_money' => 3.34,
+)
+moneynewid_x=2522
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2523
+xid=1
+
+
+borrow_id=5
+detail_id=42
+borrow_uid=8
+investor_uid=53
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -1.67,
+  'account_money' => 530983.79,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对5号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '53',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 530983.79,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '16',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '53',
+  'type' => '44',
+  'affect_money' => 1.67,
+  'account_money' => '999998090.00',
+  'back_money' => 5.01,
+  'collect_money' => 1942.03,
+  'freeze_money' => '0.00',
+  'info' => '收到借款人对5号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => 1942.03,
+  'account_money' => '999998090.00',
+  'back_money' => 5.01,
+)
+moneynewid_x=2524
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2525
+xid=1
+
+
+borrow_id=5
+detail_id=45
+borrow_uid=8
+investor_uid=53
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -1.67,
+  'account_money' => 530982.12,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对5号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '53',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 530982.12,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '17',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+1.67-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '2',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+96',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '53',
+  'type' => '44',
+  'affect_money' => 1.67,
+  'account_money' => '999998090.00',
+  'back_money' => 6.68,
+  'collect_money' => 1940.36,
+  'freeze_money' => '0.00',
+  'info' => '收到借款人对5号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => 1940.36,
+  'account_money' => '999998090.00',
+  'back_money' => 6.68,
+)
+moneynewid_x=2526
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2527
+xid=1
+
+
+borrow_id=7
+detail_id=48
+borrow_uid=8
+investor_uid=78
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -10083.33,
+  'account_money' => 520898.79,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对7号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '78',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 520898.79,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '18',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+10000.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+83.33-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '7',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+10000.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+83.33-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '7',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '78',
+  'type' => '44',
+  'affect_money' => 10083.33,
+  'account_money' => '10465099.85',
+  'back_money' => 14987.01,
+  'collect_money' => 98153.95,
+  'freeze_money' => '55.01',
+  'info' => '收到借款人对7号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '55.01',
+  'money_collect' => 98153.95,
+  'account_money' => '10465099.85',
+  'back_money' => 14987.01,
+)
+moneynewid_x=2528
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2529
+xid=1
+
+
+borrow_id=7
+detail_id=49
+borrow_uid=8
+investor_uid=78
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -40333.33,
+  'account_money' => 480565.46,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对7号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '78',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 480565.46,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '19',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+40000.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+333.33-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '7',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+4',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+40000.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+333.33-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '7',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+4',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '78',
+  'type' => '44',
+  'affect_money' => 40333.33,
+  'account_money' => '10465099.85',
+  'back_money' => 55320.34,
+  'collect_money' => 57820.62,
+  'freeze_money' => '55.01',
+  'info' => '收到借款人对7号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '55.01',
+  'money_collect' => 57820.62,
+  'account_money' => '10465099.85',
+  'back_money' => 55320.34,
+)
+moneynewid_x=2530
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2531
+xid=1
+
+
+borrow_id=8
+detail_id=50
+borrow_uid=8
+investor_uid=78
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -3.75,
+  'account_money' => 480561.71,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对8号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '78',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 480561.71,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '20',
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+3.75-0.00',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '7',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+4',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+0.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+3.75-0.00',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '7',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+4',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '78',
+  'type' => '44',
+  'affect_money' => 3.75,
+  'account_money' => '10465099.85',
+  'back_money' => 55324.09,
+  'collect_money' => 57816.87,
+  'freeze_money' => '55.01',
+  'info' => '收到借款人对8号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '55.01',
+  'money_collect' => 57816.87,
+  'account_money' => '10465099.85',
+  'back_money' => 55324.09,
+)
+moneynewid_x=2532
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2533
+xid=1
+
+
+borrow_id=9
+detail_id=57
+borrow_uid=8
+investor_uid=89
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -100.83,
+  'account_money' => 480460.88,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对9号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '89',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 480460.88,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '23',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+0.83-0.57',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '9',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+0.83-0.57',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '9',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '89',
+  'type' => '44',
+  'affect_money' => 100.26,
+  'account_money' => '1170.00',
+  'back_money' => 100.26,
+  'collect_money' => 0,
+  'freeze_money' => '140.00',
+  'info' => '收到借款人对9号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '140.00',
+  'money_collect' => 0,
+  'account_money' => '1170.00',
+  'back_money' => 100.26,
+)
+moneynewid_x=2534
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2535
+xid=1
+
+
+borrow_id=9
+detail_id=58
+borrow_uid=8
+investor_uid=32
+datamoney_x=
+array (
+  'uid' => '8',
+  'type' => 11,
+  'affect_money' => -100.83,
+  'account_money' => 480360.05,
+  'back_money' => 0,
+  'collect_money' => '-970.00',
+  'freeze_money' => '0.00',
+  'info' => '对9号企业直投进行还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '32',
+)
+mmoney_x=
+array (
+  'money_freeze' => '0.00',
+  'money_collect' => '-970.00',
+  'account_money' => 480360.05,
+  'back_money' => 0,
+)
+update_investor=
+array (
+  'id' => '24',
+  'status' => 2,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+0.83-0.57',
+  ),
+  'back_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '9',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+updetail=
+array (
+  'status' => 1,
+  'receive_capital' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_capital`+100.00',
+  ),
+  'receive_interest' => 
+  array (
+    0 => 'exp',
+    1 => '`receive_interest`+0.83-0.57',
+  ),
+  'repayment_time' => 1441435658,
+)
+update_borrow=
+array (
+  'id' => '9',
+  'transfer_back' => 
+  array (
+    0 => 'exp',
+    1 => '`transfer_back`+1',
+  ),
+  'borrow_status' => 7,
+)
+datamoney=
+array (
+  'uid' => '32',
+  'type' => '44',
+  'affect_money' => 100.26,
+  'account_money' => '22264.69',
+  'back_money' => 10318.9,
+  'collect_money' => 99999.98,
+  'freeze_money' => '1104.00',
+  'info' => '收到借款人对9号企业直投的还款',
+  'add_time' => 1441435658,
+  'add_ip' => '61.156.219.212',
+  'target_uid' => '8',
+  'target_uname' => 'listam',
+)
+mmoney=
+array (
+  'money_freeze' => '1104.00',
+  'money_collect' => 99999.98,
+  'account_money' => '22264.69',
+  'back_money' => 10318.9,
+)
+moneynewid_x=2536
+bxid=1
+investor=1
+summary=1
+detail=1
+moneynewid=2537
+xid=1
+
+
+moneynewid_x_temp=1
+bxid_temp=1
+investor_temp=1
+summary_temp=1
+detail_temp=1
+moneynewid_temp=1
+xid_temp=1

@@ -1,0 +1,60 @@
+<!--个人中心左侧菜单-->
+<div class="cms_left float_left">
+    <div class="left_list_div" onclick="window.location.href='/member';$(this).nextAll('.left_sonlist_div').css('display','none');"><a href="javascript:;" class="font16 a_link_in">账户总览</a></div>
+    <div class="left_list_div"><a class="font16 a_link" href="javascript:;" title="基本设置">基本设置</a></div>
+    <div class="left_sonlist_div" style="display:none">
+        <div class="sondiv"><a href="/member/memberinfo#fragment-1" class="font14 a_sonlink" title="基本资料">·&nbsp;&nbsp;基本资料</a></div>
+        <div class="sondiv"><a href="/member/user#fragment-1" class="font14 a_sonlink" title="头像密码">·&nbsp;&nbsp;头像密码</a></div>
+        <div class="sondiv"><a href="/member/verify?id=1#fragment-1" class="font14 a_sonlink" title="认证中心">·&nbsp;&nbsp;认证中心</a></div>
+        <div class="sondiv"><a href="/member/msg#fragment-1" class="font14 a_sonlink" title="系统消息">·&nbsp;&nbsp;系统消息</a></div>           
+    </div>
+    <div class="left_list_div"><a class="font16 a_link" href="javascript:;" title="资金管理">资金管理</a></div>
+    <div class="left_sonlist_div" style="display:none">
+        <div class="sondiv"><a href="/member/capital#fragment-1" class="font14 a_sonlink" title="资金统计">·&nbsp;&nbsp;资金统计</a></div>
+        <div class="sondiv"><a href="/member/charge#fragment-1" class="font14 a_sonlink" title="我要充值">·&nbsp;&nbsp;我要充值</a></div>
+        <div class="sondiv"><a href="/member/withdraw#fragment-1" class="font14 a_sonlink" title="我要提现">·&nbsp;&nbsp;我要提现</a></div>
+        <div class="sondiv"><a href="/member/bank#fragment-1" class="font14 a_sonlink" title="银行账户">·&nbsp;&nbsp;银行账户</a></div>
+        <div class="sondiv"><a href="/member/credit#fragment-1" class="font14 a_sonlink" title="积分记录">·&nbsp;&nbsp;积分记录</a></div>            
+    </div>
+    <div class="left_list_div"><a class="font16 a_link" href="javascript:;" title="投资管理">投资管理</a></div>
+    <div class="left_sonlist_div" style="display:none">
+        <div class="sondiv"><a href="/member/tendout#fragment-2" class="font14 a_sonlink" title="散标投资">·&nbsp;&nbsp;散标投资</a></div>
+        <div class="sondiv"><a href="/member/fund#fragment-1" class="font14 a_sonlink" title="优计划投资">·&nbsp;&nbsp;优计划投资</a></div>
+        <div class="sondiv"><a href="/member/debt#fragment-1" class="font14 a_sonlink" title="债权转让">·&nbsp;&nbsp;债权转让</a></div>
+        <div class="sondiv"><a href="/member/auto#fragment-1" class="font14 a_sonlink" title="自动投标">·&nbsp;&nbsp;自动投标</a></div>            
+    </div>
+    <div class="left_list_div"><a class="font16 a_link" href="javascript:;" title="借款管理">借款管理</a></div>
+    <div class="left_sonlist_div" style="display:none">
+        <div class="sondiv"><a href="/member/borrowin#fragment-3" class="font14 a_sonlink" title="借款总表">·&nbsp;&nbsp;借款总表</a></div>
+        <div class="sondiv"><a href="__APP__/member/moneylimit#fragment-1" class="font14 a_sonlink" title="额度申请">·&nbsp;&nbsp;额度申请</a></div>  
+        <div class="sondiv"><a href="__APP__/member/verify#fragment-7" class="font14 a_sonlink" title="资料上传">·&nbsp;&nbsp;资料上传</a></div>  
+    </div>
+    <div class="left_list_div"><a class="font16 a_link" href="javascript:;" title="加息券管理">加息券管理</a></div>
+    <div class="left_sonlist_div" style="display:none">
+        <div class="sondiv"><a href="/member/interestratecoupon/index#fragment-1" class="font14 a_sonlink" title="加息券">·&nbsp;&nbsp;加息券</a></div>
+    </div>
+    <div class="left_list_div"><a class="font16 a_link" href="javascript:;" title="邀请有奖">邀请有奖</a></div>
+    <div class="left_sonlist_div" style="display:none">
+        <div class="sondiv"><a href="/member/promotion#fragment-1" class="font14 a_sonlink" title="邀请好友">·&nbsp;&nbsp;邀请好友</a></div>            
+    </div>
+</div>
+<script type="text/javascript">
+    // 收缩展开效果
+    $(document).ready(function(){
+        $(".left_list_div").toggle(function(){
+            $(this).children().removeClass("a_link").addClass("a_link_in");
+            $(this).prevAll(".left_list_div").children().removeClass("a_link_in").addClass("a_link");
+            $(this).nextAll(".left_list_div").children().removeClass("a_link_in").addClass("a_link");
+            $(this).next(".left_sonlist_div").animate({height: 'toggle', opacity: 'toggle'}, "slow");
+            $(this).next(".left_sonlist_div").nextAll(".left_sonlist_div").css("display","none");
+            $(this).next(".left_sonlist_div").prevAll(".left_sonlist_div").css("display","none");
+        },function(){
+            $(this).prevAll(".left_list_div").children().removeClass("a_link_in").addClass("a_link");
+            $(this).nextAll(".left_list_div").children().removeClass("a_link_in").addClass("a_link");
+            $(this).children().removeClass("a_link").addClass("a_link_in");
+            $(this).next(".left_sonlist_div").animate({height: 'toggle', opacity: 'toggle'}, "slow");
+            $(this).next(".left_sonlist_div").nextAll(".left_sonlist_div").css("display","none");
+            $(this).next(".left_sonlist_div").prevAll(".left_sonlist_div").css("display","none");
+        });
+    });
+</script>
