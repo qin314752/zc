@@ -1,0 +1,111 @@
+<include file="Public:_header" />
+<tagLib name="htmlA" />
+<script type="text/javascript" src="__ROOT__/Style/My97DatePicker/WdatePicker.js" language="javascript"></script>
+<script type="text/javascript" src="__ROOT__/Style/A/js/jquery.js" language="javascript"></script>
+<div class="so_main">
+<style type="text/css">
+.list input[type=text]{
+	color: #333333;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+}
+li{
+	diaplay:block;width:93px;height:27px;background-color:rgb(238,238,238);text-align:center;line-height:25px;
+	border:1px solid rgb(189,200,220);
+	cursor: pointer;
+}
+li:hover{
+	background-color:rgb(230,230,230);
+}
+tr:hover{background-color:rgb(238,238,238);}
+</style>
+<script type="text/javascript">
+	$(function(){
+			$('li').click(function(){
+				$('#search_div').show(300);
+				});
+			$('a').click(function(){
+				$('#search_div').hide(300);
+				});
+			
+
+	});
+
+</script>
+<div class="page_tit">手机信息记录</div>
+<!--搜索/筛选会员-->
+<div>
+	<div id="search_div" style="display:none">
+  	<div class="page_tit">搜索/筛选记录 [ <a href="javascript:void(0);" onclick="dosearch();">隐藏</a> ]</div>
+	
+	<div class="form2">
+	<form method="get" action="__ACTION__">
+    <if condition="$search.customer_id gt 0"><input type="hidden" name="customer_id" value="{$search.customer_id}" /></if>
+   
+   <dl class="lineD">
+      <dt>用户名：</dt>
+      <dd>
+        <input name="uname" style="width:190px" id="title" type="text" value="{$search.uname}">
+        <span>不填则不限</span>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>用户手机：</dt>
+      <dd>
+        <input name="phone" style="width:190px" id="title" type="text" value="{$search.phone}">
+        <span>不填则不限</span>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>接口类型：</dt>
+      <dd>
+        <input name="back_status" style="width:190px" id="title" type="text" value="{$search.back_status}">
+        <span>不填则不限</span>
+      </dd>
+    </dl>
+
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="筛选" />
+    </div>
+	</form>
+  </div>
+  </div>
+
+</div>
+<!--搜索/筛选会员-->
+<div><ul><li>搜索/筛选</li></ul></div>
+  
+<!-- <div class="page_tab"><span data="tab_1" class="active">通知信息记录</span></div> -->
+<div class="form2">
+	<!-- <form method="post" action="__URL__/save" onsubmit="return subcheck();" enctype="multipart/form-data"> -->
+	<div id="tab_1">
+	  
+	  <div class="list">
+	  <table id="area_list" width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<!-- <th class="line_l">序号</th> -->
+		<th class="line_l">ID</th>
+		<th class="line_l">用户名</th>
+		<th class="line_l">用户手机</th>
+		<th class="line_l" width="50%">内容</th>
+		<th class="line_l">添加时间</th>
+		<th class="line_l">接口类型</th>
+		<!-- <th class="line_l">操作</th> -->
+	  </tr>
+	  <foreach name="list" item="vo">
+	  	<tr>
+	  		<td>{$vo.id}</td>
+	  		<td>{$vo.user_name}</td>
+	  		<td>{$vo.to_phone}</td>
+	  		<td>{$vo.content}</td>
+	  		<td>{$vo.addtime|date="Y-m-d H:i",###}</td>
+	  		<td>{$vo.back_status_des}</td>
+	  	</tr>
+	  </foreach>
+		<tr><td colspan="6">{$page}</td></tr>
+	  </table>
+		</div>
+	</div>
+<include file="Public:_footer" />

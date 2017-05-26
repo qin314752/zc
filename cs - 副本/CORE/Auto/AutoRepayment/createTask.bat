@@ -1,0 +1,1 @@
+schtasks /create /tn AutoRepayment /tr D:/xampp/htdocs/v5.petope.com/CORE/Auto/AutoRepayment/do.bat  /sc daily /st 23:50:00

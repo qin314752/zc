@@ -1,0 +1,129 @@
+﻿<include file="Pub:header" /> 
+<!--顶部详细信息开始-->
+<div class="invest-detail-box width100">
+	<div class="invest-detail-title width96 margin-auto"><div class="invest-detail-back float-left width30"><a href="/M/index/index3"><img src="/Style/Mobile/images/detail/detail_back.png" class="img-vertical" />&nbsp;返回</a></div><div class="width70">项目详情</div></div>
+	<div class="invest-detail-name width96 margin-auto">{$vo.borrow_name|cnsubstr=###,18}</div>
+	<div class="invest-detail-describe width94 margin-auto bottom30">
+		<div class="invest-detail-border float-left width50">
+            <div class="bottom30">用户名:&nbsp;{$minfo.user_name|hidecard=5}</div>
+			<div class="bottom30">借款利率:&nbsp;<span class="font24">{$vo.borrow_interest_rate}</span>%</div>
+			<div class="bottom30">可投金额：&nbsp;{$vo.need|getMoneyFormt=###}元</div>
+            <div class="bottom10">最小金额：&nbsp;{$vo.borrow_min|getMoneyFormt=###}元</div>
+		</div>
+		<div class="float-right">
+            <div class="bottom30">借款用途:&nbsp;{$gloconf['BORROW_USE'][$vo['borrow_use']]}</div>
+			<div class="bottom30">借款期限:&nbsp;<span class="font24">{$vo.borrow_duration}</span> <if condition="$vo.repayment_type eq 1">天<else/>个月</if></div>
+			<div class="bottom30">借款金额：&nbsp;{$vo['borrow_money']|getMoneyFormt=###}元</div>
+            <div class="bottom10">最大金额：&nbsp;<if condition="$vo.borrow_max eq 0">没有限制<else />{$vo.borrow_max|MFormt=###}元</if></div>
+		</div>
+		<div class="clear-both"></div>
+	</div>
+    <div class="width94 margin-auto  bottom20 invest-detail-describe"><li>剩余时间：<span id="endtime"><span><span  id="loan_time">-- 天 -- 小时 -- 分 -- 秒</span></span></span></li></div>
+	<div class="width94 margin-auto">
+		<div class="invest-detail-left">{$vo.progress}%</div>
+		<div class="invest-detail-right"><span class="invest-detail-progress float-left width100 top5"><span class="invest-detail-progress-content float-left" style="width:{$vo.progress}%;"></span></span></div>
+		<div class="clear-both bottom30"></div>
+	</div>
+	<div class="invest-detail-line"></div>
+	<div class="width94 margin-auto">
+		<div class="float-left"><img src="/Style/Mobile/images/detail/repay_type.png" class="img-vertical" />&nbsp;&nbsp;{$repayment_type[$vo['repayment_type']]}</div>	
+		<div class="float-right">
+            <if condition="$vo.borrow_status eq '2'">
+                <a href="{:U('m/invest/invest', array('bid'=>$vo['id']))}" class="tz_bt2" >我要投资</a>
+            <else/>
+                {$vo.borrow_status|borrow_status=$vo['id'],###}
+            </if>
+        </div>
+		<div class="clear-both bottom20"></div>
+	</div>
+</div>
+<!--顶部详细信息结束-->
+
+<!--担保信息开始-->
+<div class="width96 margin-auto invest-danbao-box">
+	<div class="float-left"><img src="/Style/Mobile/images/detail/danbao.png" class="img-vertical" />&nbsp;&nbsp;借款信息</div>
+	<div class="float-right"><if condition="$vo.reward_num neq 0"><span class="invest-reward">奖励+{$vo.reward_num}%</span><else /><span class="invest-danbao-cooperation">本息保障</span></if></div>
+	<div class="clear-both bottom20"></div>
+</div>
+<!--担保信息结束-->
+
+<!--基本资料&&还款计划&&投资记录-->
+<div class="width96 margin-auto top15">
+	<div class="invest-info-box">
+		<div class="invest-info-select" id="2td0" onclick="javascript:secBoard_more('2td','2tr',3,0,'invest-info-select','invest-info-title','','')"><a href="javascript:;">基本资料</a></div>
+		<div class="invest-info-title" id="2td1" onclick="javascript:secBoard_more('2td','2tr',3,1,'invest-info-select','invest-info-title','','')"><a href="javascript:;">还款计划</a></div>
+		<div class="invest-info-title" id="2td2" onclick="javascript:secBoard_more('2td','2tr',3,2,'invest-info-select','invest-info-title','','')"><a href="javascript:;">投资记录</a></div>
+		<div class="clear-both"></div>
+	</div>
+    <!--基本资料-->
+	<div class="top15" id="2tr0">{$vo.borrow_info}</div>
+	<!--还款计划-->
+    <div class="top15" id="2tr1" style="display:none;">
+        <div class="tab">
+            <div class="float-left tab1">预期还款时间</div>
+            <div class="float-left tab2">应还本金/元</div>
+            <div class="float-left tab3">应还利息/元</div>
+            <div class="clear-both"></div>
+        </div>
+        <volist name="repay_list" id="re">
+            <div class="tab">
+                <div class="float-left tab1">{$re.deadline|date="Y-m-d",###}</div>
+                <div class="float-left tab2">{$re.capital}</div>
+                <div class="float-left tab3">{$re.interest}</div>
+                <div class="clear-both"></div>
+            </div>
+        </volist>
+    </div>
+    <!--投资计划-->
+    <div class="top15" id="2tr2" style="display:none;">
+        <div class="tab">
+            <div class="float-left tab1">投资人</div>
+            <div class="float-left tab2">投资金额</div>
+            <div class="float-left tab3">投资时间</div>
+            <div class="clear-both"></div>
+        </div>
+        <volist name="invest_list" id="list">
+            <div class="tab">
+                <div class="float-left tab1">{$list.user_name|hidecard=5}</div>
+                <div class="float-left tab2">{$list.investor_capital|getMoneyFormt=###}</div>
+                <div class="float-left tab3">{$list.add_time|date="Y-m-d H:i",###}</div>
+                <div class="clear-both"></div>
+            </div>
+        </volist>
+    </div>
+</div>
+<!--基本资料&&还款计划&&投资记录-->
+<input id="hid" type="hidden" value="{$vo.lefttime}" />
+<script type="text/javascript"> 
+    var seconds;
+    var pers = {$vo.progress|default=0}/100;
+    var timer=null;
+    function setLeftTime() {
+        seconds = parseInt($("#hid").val(), 10);
+        timer = setInterval(showSeconds,1000);
+    }
+    
+    function showSeconds() {
+        var day1 = Math.floor(seconds / (60 * 60 * 24));
+        var hour = Math.floor((seconds - day1 * 24 * 60 * 60) / 3600);
+        var minute = Math.floor((seconds - day1 * 24 * 60 * 60 - hour * 3600) / 60);
+        var second = Math.floor(seconds - day1 * 24 * 60 * 60 - hour * 3600 - minute * 60);
+        if (day1 < 0) {
+            clearInterval(timer);
+            $("#loan_time").html("投标已经结束！");
+        } else if (pers >= 1) {
+            clearInterval(timer);
+            $("#loan_time").html("投标已经结束！");
+        } else {
+            $("#loan_time").html(day1 + " 天 " + hour + " 小时 " + minute + " 分 " + second + " 秒");
+        }
+        seconds--;
+    }                
+    if (pers >= 1) {
+        $("#loan_time").html("投标已经结束！");
+    }else{
+        setLeftTime();
+    }
+</script>
+﻿<include file="Pub:footer_M" />
+

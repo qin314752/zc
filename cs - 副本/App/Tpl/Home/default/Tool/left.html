@@ -1,0 +1,16 @@
+<div class="cms_left float_left">
+    <volist name="leftlist" id="vl">
+        <div class="left_list_div"><a class="font16" href="{$vl.turl}" title="{$vl.type_name}">{$vl.type_name|cnsubstr2=###,8}</a></div>
+    </volist>
+</div>
+
+<script>
+    $('.left_list_div').children('a').each(function(){
+        if($($(this))[0].href==String(window.location)){
+            $(this).addClass('a_link_in');
+            $(this).parent().prevAll().children('a').addClass('a_link');
+            $(this).parent().nextAll().children('a').addClass('a_link');
+        }
+    });
+
+</script>

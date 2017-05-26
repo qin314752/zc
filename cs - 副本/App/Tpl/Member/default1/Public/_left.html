@@ -1,0 +1,68 @@
+
+
+<div class=" myaccount_left_part">
+
+ <input style="display:none;" id="image_file" accept="image/*" name="image_file" onchange="ajaxFileUpload();" type="file"> 
+ 
+ 
+<div class="my_pic"><a href="__APP__/member/user#fragment-1"><img id="img" name="img" src="{$UID|get_avatar=###}" height="115" width="115"></a></div> 
+                 
+<ul class="my_rz " style="text-align:center">
+    {$minfo.id|getVerify_ucenter=###}
+<div class="clear"></div>
+</ul>
+</div>
+<div class=" myaccount_left_part">
+
+  <ul class="about_us accordion" id="accordion">
+    <li class="">
+     <div class="link moneygl_ico">基本设置</div>
+            <ul style="display: none;" class="submenu">
+        <li><a href="__APP__/member/user#fragment-1">头像与密码</a></li>
+        <li><a href="__APP__/member/verify?id=1#fragment-1">认证中心</a></li>
+        <if condition="$loginconfig['qq']['enable'] eq '0' and $loginconfig['sina']['enable'] eq '0'">
+          <li class="last"><a href="__APP__/member/msg#fragment-1">系统消息</a></li>
+          <else/>
+          <li><a href="__APP__/member/msg#fragment-1">系统消息</a></li>
+          <li class="last"><a  href="__APP__/member/oauthlogin">快捷登录</a></li>
+        </if>
+            </ul>
+    </li>
+    
+    <li class="">
+        <div class="link accountgl_ico">众筹管理</div>
+         <ul style="display: none;" class="submenu">
+              <li><a href="__APP__/member/infocrowd#fragment-1">众筹投资</a></li>
+              <li class="last"><a href="__APP__/member/crowdauto#fragment-1">众筹预约</a></li>
+        </ul>
+    </li>
+
+    <li class="">
+     <div class="link huodonggl_ico">众筹红包</div>
+    <ul style="display: none;" class="submenu">
+              <li><a href="__APP__/member/crowddonate#fragment-1">众筹红包</a></li>
+              <li class="last"><a href="__APP__/member/crowddonate#fragment-2">使用记录</a></li>
+    </ul>
+    </li>
+     
+    <li class="">
+      <div class="link eachgl_ico">资金管理</div>
+         <ul style="display: none;" class="submenu">
+        <li><a href="__APP__/member/capital#fragment-1">资金统计</a></li>
+        <li><a href="__APP__/member/charge#fragment-1">我要充值</a></li>
+        <li><a href="__APP__/member/withdraw#fragment-1">我要提现</a></li>
+        <li><a href="__APP__/member/bank#fragment-1">银行帐户</a></li>
+                
+        </ul>
+    </li>
+    
+    <li class="">
+      <div class="link eachgl_ico">邀请有奖</div>
+         <ul style="display: none;" class="submenu">
+        <li><a href="/member/promotion#fragment-1">邀请好友</a></li>
+                
+        </ul>
+    </li>
+  </ul>
+  
+</div>

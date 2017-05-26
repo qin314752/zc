@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<include file="default:Public:header_new" group="Home" />
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/member/css/blue_dream_zhongchou.css">
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/member/css/my_account.css">
+<script type="text/javascript" src="__ROOT__/Style/H/member/js/jquery-1.js"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/member/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/member/css/blue_dream_zhongchou.css">
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/member/css/my_account.css">
+<script type="text/javascript" src="__ROOT__/Style/H/member/js/ajaxfileupload.js"></script>
+<script src="__ROOT__/Style/H/member/js/m.js"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/member/js/gs_image_100-50_en.js" defer="defer"></script>
+
+
+<script type="text/javascript">
+$(function () {
+    var Accordion = function (el, multiple) {
+        this.el = el || {};
+        this.multiple = multiple || false;
+        var links = this.el.find('.link');
+        links.on('click', {
+            el: this.el,
+            multiple: this.multiple
+        }, this.dropdown);
+    };
+    Accordion.prototype.dropdown = function (e) {
+        var $el = e.data.el;
+        $this = $(this), $next = $this.next();
+        $next.slideToggle();
+        $this.parent().toggleClass('open');
+        if (!e.data.multiple) {
+            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+        }
+        ;
+    };
+    var accordion = new Accordion($('#accordion'), false);
+});
+//@ sourceURL=pen.js
+</script>
+<style class="firebugResetStyles" type="text/css" charset="utf-8">/* See license.txt for terms of usage */
+
+/** reset styling **/
+
+.firebugResetStyles {
+
+    z-index: 2147483646 !important;
+
+    top: 0 !important;
+
+    left: 0 !important;
+
+    display: block !important;
+
+    border: 0 none !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    outline: 0 !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    min-height: 0 !important;
+
+    max-height: none !important;
+
+    position: fixed !important;
+
+    transform: rotate(0deg) !important;
+
+    transform-origin: 50% 50% !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    background: transparent none !important;
+
+    pointer-events: none !important;
+
+    white-space: normal !important;
+
+}
+
+style.firebugResetStyles {
+
+    display: none !important;
+
+}
+
+
+
+.firebugBlockBackgroundColor {
+
+    background-color: transparent !important;
+
+}
+
+
+
+.firebugResetStyles:before, .firebugResetStyles:after {
+
+    content: "" !important;
+
+}
+
+/**actual styling to be modified by firebug theme**/
+
+.firebugCanvas {
+
+    display: none !important;
+
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.firebugLayoutBox {
+
+    width: auto !important;
+
+    position: static !important;
+
+}
+
+
+
+.firebugLayoutBoxOffset {
+
+    opacity: 0.8 !important;
+
+    position: fixed !important;
+
+}
+
+
+
+.firebugLayoutLine {
+
+    opacity: 0.4 !important;
+
+    background-color: #000000 !important;
+
+}
+
+
+
+.firebugLayoutLineLeft, .firebugLayoutLineRight {
+
+    width: 1px !important;
+
+    height: 100% !important;
+
+}
+
+
+
+.firebugLayoutLineTop, .firebugLayoutLineBottom {
+
+    width: 100% !important;
+
+    height: 1px !important;
+
+}
+
+
+
+.firebugLayoutLineTop {
+
+    margin-top: -1px !important;
+
+    border-top: 1px solid #999999 !important;
+
+}
+
+
+
+.firebugLayoutLineRight {
+
+    border-right: 1px solid #999999 !important;
+
+}
+
+
+
+.firebugLayoutLineBottom {
+
+    border-bottom: 1px solid #999999 !important;
+
+}
+
+
+
+.firebugLayoutLineLeft {
+
+    margin-left: -1px !important;
+
+    border-left: 1px solid #999999 !important;
+
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.firebugLayoutBoxParent {
+
+    border-top: 0 none !important;
+
+    border-right: 1px dashed #E00 !important;
+
+    border-bottom: 1px dashed #E00 !important;
+
+    border-left: 0 none !important;
+
+    position: fixed !important;
+
+    width: auto !important;
+
+}
+
+
+
+.firebugRuler{
+
+    position: absolute !important;
+
+}
+
+
+
+.firebugRulerH {
+
+    top: -15px !important;
+
+    left: 0 !important;
+
+    width: 100% !important;
+
+    height: 14px !important;
+
+    background: url("") repeat-x !important;
+
+    border-top: 1px solid #BBBBBB !important;
+
+    border-right: 1px dashed #BBBBBB !important;
+
+    border-bottom: 1px solid #000000 !important;
+
+}
+
+
+
+.firebugRulerV {
+
+    top: 0 !important;
+
+    left: -15px !important;
+
+    width: 14px !important;
+
+    height: 100% !important;
+
+    background: url("") repeat-y !important;
+
+    border-left: 1px solid #BBBBBB !important;
+
+    border-right: 1px solid #000000 !important;
+
+    border-bottom: 1px dashed #BBBBBB !important;
+
+}
+
+
+
+.overflowRulerX > .firebugRulerV {
+
+    left: 0 !important;
+
+}
+
+
+
+.overflowRulerY > .firebugRulerH {
+
+    top: 0 !important;
+
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.fbProxyElement {
+
+    position: fixed !important;
+
+    pointer-events: auto !important;
+
+}
+
+</style></head>
+<body>﻿
+
+
+    <meta charset="utf-8">
+    <title></title>
+      
+    <link rel="shortcut icon" href="https://www.xiaokazx.com/favicon.ico">
+    <link rel="bookmark" href="https://www.xiaokazx.com/favicon.ico"> 
+    <script>
+_pro_track_id='bd2f59e19156692947cd';
+</script>
+
+
+<script>
+
+$(document).ready(function(){
+    $('.zc_nav li').each(function(){
+        if($($(this))[0].href==String(window.location))
+            $(this).parent().addClass('nav_active');
+    });
+})
+</script>
+
+
+<div class="zc_main">
+  <div class="zc_content bgfff">
+    <ul class="breadcrumb">
+      <li><a href="https://www.xiaokazx.com/crowd_funding/index">首页</a> </li>
+      <li class="active">账户中心</li>
+      <div class="clear"></div>
+    </ul>
+  </div>
+  <div class="zc_content  zc_hot_content">
+
+
+
+
+<script language="javascript">
+
+function shangchuan(){
+    $("#image_file").click();
+}
+function ajaxFileUpload() {
+            $.ajaxFileUpload
+            (
+                {
+                    url: 'storesimg', //用于文件上传的服务器端请求地址
+                    secureuri: false, //一般设置为false
+                    fileElementId: 'image_file', //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                    dataType: 'text', //返回值类型 一般设置为json
+                  
+                    success: function (data)  //服务器成功响应处理函数
+                    {
+                       
+                        var repObj = $.parseJSON(data);
+        
+                       $("#img").attr("src", repObj.img_url);
+                        $("#img1").attr("src", repObj.img_url);
+                        if (typeof (repObj.error) != 'undefined') {
+                            if (repObj.error != '') {
+                                alert(repObj.error);
+                            } else {
+                                alert(repObj.msg);
+                            }
+                        }
+                    },
+                    error: function (data, status, e)//服务器响应失败处理函数
+                    {
+                        alert(e);
+                    }
+                }
+            )
+            return false;
+        } 
+
+
+</script>
+  
+<div class=" myaccount_left">
+<include file="Public:_left"/>
+<div class=" myaccount_left_part">
+<div class="myaccount_left_service">
+    <p>客服热线</p>
+    <!--<div class="mylft_img"><div class="mylft_nr"><p><a class="icoTc" title="点击开始QQ交谈/留言" href="http://wpa.qq.com/msgrd?v=3&uin=1828529320&site=qq&menu=yes" target="_blank">QQ客服</a></p><p>0532-68992383</p></div></div>-->
+    <dl class="service">
+    <dt><img src="__ROOT__/Style/H/member/images/service.png"></dt>
+    
+    <dd>400-090-6069</dd>
+    <div class="clear"></div>
+    </dl>
+  </div>
+</div>
+
+</div>
+<script type="text/javascript">
+function xuanzhong(lei){
+    window.location.href="my_account?lei="+lei; 
+    
+}
+</script>
+	<div id="hy_right">
+            <div class="box">
+				<div class="Menubox1" id="rotate">
+					<ul class="menu ajaxdata">
+                        <li><a href="#fragment-1" ajax_href="__URL__/header/">我的头像</a></li>
+                        <li><a href="#fragment-2" ajax_href="__URL__/password/">修改密码</a></li>
+                        <li><a href="#fragment-3" ajax_href="__URL__/pinpass/">修改支付密码</a></li>
+                        <li style="display: none;"><a href="#fragment-4" ajax_href="__URL__/msgset/">消息设置</a></li>
+					</ul>
+				</div> 
+				<div class="contentright">
+					<div id="fragment-1" style="display:none">
+						<!--我的头像-->
+					</div>
+					<div id="fragment-2" style="display:none">
+						<!--修改密码-->
+					</div>
+					<div id="fragment-3" style="display:none">
+						<!--修改支付密码-->
+					</div>
+					<div id="fragment-4" style="display:none">
+						<!--消息设置-->
+					</div>
+				</div>
+			</div>
+    </div>
+
+</div>
+<!--hot end-->
+<div class="clear"></div>
+</div>
+
+
+<script type="text/javascript">
+function xuanzhong(lei){
+    window.location.href="my_account?lei="+lei; 
+    
+}
+</script>
+<include file="default:Public:bottom" group="Home"/>
+</body>
+</html>
+
+<!--结束-->
+
+
+
+<include file="Public:_header_common" />
+

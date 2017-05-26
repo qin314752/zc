@@ -1,0 +1,42 @@
+﻿<include file="Pub:header" />
+<!-- 标题 start-->
+<div class="header"><a class="back" href="/M/User/index"><返回</a>站内消息</div>
+<!-- 标题 end-->
+<div class="main">
+    <div class="box7"> 
+        <div class="r_list">
+            <table cellpadding="0" cellspacing="0" width="100%" id="msg">
+                <tr>
+                    <th width="10%">&nbsp;</th>
+                    <th width="20%">发件人</th>
+                    <th width="50%">主题</th>
+                    <th width="20%">时间</th>
+                </tr>
+                <volist name="list" id="vo">
+                <tr>
+                    <td><img src="__ROOT__/Style/Mobile/images/<if condition='$vo.status eq 1'>read.jpg<else/>unread.jpg</if>"></td>
+                    <td>{$glo.web_name}</td>
+                    <td style="text-align: left;"><a href="javascript:void(0)" data="{$vo.id}">{$vo.title}</a></td>
+                    <td>{$vo.send_time|date="Y-m-d",###}</td>               
+                </tr>
+                </volist>
+               
+            </table>  
+        </div>
+
+    </div>
+    <div class="page">{$pagebar}</div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#msg").find('a').click(function(){
+            var id = $(this).attr('data');
+            $.get('?id='+id, function(data){
+                Apprise(data);    
+            })
+            $(this).parent().parent().find('img').attr('src','/Style/mobile/images/read.jpg');
+        })
+        
+    })
+</script>
+﻿<include file="Pub:footer_inner" /> 

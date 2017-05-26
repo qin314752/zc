@@ -143,4 +143,52 @@ function upload_del($src)
         unlink(C('WEB_ROOT').substr($src ,1));
     }
 }
+// 创建文件夹写入内容.txt
+function txt($path,$content,$name)
+{
+    if (!is_dir($path)){
+        mkdir($path,0777);  // 创建文件夹test,并给777的权限（所有权限）
+    }
+    $file = $path.$name;    // 写入的文件
+    return file_put_contents($file,$content);  // 最简单的快速的以追加的方式写入写入方法， 
+}
+//发起项目中项目金额为100倍数 验证
+function project_money($project_money)
+        {
+            if($project_money % 100 == 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  ?>

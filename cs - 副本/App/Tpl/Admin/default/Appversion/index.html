@@ -1,0 +1,154 @@
+<include file="Public:_header" />
+<tagLib name="htmlA" />
+<script type="text/javascript">
+    var isSearchHidden = 1;
+    var searchName = "上传APP版本";
+
+    function dosearchadd() {
+        if(isSearchHidden == 1) {
+            $("#search_div").slideDown();
+            $(".search_action").html("添加完毕");
+            isSearchHidden = 0;
+        }else {
+            $("#search_div").slideUp();
+            $(".search_action").html(searchName);
+            isSearchHidden = 1;
+        }
+    }
+    var isSearchtime = 1;
+
+</script>
+<div class="so_main">
+    <div class="page_tit">APP版本更新</div>
+    <div class="Toolbar_inbox">
+        <htmlA:commonBtn type="jsfun" action="dosearchadd();" value="上传APP版本" style="search_action" />
+    </div>
+    <div id="search_div" style="display:none">
+        <div class="form2">
+            <form method="post" action="__URL__/compile" onsubmit="return subcheck();" enctype="multipart/form-data" >
+                <dl class="lineD">
+                    <dt>版本类型：</dt>
+                    <dd>
+                        <select name="app_version" class="input" id="app_version" style="width:100px;">
+                            <option value="android">android</option>
+                            <option value="ios">ios</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="lineD"><dt>版本号：</dt><dd>
+                    <input name="version_hao" style="width:150px" id="version_hao" type="text" onkeyup="value=changestr(value)" ></dd></dl>
+                <dl class="lineD"><dt>版本名：</dt><dd>
+                    <input name="version_name" style="width:150px" id="version_name" type="text" onkeyup="value=changestr(value)" >
+                </dd></dl>
+
+                <dl class="lineD">
+                    <dt>上传版本：</dt>
+                    <dd>
+                        <input type="file" name="file" id="file" />
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>更新信息：</dt>
+                    <dd>
+                        <textarea name="update_text" class="update_text" id="update_text"style="resize: none;width: 310px;height: 50px;max-width: 310px;max-height: 100px;" ></textarea>
+                    </dd>
+                </dl>
+
+                <dl class="lineD">
+                    <dt>是否强制升级：</dt>
+                    <dd>
+                        <input type="radio" id="isopen" name="isopen" value="0" checked="checked" />否
+                        <input type="radio" id="isopen" name="isopen" value="1" />是
+                    </dd>
+                </dl>
+
+                <div class="page_btm">
+                    <input type="submit" class="btn_b" value="确定" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="list">
+        <table id="area_list" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th class="line_l">APP类型</th>
+                <th class="line_l" >版本号</th>
+                <th class="line_l">版本名</th>
+                <th class="line_l">下载链接</th>
+                <th class="line_l">更新信息</th>
+                <th class="line_l">是否强制升级</th>
+            </tr>
+            <volist id="vo" name="row.list">
+                <tr overstyle='on' id="list_{$vo.id}" class="leve_1" typeid="{$vo.id}" parentid="{$vo.reid}">
+                    <td>{$vo.app_version}</td>
+                    <td>{$vo.app_number}</td>
+                    <td>{$vo.version_name}</td>
+                    <td>{$vo.download}</td>
+                    <td>{$vo.update_text}</td>
+                    <td><if condition="$vo.isopen eq '1'">是<else/>否</if></td>
+                </tr>
+            </volist>
+        </table>
+
+    </div>
+    <div class="page right">{$row.page}</div>
+
+</div>
+
+<script type="text/javascript">
+    var status_1=false;
+    $('.btn_b').click(function(){
+        if(status_1){
+            alert('请不要重复提交，如网速慢，请等待！');
+            return false;
+        }
+        if($('#version_hao').val()=="" || $('#version_name').val()=="" || $('#file').val()==""){
+            alert("APP版本相关信息不能为空！");
+            return false;
+        }else{
+            status_1=true;
+            return true;
+        }
+
+    });
+
+    $("#area_list").bind("click", function(event){
+        var _this = $(event.target).parent().parent();//获取当前点击元素
+        var typeid = $(_this).attr('typeid');
+        if(!$($(event.target)).attr("data")) return ;//如果被点击的元素不是span即+-号就不继续执行
+
+        var liid = $("#area_list tr").index(_this);//获取当前元素在listtree li下面的元素索引,供传入后传回,以确定在哪个位置插入
+        var dir = $(_this).attr('typeid');
+
+        var sontree = $("#area_list tr:[parentid="+typeid+"]");
+
+        //对已获取和没获取的做不同的处理
+        if(sontree.html()==null){
+            var datas = {'typeid':typeid};
+            $.post(listUrl,datas,LTResponse,'json');
+            $($(event.target)).addClass("typeoff");
+            $($(event.target)).removeClass("typeon");
+        }else{
+            if(sontree.css("display")=='none'){
+                sontree.css("display","");
+                $($(event.target)).addClass("typeoff");
+                $($(event.target)).removeClass("typeon");
+            }else{
+                sontree.css("display","none");
+                $($(event.target)).addClass("typeon");
+                $($(event.target)).removeClass("typeoff");
+            }
+        }
+    });
+    //获取子栏目列表后的处理
+    function LTResponse(res){
+        if (res.status == '0') {
+            ui.error(res.data);
+        }else {
+            $("#area_list tr:[typeid="+res.data.typeid+"]").after(res.data.inner);
+        }
+    }
+</script>
+<include file="Public:_footer" />

@@ -1,0 +1,49 @@
+<include file="Public:_header_common" />
+<title>我的账户-- {$glo.web_name}</title>
+<include file="default:Public:_header_main" group="Home"/>
+<!--中部开始-->
+<div class="wrap2">
+	<div id="hy_left">
+		<include file="Public:_left" />
+	</div>
+	<div id="hy_right">
+            <div class="box">
+				<div class="Menubox1" id="rotate">
+					<ul class="menu ajaxdata">
+                        <li><a id="mx2" href="#fragment-2" ajax_href="__URL__/tendbacking/">回收中定期理财</a></li>
+                        <li><a id="mx3" href="#fragment-3" ajax_href="__URL__/tenddone/">已回收定期理财</a></li>
+					</ul>
+				</div> 
+				<div class="contentright">
+					<div id="fragment-2" style="display:none">
+						<!--升级会员-->
+					</div>
+					<div id="fragment-3" style="display:none">
+						<!--升级会员-->
+					</div>
+				</div>
+			</div>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+function detail(id){
+	
+	$.jBox("get:__URL__/ajax_detail?id="+id, {
+		title: "待回收的投资明细",
+		width: "auto",
+		buttons: {'关闭': true }
+	});
+    }
+
+function done(id){
+	
+	$.jBox("get:__URL__/ajax_done?id="+id, {
+		title: "已回收的投资明细",
+		width: "auto",
+		buttons: {'关闭': true }
+	});
+    }
+</script>
+<include file="default:Public:_footer" group="Home" />

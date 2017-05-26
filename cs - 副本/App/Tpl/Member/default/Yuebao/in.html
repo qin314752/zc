@@ -1,0 +1,82 @@
+<div id="yuebaoin">
+<table style=" margin:10px; font-size:12px; text-align:left; line-height:24px;" id="tips" cellspacing="10" cellpadding="10">
+    <tbody>
+    <tr>
+        <td style="text-align: right">
+            账户可用余额：
+        </td>
+        <td>
+            {:Fmoney($member_money_data['account_money']+$member_money_data['back_money'])}元
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            聚财宝余额：
+        </td>
+        <td>
+            {:Fmoney($yuebao_info_data['money']+$yuebao_info_data['interest'])}元
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            转入金额：
+        </td>
+        <td>
+            <input type="text" id="money" style="width:200px; height:25px; line-height:25px" />
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            支付密码：
+        </td>
+        <td>
+            <input type="password" id="pin_pass" style="width:200px; height:25px; line-height:25px" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;line-height:60px;height:60px;">
+            <a id="transfer_in" href="javascript:;" style="line-height:25px;height:25px;background-color:rgb(51,145,211);color:white;padding:10px 40px;">确定转入</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<script type="text/javascript">
+    function fun_transfer_in(){
+        var money = $('#money').val();
+        var pin_pass = $('#pin_pass').val();
+        $.ajax({
+            url: "__APP__/member/yuebao/doin",
+            data: {money:money,pin_pass:pin_pass,ra:Math.random()},
+            timeout: 5000,
+            cache: false,
+            type: "post",
+            dataType: "json",
+            success: function (d, s, r) {
+                $.jBox.tip(d.msg,1000);
+//                alert(d.code);
+//                alert(d.msg);
+                if(d.code!=2){
+                    setTimeout(function(){
+                        $.jBox.close();
+                        window.location.href='__APP__/member';
+                    },3500);
+                }
+//                else{
+//                    $('#transfer_in').unbind('click');
+//                    $('#transfer_in').click(fun_transfer_in);
+//                }
+//                    $.jBox.tip('请输入用户名或者邮箱','tip');
+//                    if(d) $("#"+id).html(d.html);//更新客户端竞拍信息 作个判断，避免报错
+            }
+        })
+//        $('#transfer_in').unbind('click');
+    }
+    $(function(){
+        $('#transfer_in').click(fun_transfer_in);
+    });
+</script>
+<style type="text/css">
+    #yuebaoin{width:400px;height:200px;}
+    #yuebaoin td{line-height: 40px;}
+</style>

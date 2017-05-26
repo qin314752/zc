@@ -1,0 +1,112 @@
+<style>
+/*填写金额窗口*/
+.ajax-invest{ width:410px; height:auto; float:left; margin:40px;}
+.ajax-invest .item{ width:100%; height:auto; float:left;}
+.ajax-invest .item li{ width:100%; height:auto; float:left; margin-bottom:20px;}
+.ajax-invest .item li h6{ width:100px; height:30px; line-height:30px; font-size:12px; font-weight:normal; text-align:center; float:left;}
+.ajax-invest .item li input{ width:200px; height:30px; float:left; border:1px solid #CBCBCB; padding:0 3px; border-radius:3px;}
+.ajax-invest .item li div{ width:100%; height:40px; float:left; margin:30px 0 0; _display:none;}
+.ajax-invest .item li a{ width:auto; height:40px; line-height:40px; color:#fff; float:left; padding:0 20px; background:#067BCE; border-radius:5px;}
+.ajax-invest .item li a.center{ margin-left:110px; _display:none;}
+.ajax-invest .item li div a.center{ margin-left:160px; _display:none;}
+.ajax-invest .item li a:hover{ background:#128BDE;}
+.ajax-invest .item li b{height:30px; line-height:30px; font-size:12px; font-weight:normal; text-align:center; float:left;}
+</style>
+<div class="ajax-invest">
+  <ul class="item">
+    <li>
+      <h6>转让的债权</h6>
+      <input type="text" disabled="disabled" value="{$borrow_name}" class="disabled"/>
+    </li>
+    <li>
+      <h6>最高转让价格</h6>
+      <input type="text" disabled="disabled" value="￥{$info['capital']+$info['interest']}" class="disabled" />
+    </li>
+    <li>
+      <h6>转让手续费</h6>
+      <input type="text" disabled="disabled" value="￥0" id="debt_fee"  class="disabled" />
+      <b>(转让价格的{$debt_fee}%)</b> </li>
+    <li>
+      <h6>转让价格</h6>
+      <input type="text" name="money" id="money" onkeyup="changefee()" />
+      <b>&nbsp;元</b>&nbsp;<font color="red">*</font> </li>
+    <li>
+      <h6>支付密码</h6>
+      <input type="password" name="paypass" id="paypass" />
+      &nbsp;<font color="red">*</font> </li>
+    <li>
+      <div>
+        <input type="hidden" name="invest_id" id="invest_id" value="{$invest_id}">
+        <a href="javascript:void(0);" class="center" id="dosubmit">确认转让</a> </div>
+    </li>
+  </ul>
+</div>
+<script type="text/javascript">
+    function changefee(){
+        var money = $("#money").val().replace(/(<br[^>]*>|  |\s*)/g,'');
+        var debt_fee="{$debt_fee}";
+        var data=((money*debt_fee)/100).toFixed(2);
+        $('#debt_fee').val(data);
+    }
+function myrefresh() 
+{
+    window.location.href = '/member/debt#fragment-2';
+    window.location.reload();
+}
+var debt_fee = {$debt_fee};
+var highest_price = {$info['capital']+$info['interest']};
+ $(document).ready(function(){
+    $("#money").bind('input money',function(){
+        var money = $("#money").val().replace(/(<br[^>]*>|  |\s*)/g,'');
+        if(money>highest_price){
+            alert("您已经高出了最高价格，将无法转让！");
+        }
+        if(money==='0'){
+            $("#money").val('');
+        }
+        fee = Math.round(money*debt_fee)/100;
+        $("#fee").html(fee);
+    })
+});
+$("#dosubmit").click(function(){
+    var money = $("#money").val().replace(/(<br[^>]*>|  |\s*)/g,'');
+    var paypass = $("#paypass").val();
+    var invest_id = $("#invest_id").val();
+    if(!invest_id){
+        alert("缺少参数，请与管理员联系！");
+        return false;
+    }
+    if(!money){
+        alert("请输入转让价格！");
+        return false;
+    }else if(money> highest_price){
+        alert("转让价格高出了最高转让价格！");
+        return false;
+    }
+    if(!paypass){
+        alert("请输入支付密码！");
+        return false;
+    }
+    if(confirm('您确定以￥'+money+'元的价格转让债权吗?')){
+        $.jBox.tip("数据处理中，请稍候......",'loading');
+        $.ajax({
+            url: "__URL__/sell/",
+            data: {"money":money, "paypass":paypass, "invest_id":invest_id},
+            timeout: 4000,
+            cache: false,
+            type: "post",
+            dataType: "json",
+            success: function (d, s, r) {
+                    if(d.status==1){
+
+                        $.jBox.tip(d.message,"success");
+
+                    }else{
+                        $.jBox.tip(d.message,"fail");
+                    }
+            }
+        });
+        setTimeout('myrefresh()',4000);
+    }
+})
+</script>

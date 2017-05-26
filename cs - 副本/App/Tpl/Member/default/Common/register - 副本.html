@@ -1,0 +1,187 @@
+<include file="default:Public:header_new" group="Home" />
+<title>新用户注册-- {$glo.web_name}</title>
+<script type="text/javascript">
+    var JPlaceHolder = {
+        //检测
+        _check : function(){
+            return 'placeholder' in document.createElement('input');
+        },
+        //初始化
+        init : function(){
+            if(!this._check()){
+                this.fix();
+            }
+        },
+        //修复
+        fix : function(){
+            jQuery(':input[placeholder]').each(function(index, element) {
+                var self = $(this), txt = self.attr('placeholder');
+                self.wrap($('<div></div>').css({position:'relative', zoom:'1', border:'none', background:'none', padding:'none', margin:'none'}));
+                var pos = self.position(), h = self.outerHeight(true), paddingleft = self.css('padding-left');
+                var holder = $('<span></span>').text(txt).css({position:'absolute', left:pos.left+57, top:pos.top, height:h, lienHeight:h, paddingLeft:paddingleft, color:'#aaa'}).appendTo(self.parent());
+                self.focusin(function(e) {
+                    holder.hide();
+                }).focusout(function(e) {
+                    if(!self.val()){
+                        holder.show();
+                    }
+                });
+                holder.click(function(e) {
+                    holder.hide();
+                    self.focus();
+                });
+            });
+        }
+    };
+    //执行
+    jQuery(function(){
+        JPlaceHolder.init();
+    });
+var imgpath="__ROOT__/Style/M/";
+var curpath="__URL__";
+</script>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/css/Mbmber.css" />
+<script type="text/javascript" src="__ROOT__/Style/M/js/reg.js"></script>
+<script type="text/javascript" src="__ROOT__/Style/Js/strength.js"></script> 
+<script type="text/javascript" src="__ROOT__/Style/Js/autoMail.js"></script>
+
+
+<div class="member_reg padbottom_80">
+    <div class="reg_font text-center">
+        <div class="top_ABC font30 color-red">{$glo.web_name}，开启财富之门</div>
+        <div class="low_ABC font14 color-red">种下财富的种子，让财富在这里发芽生长</div>
+    </div>
+    <div class="color-bg-white reg_boxnew">
+        <div class="boxnew_title border-bottom">
+            <div class="float_left font16 div1 color-red borderbtmred"><div class="tips1 float_left"></div>注册用户信息</div>
+            <div class="float_left font16 div2 color-95"><div class="tips2 float_left"></div>实名认证</div>
+            <div class="float_left font16 div1 color-95" style="margin-left: 0;"><div class="tips3 float_left"></div>设置交易密码</div>
+            <div class="float_left font16 div2 color-95"><div class="tips4 float_left"></div>注册成功</div>
+            <div class="clear"></div>
+        </div>
+        <div class="boxnew_title2"></div>
+        <div class="boxnew_input border-all ico4"><input id="txtPhone" type="text" class="border-none boxinput" value="" placeholder="请输入手机号"/></div>
+        <div id="dvPhone" class="boxnew_title2"></div>
+        <div class="boxnew_input border-all ico2"><input id="txtPwd" type="password" class="border-none boxinput" value="" placeholder="请输入密码"/></div>
+        <div id="dvPwd" class="boxnew_title2"></div>
+        <div class="boxnew_input border-all ico2"><input id="txtRepwd" type="password" class="border-none boxinput" value="" placeholder="请再次输入密码"/></div>
+        <div id="dvRepwd" class="boxnew_title2"></div>
+        <div class="boxnew_input border-all ico4"><input id="txtRec" type="text" class="border-none boxinput" value="{$in}" <if condition="$invite neq ''">readonly=readonly</if>  placeholder="请输入推广人用户名/手机号"/></div>
+        <div id="dvRec" class="boxnew_title2"></div>
+        <div class="boxnew_input">
+            <div class="boxnew_input_ border-all ico3 float_left">
+                <input type="text" placeholder="请输入验证码" class="border-none boxinput_" id="txtCode"/>
+            </div>
+            <div class="float_left" >
+                <img onclick="this.src=this.src+'?t='+Math.random()" id="imVcode" alt="点击换一个校验码" style=" float: left; margin-left: 12px; width: auto; height:40px;border: 1px solid #dcdcdc;" src="__URL__/verify">
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="dvCode" class="boxnew_title2"></div>
+        <div class="boxnew_input border-all">
+            <div class="boxnew_input_ ico5 float_left">
+                <input type="text" placeholder="请输入手机验证码" class="border-none boxinput_" id="txtPCode"/>
+            </div>
+            <div class="float_right" >
+                <input type="button" value="获取短信验证码" class="binput_ border-none" id="pcodebtn" onclick="sendMobileValidSMSCode()" style="cursor: pointer"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="dvPcode" class="boxnew_title2"></div>
+        <div style="width: 324px;font-size: 14px; margin: 0 auto 10px;" >
+            <input type="checkbox" checked="checked"/><a target="_blank" href="/zhucexieyi/index.html" class="color-red">同意《注册服务协议》 </a>
+        </div>
+        <!--<input type="hidden" id="invite" name="invite" value="{$invite}"/>-->
+        <div class="login_btn border-none text-center font18" onclick="RegSubmit(this);" id="btnReg">同意协议并注册</div>
+        <div class="boxnew_input font16" style="text-align: right;">已注册？<a href="__APP__/member/common/login/">请登录</a></div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    function closeAction(){
+        window.location.href="__APP__/member/";
+    }
+
+    function getPassWord() {
+        $.jBox("get:__APP__/member/common/getpassword/", {
+            title: "找回密码",
+            width: "auto",
+            buttons: {'发送邮件':'jfun_dogetpass()','关闭': true }
+        });
+    }
+    //$(document).ready(function(){
+    //    $('#txtEmail').autoMail({
+    //        emails:['qq.com','163.com','126.com','sina.com','sohu.com','yahoo.cn','gmail.com','hotmail.com','live.cn']
+    //    });
+    //});
+    var mbTest = /^(13|14|15|17|18)[0-9]{9}$/;
+    var timer = null;
+    var leftsecond = 60; //倒计时
+    var msg = "";
+    function sendMobileValidSMSCode() {
+        if("获取短信验证码" !=$("#pcodebtn").val())
+        {
+            return;
+        }
+
+
+
+        var mobile = $("#txtPhone").val();
+        if (mobile == "") {
+            return;
+        }
+        if (mbTest.test(mobile)) {
+            $.jBox.tip("验证码发送中......","loading");
+            $.ajax({
+                url: "__URL__/sendphone/",
+                type: "post",
+                dataType: "json",
+                data: {"cellphone":mobile,"code":$("#txtCode").val()},
+                success: function(d) {
+                    leftsecond = 60;
+                    if (d.status == 1) {
+                        $.jBox.tip("发送成功","success");
+                        clearInterval(timer);
+                        timer = setInterval(setLeftTime, 1000, "1");
+                    }
+                    else if (d.status == 2) {
+                        $.jBox.tip("号码已被使用","error");
+                    }
+                    else if (d.status == 3) {
+                        $.jBox.tip("图像验证码不正确！","error");
+                    }
+                    else if (d.status == 4) {
+                        $.jBox.tip("请先填写图形验证码！","error");
+                    }
+                    else {
+                        $.jBox.tip("校验码发送失败,请重试","fail");
+                    }
+                }
+            });
+        }
+        else {
+
+            return;
+        }
+    }
+    function setLeftTime() {
+        var second = Math.floor(leftsecond);
+        $("#pcodebtn").val(msg + second + "秒后可重发");
+        leftsecond--;
+        if (leftsecond < 1) {
+            $("#pcodebtn").val("现在可重新发送！");
+            clearInterval(timer);
+            try {
+                $("#pcodebtn").val("获取短信验证码");
+            } catch (E) { }
+            return;
+        }
+    }
+</script>
+
+
+
+
+
+
+<include file="default:Public:bottom" group="Home" />

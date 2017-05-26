@@ -1,0 +1,2 @@
+<?php
+return array ( 'ecpss' => array ( 'enable' => '0', 'feerate' => '', 'MerNo' => '', 'MD5key' => '', ), 'ips' => array ( 'enable' => '0', 'feerate' => '', 'MerCode' => '', 'MerKey' => '', ), 'baofoo' => array ( 'enable' => '0', 'feerate' => '', 'MemberID' => '', 'TerminalID' => '', 'pkey' => '', ), 'allinpay' => array ( 'enable' => '0', 'feerate' => '', 'MerCode' => '', 'key' => '', ), 'shuangqian' => array ( 'enable' => '0', 'feerate' => '', 'MerCode' => '', 'key' => '', ), ); ?>

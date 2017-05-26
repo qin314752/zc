@@ -1,0 +1,224 @@
+@charset "utf-8";
+/* the style for putiandai.com */
+/* Author Lihaihong,2013-8-6 */
+
+/* reset */
+html{-webkit-text-size-adjust:none;-webkit-font-smoothing:antialiased;color:#666;}
+html,body,p,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,texarea,button,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{font:14px/1 "Microsoft YaHei",Arial,Helvetica,sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+img,button,textarea,input{outline:none;}
+table{border-collapse:collapse;border-spacing:0;}
+th{font-weight:normal;}
+ul,ol{list-style:none;}
+a{text-decoration:none;outline:none;color:#06c;}
+a.deep{color:#3280a5;}
+a.gray{color:#666;}
+a:hover{text-decoration:none;}
+i,em{font-style:normal;}
+/*button{cursor:pointer;}*/
+.clear {
+	clear: both;
+}
+body {
+	overflow-x:hidden;
+}
+.middle {
+	width:980px;
+	margin:0 auto;
+}
+.t {
+	height: 100%;
+	width:150px;
+	float: left;
+}
+.kx_14 {
+	width:100%;
+	height: 14px;
+}
+.kx_5 {
+	width:100%;
+	height: 5px;
+}
+.shutiao {
+	height: 100%;
+	width:20px;
+	float: left;
+}
+/*dingbu*/
+
+#head {
+			width:100%;
+			height:43px;
+			background: white;
+			border-bottom: 1px solid #e5e5e5;
+		}
+
+		.tb_box {
+			width:1210px;
+			height:100%;
+			margin:0 auto;
+		}
+		.Nav .contain{width:1210px;}
+		#sy_tel{margin:13px 10px 13px 0px;}
+		.ty {
+			float: left;
+		}
+
+		.ty img {
+			float: left;
+		}
+		#sy-wb{position: relative;top:14px;left:20px;}
+		#sy-wx{position: relative;left:40px;padding-top: 13px;height: 30px;}
+		#sy-qq{position: relative;left:60px;padding-top:13px;height:30px;}
+		#tb_wx{z-index:66666;position: absolute;top:43px;left:-40px;display:none;}
+		#tb_qq{z-index:99999;position: absolute;top:43px;left:-110px;width:154px;height: 74px;border:1px solid #e5e5e5;background: white;display: none;}
+		#tb_qq label{float: left;margin-left: 5px;margin-top: 3px;}
+		#tb_tyq{margin-top:10px;}
+		#tb_tzq{margin-top: 10px;}
+		.shouji {
+			width:220px;
+			margin-left:8px;
+			height:100%;
+		}
+		.shouji li{height: 100%;float: left;}
+		.tel {
+			color:#666;
+			line-height:43px;
+			float:left;
+		}
+		.tel a{
+			color:white;
+		}
+		#tz {
+			float:right;
+			height:15px;
+			margin-top: 14px;
+		}
+		#tz a:hover{color: #fc554c;}
+		.tz {
+			float: left;
+			font-size: 12px;
+			border-right:1px solid #666;
+			padding: 0 9px;	
+			color:#666;
+			height: 12px;
+			}
+			.tz a{
+				color:#666;
+			}
+		#zhuce {
+			border-right-style: none;
+		}
+		#tz img{
+			margin-top: -5px;
+			/*float: left;*/
+		}
+		.after-2015{float: right;line-height: 43px;color: #666;}
+		.after-2015 a{color:#666;}
+		.after-2015 a:hover{color:#fc554c;}
+/*daohang*/
+#logo {
+		width:980px;
+		height:106px;
+		margin:0 auto;
+}
+#logo img {
+	margin-top: 14px;
+}
+#dh {
+	width:650px;
+	height: 100%;
+	float: right;
+}
+#dh img {
+	margin-top: 10px;
+}
+#dh li {
+	float: left;
+	font-size: 18px;
+	padding:44px 18px;
+}
+#dh li a:hover {
+	color:#fc554c;
+}
+#dh li a {
+	color:#333335;
+}
+/*dibu*/
+.bot {
+	width:100%;
+	height: 300px;
+	background: #666666;
+	margin-top: 40px;
+}
+.bot_con {
+	width:980px;
+	margin: 0 auto;
+	height: 140px;
+	border-bottom:2px solid #b5b4b4;
+}
+.bot_dh {
+	width:246px;
+	height: 92px;
+	float: left;
+	margin-top: 22px;
+	margin-left:22px;
+	color:white;
+}
+.bot_dh span {
+	font-size: 28px;
+}
+.bot_dh p {
+	text-align: center;
+	margin-top: 14px;
+}
+#bot_tel {
+	margin-top: -8px;
+}
+.bot_dh .p1 {
+	margin-top: 12px;
+}
+.bot_nr {
+	width:64px;
+	height: 94px;
+	float: left;
+	margin-top: 23px;
+	margin-left:100px;
+}
+.bot_nr p {
+	margin-bottom: 22px;
+}
+.bot_nr p a{
+	color: white;
+}
+#erweima {
+	width:100px;
+	height: 100px;
+	float: right;
+	margin:20px;
+}
+.bot_conn {
+	width:512px;
+	height: 100px;
+	margin:0 auto;
+	margin-top: 22px;
+}
+.bot_conn p {
+	color:white;
+	font-size: 12px;
+	margin-top: 10px;
+	text-align: center;
+}
+.bot_kx {
+	height: 40px;
+	width:20px;
+	float: left;
+}
+.bot_conn img {
+	margin-top: 16px;
+	float: left;
+	height: 38px;
+	width:113px;
+}
+

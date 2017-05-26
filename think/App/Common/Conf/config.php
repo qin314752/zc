@@ -42,7 +42,7 @@ return array(
 	 * 提示页面
 	 */
 	'Runtime'   =>  __ROOT__.'Runtime',
-	'TMPL_ACTION_ERROR' => './Public/error/error.php',
-	'TMPL_ACTION_SUCCESS' => './Public/error/error.php',
+	// 'TMPL_ACTION_ERROR' => './Public/error/error.php',
+	// 'TMPL_ACTION_SUCCESS' => './Public/error/error.php',
 	'WEB_ROOT'=>explode('App/Common',str_replace('\\', '/', dirname(__FILE__)),-1)[0],//网站根目录物理路径
 );

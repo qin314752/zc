@@ -1,0 +1,10 @@
+# robots.txt generated at http://www.shangdaixitong.com/ 
+User-agent: *
+Disallow: /app/
+Disallow: /core/
+Disallow: /public/
+Disallow: /dynamic/
+Disallow: /static/
+Disallow: /style/
+Sitemap: /sitemap.html
+Sitemap: /sitemap.xml

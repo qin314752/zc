@@ -1,0 +1,166 @@
+[ 2017-05-26T09:30:04+08:00 ] /crowdinvest/index | ERR: Cron:cron_1 Runat 2017-05-26 09:30:04 Use 0.000234 s
+
+[ 2017-05-26T09:30:06+08:00 ] /crowdinvest/index?_=1495762205655 | ERR: Cron:cron_1 Runat 2017-05-26 09:30:06 Use 0.000167 s
+
+[ 2017-05-26T09:30:46+08:00 ] /jiaorong/admin | ERR: Cron:cron_1 Runat 2017-05-26 09:30:46 Use 0.000169 s
+
+[ 2017-05-26T09:30:59+08:00 ] /admin/index/verify?1495762259693 | ERR: Cron:cron_1 Runat 2017-05-26 09:30:59 Use 0.000191 s
+
+[ 2017-05-26T09:31:05+08:00 ] /admin/index/login | ERR: Cron:cron_1 Runat 2017-05-26 09:31:05 Use 0.000171 s
+
+[ 2017-05-26T09:31:06+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 09:31:06 Use 0.000253 s
+
+[ 2017-05-26T09:31:09+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 09:31:09 Use 0.000165 s
+
+[ 2017-05-26T10:13:47+08:00 ] /jiaorong/admin | ERR: Cron:cron_1 Runat 2017-05-26 10:13:47 Use 0.000239 s
+
+[ 2017-05-26T10:13:56+08:00 ] /admin/index/login | ERR: Cron:cron_1 Runat 2017-05-26 10:13:56 Use 0.000159 s
+
+[ 2017-05-26T10:13:57+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 10:13:57 Use 0.000246 s
+
+[ 2017-05-26T10:13:59+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 10:13:59 Use 0.000197 s
+
+[ 2017-05-26T10:14:50+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 10:14:50 Use 0.000651 s
+
+[ 2017-05-26T11:26:40+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 11:26:40 Use 0.000210 s
+
+[ 2017-05-26T13:48:13+08:00 ] /admin/global/feesetting.html | ERR: Cron:cron_1 Runat 2017-05-26 13:48:13 Use 0.000201 s
+
+[ 2017-05-26T13:48:24+08:00 ] /admin/global/websetting.html | ERR: Cron:cron_1 Runat 2017-05-26 13:48:24 Use 0.000151 s
+
+[ 2017-05-26T13:49:21+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 13:49:21 Use 0.000238 s
+
+[ 2017-05-26T13:49:25+08:00 ] /admin/global/websetting.html | ERR: Cron:cron_1 Runat 2017-05-26 13:49:25 Use 0.000149 s
+
+[ 2017-05-26T13:51:26+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 13:51:26 Use 0.000192 s
+
+[ 2017-05-26T13:51:41+08:00 ] /admin/Paylog/paylogonline.html | ERR: Cron:cron_1 Runat 2017-05-26 13:51:41 Use 0.000230 s
+
+[ 2017-05-26T13:51:42+08:00 ] /admin/members/index.html | ERR: Cron:cron_1 Runat 2017-05-26 13:51:42 Use 0.000158 s
+
+[ 2017-05-26T13:51:43+08:00 ] /admin/global/websetting.html | ERR: Cron:cron_1 Runat 2017-05-26 13:51:43 Use 0.000182 s
+
+[ 2017-05-26T13:55:05+08:00 ] /admin/global/feesetting.html | ERR: Cron:cron_1 Runat 2017-05-26 13:55:05 Use 0.000360 s
+
+[ 2017-05-26T13:55:08+08:00 ] /admin/msgonline/.html | ERR: Cron:cron_1 Runat 2017-05-26 13:55:08 Use 0.000415 s
+
+[ 2017-05-26T13:57:59+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 13:57:59 Use 0.000472 s
+
+[ 2017-05-26T14:00:39+08:00 ] /admin/global/feesetting.html | ERR: Cron:cron_1 Runat 2017-05-26 14:00:39 Use 0.000229 s
+
+[ 2017-05-26T14:00:41+08:00 ] /admin/msgonline/.html | ERR: Cron:cron_1 Runat 2017-05-26 14:00:41 Use 0.000186 s
+
+[ 2017-05-26T14:10:54+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 14:10:54 Use 0.000221 s
+
+[ 2017-05-26T14:16:16+08:00 ] /admin/crowdfunding/repayment.html | ERR: Cron:cron_1 Runat 2017-05-26 14:16:16 Use 0.000176 s
+
+[ 2017-05-26T14:16:18+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 14:16:18 Use 0.000187 s
+
+[ 2017-05-26T15:14:15+08:00 ] /member/common/register/ | ERR: Cron:cron_1 Runat 2017-05-26 15:14:15 Use 0.000256 s
+
+[ 2017-05-26T15:14:17+08:00 ] /member/common/register/?_=1495782857260 | ERR: Cron:cron_1 Runat 2017-05-26 15:14:17 Use 0.000263 s
+
+[ 2017-05-26T15:15:02+08:00 ] /member/common/register/ | ERR: Cron:cron_1 Runat 2017-05-26 15:15:02 Use 0.000199 s
+
+[ 2017-05-26T15:15:03+08:00 ] /Member/common/verify | ERR: Cron:cron_1 Runat 2017-05-26 15:15:03 Use 0.000169 s
+
+[ 2017-05-26T15:15:04+08:00 ] /member/common/register/?_=1495782904221 | ERR: Cron:cron_1 Runat 2017-05-26 15:15:04 Use 0.000201 s
+
+[ 2017-05-26T15:15:11+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 15:15:11 Use 0.000227 s
+
+[ 2017-05-26T15:15:12+08:00 ] /admin/capitalAccount/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:12 Use 0.000154 s
+
+[ 2017-05-26T15:15:13+08:00 ] /admin/members/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:13 Use 0.000192 s
+
+[ 2017-05-26T15:15:14+08:00 ] /admin/capitalAccount/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:14 Use 0.000159 s
+
+[ 2017-05-26T15:15:17+08:00 ] /admin/members/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:17 Use 0.000193 s
+
+[ 2017-05-26T15:15:23+08:00 ] /admin/capitalAccount/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:23 Use 0.000160 s
+
+[ 2017-05-26T15:15:24+08:00 ] /admin/members/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:24 Use 0.000177 s
+
+[ 2017-05-26T15:15:31+08:00 ] /Admin/members/edit?id=1 | ERR: Cron:cron_1 Runat 2017-05-26 15:15:31 Use 0.000192 s
+
+[ 2017-05-26T15:15:35+08:00 ] /Admin/members/doEdit | ERR: Cron:cron_1 Runat 2017-05-26 15:15:35 Use 0.000156 s
+
+[ 2017-05-26T15:15:36+08:00 ] /Admin/members/?1=1& | ERR: Cron:cron_1 Runat 2017-05-26 15:15:36 Use 0.000192 s
+
+[ 2017-05-26T15:15:38+08:00 ] /admin/capitalAccount/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:38 Use 0.000150 s
+
+[ 2017-05-26T15:15:39+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:15:39 Use 0.000172 s
+
+[ 2017-05-26T15:16:57+08:00 ] /jiaorong/admin | ERR: Cron:cron_1 Runat 2017-05-26 15:16:57 Use 0.000154 s
+
+[ 2017-05-26T15:17:08+08:00 ] /admin/index/login | ERR: Cron:cron_1 Runat 2017-05-26 15:17:08 Use 0.000208 s
+
+[ 2017-05-26T15:17:09+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 15:17:09 Use 0.000288 s
+
+[ 2017-05-26T15:17:14+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:17:14 Use 0.000233 s
+
+[ 2017-05-26T15:17:38+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 15:17:38 Use 0.000461 s
+
+[ 2017-05-26T15:17:40+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:17:40 Use 0.000181 s
+
+[ 2017-05-26T15:18:40+08:00 ] /admin/crowdfunding/swfupload | ERR: Cron:cron_1 Runat 2017-05-26 15:18:40 Use 0.000158 s
+
+[ 2017-05-26T15:18:44+08:00 ] /admin/crowdfunding/swfupload | ERR: Cron:cron_1 Runat 2017-05-26 15:18:44 Use 0.000155 s
+
+[ 2017-05-26T15:18:48+08:00 ] /admin/crowdfunding/swfupload | ERR: Cron:cron_1 Runat 2017-05-26 15:18:48 Use 0.000154 s
+
+[ 2017-05-26T15:18:59+08:00 ] /Admin/crowdfunding/add | ERR: Cron:cron_1 Runat 2017-05-26 15:18:59 Use 0.000148 s
+
+[ 2017-05-26T15:19:00+08:00 ] /Admin/crowdfunding/sell | ERR: Cron:cron_1 Runat 2017-05-26 15:19:00 Use 0.000145 s
+
+[ 2017-05-26T15:19:08+08:00 ] /crowdinvest/1.html | ERR: Cron:cron_1 Runat 2017-05-26 15:19:08 Use 0.000183 s
+
+[ 2017-05-26T15:19:09+08:00 ] /crowdinvest/investRecord?crowd_id=1&p=1 | ERR: Cron:cron_1 Runat 2017-05-26 15:19:09 Use 0.000166 s
+
+[ 2017-05-26T15:20:10+08:00 ] /admin/capitalAccount/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:20:10 Use 0.000146 s
+
+[ 2017-05-26T15:20:14+08:00 ] /member/common/login/ | ERR: Cron:cron_1 Runat 2017-05-26 15:20:14 Use 0.000213 s
+
+[ 2017-05-26T15:20:16+08:00 ] /member/common/login/?_=1495783215976 | ERR: Cron:cron_1 Runat 2017-05-26 15:20:16 Use 0.000197 s
+
+[ 2017-05-26T15:20:32+08:00 ] /admin/members/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:20:32 Use 0.000207 s
+
+[ 2017-05-26T15:20:34+08:00 ] /admin/common/member?id=2&_=1495783234066 | ERR: Cron:cron_1 Runat 2017-05-26 15:20:34 Use 0.000194 s
+
+[ 2017-05-26T15:20:36+08:00 ] /Admin/members/edit?id=2 | ERR: Cron:cron_1 Runat 2017-05-26 15:20:36 Use 0.000205 s
+
+[ 2017-05-26T15:20:49+08:00 ] /Admin/members/doEdit | ERR: Cron:cron_1 Runat 2017-05-26 15:20:49 Use 0.000180 s
+
+[ 2017-05-26T15:20:50+08:00 ] /Admin/members/?1=1& | ERR: Cron:cron_1 Runat 2017-05-26 15:20:50 Use 0.000245 s
+
+[ 2017-05-26T15:20:54+08:00 ] /Admin/members/moneyedit?id=2&_=1495783254092 | ERR: Cron:cron_1 Runat 2017-05-26 15:20:54 Use 0.000163 s
+
+[ 2017-05-26T15:21:02+08:00 ] /Admin/members/doMoneyEdit | ERR: Cron:cron_1 Runat 2017-05-26 15:21:02 Use 0.000177 s
+
+[ 2017-05-26T15:21:03+08:00 ] /Admin/members/index?1=1&1=1& | ERR: Cron:cron_1 Runat 2017-05-26 15:21:03 Use 0.000290 s
+
+[ 2017-05-26T15:21:07+08:00 ] /member/ | ERR: Cron:cron_1 Runat 2017-05-26 15:21:07 Use 0.000159 s
+
+[ 2017-05-26T15:21:09+08:00 ] /member/?_=1495783268259 | ERR: Cron:cron_1 Runat 2017-05-26 15:21:09 Use 0.000153 s
+
+[ 2017-05-26T15:21:31+08:00 ] /admin/global/feesetting.html | ERR: Cron:cron_1 Runat 2017-05-26 15:21:31 Use 0.000244 s
+
+[ 2017-05-26T15:26:13+08:00 ] /admin/capitalAccount/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:26:13 Use 0.000148 s
+
+[ 2017-05-26T15:33:09+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 15:33:09 Use 0.000260 s
+
+[ 2017-05-26T16:06:18+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-05-26 16:06:18 Use 0.000272 s
+
+[ 2017-05-26T16:06:18+08:00 ] /admin/welcome/index.html | ERR: Cron:cron_1 Runat 2017-05-26 16:06:18 Use 0.000171 s
+
+[ 2017-05-26T16:06:20+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 16:06:20 Use 0.000280 s
+
+[ 2017-05-26T16:06:34+08:00 ] /jiaorong/admin | ERR: Cron:cron_1 Runat 2017-05-26 16:06:34 Use 0.000163 s
+
+[ 2017-05-26T16:06:35+08:00 ] /admin/index/verify | ERR: Cron:cron_1 Runat 2017-05-26 16:06:35 Use 0.000164 s
+
+[ 2017-05-26T16:06:42+08:00 ] /admin/index/index.html | ERR: Cron:cron_1 Runat 2017-05-26 16:06:42 Use 0.000155 s
+
+[ 2017-05-26T16:06:42+08:00 ] /admin/welcome/index.html | ERR: Cron:cron_1 Runat 2017-05-26 16:06:42 Use 0.000285 s
+
+[ 2017-05-26T16:06:43+08:00 ] /admin/crowdfunding/index.html | ERR: Cron:cron_1 Runat 2017-05-26 16:06:43 Use 0.000172 s
+

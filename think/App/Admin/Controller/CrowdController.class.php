@@ -8,35 +8,45 @@ class CrowdController extends CommonController {
         $this->display();
     }
    public function upload()
+    {
+      upload();
+    } 
+   
+   public function upload_del()
    {
-		$uploaddir = __APP__.'/upload/';
-		$name = $_FILES['file']['name'];
-		$uploadfile = $uploaddir . $name;
-		$type = strtolower(substr(strrchr($name, '.'), 1));
-		//获取文件类型
+     upload_del($_GET['src']);   
 
-
-		var_dump($_FILES);
-		var_dump($type);
-		var_dump($uploadfile);
-		var_dump(move_uploaded_file($_FILES['file']['tmp_name'], $uploaddir . $_FILES['file']['name']));
-		die;
-
-		$typeArr = array("jpg","png","gif");
-		if (!in_array($type, $typeArr)) {
-		    echo "请上传jpg,png或gif类型的图片！";
-		    exit;
-		}
-		print "<pre>";
-		if (move_uploaded_file($_FILES['file']['tmp_name'], $uploaddir . $_FILES['file']['name'])) {
-		    print "File is valid, and was successfully uploaded.  Here's some more debugging info:\n";
-		    print_r($_FILES);
-		} else {
-		    print "Possible file upload attack!  Here's some debugging info:\n";
-		    print_r($_FILES);
-		}
-		print "</pre>";
    }
-
+   public function data()
+   {
+   	$a = D('Project');
+   	if (!$a->create()){     
+   	// 如果创建失败 表示验证没有通过 输出错误提示信息    
+   	 exit($a->getError());
+   	}else{     
+   	 // 验证通过 可以进行其他数据操作
+   	 }
+   	if(empty($_POST['car_img'])&&!implode($_POST['car_img']))$this->error('汽车图片未上传',U('index'));
+   	$data = I();
+   	$path = __ROOT__.'Car/'.date('YmdHis',time()).'/';
+   	$content = array();
+   	$content['project_brief'] = $_POST['project_brief'];//汽车简介
+   	$content['car_parameters'] = $_POST['car_parameters'];//汽车参数
+   	$content['project_pact'] = $_POST['project_pact'];//汽车合同
+	foreach ($content as $key => $value) 
+	{
+	   $name = $key.'.txt';
+	   if(!txt($path,$value,$name))
+	   	{
+	   		Rmall(C('WEB_ROOT').$path);
+	   		$this->error($key.'写入失败',U('index'));
+	   	}
+	   	$data[$key] = '/'.$path.$name;
+	}
+	   	var_dump($data);
+		   	
+	
+   	
+   }
 
 }

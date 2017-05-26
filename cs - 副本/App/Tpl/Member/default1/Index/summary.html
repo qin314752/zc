@@ -1,0 +1,59 @@
+<style type="text/css">
+    .tables{font-size: 12px;}
+    .divList { height: 35px; line-height: 35px; text-align: left; border-bottom: 1px solid #ededed; vertical-align: middle; width: 680px; color: Gray; float: left; }
+    .content a { font-size: 12px; color: #092fa9; }
+    .tdTilte { width: 120px; color: Gray; text-align: right; }
+    .tdMoneyShow { color: #005B9F;   text-align:right; text-indent: 15px; width: 110px; padding-right: 35px; }
+    .tdDes { color: Gray; }
+    .dashed { height: 1px; width: 742px; border-top: 1px dashed #ccc; margin: 0px auto; clear: both; }
+    .sum { padding: 10px 0px; width: 100%; height: 18px; width: 540px; text-align: left; font-size: 12px; vertical-align: middle; line-height: 18px; font-weight: bold; padding-left: 40PX; float: left; }
+</style>
+
+<div style="overflow: hidden; width: 100%;">
+    <div style="width: 100%; overflow: hidden; padding-top: 20px;">
+        <table class="tables" style="border: 1px solid #dedede; width: 764px;
+			margin-left: 19px; height: 40px;" cellpadding="0" cellspacing="0">
+            <tbody style="text-align: center">
+            <tr  style="background-color: #ececec; font-weight: bold; height: 40px; ">
+                <td style="border: 1px solid #dedede ;">
+                    特权金标题
+                </td>
+                <td style="border: 1px solid #dedede ;">
+                    特权金额
+                </td>
+                <td style="border: 1px solid #dedede ;">
+                    领取时间
+                </td>
+                <td style="border: 1px solid #dedede ;">
+                    结束时间
+                </td>
+                <td style="border: 1px solid #dedede ;">
+                    收益状态
+                </td>
+            </tr>
+            <volist name="list" id="vo">
+                <tr style="height: 40px; ">
+                    <td style="border: 1px solid #dedede ;" >
+                        {$vo.title}
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        {$vo.tqj_money}
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        {$vo.get_time|date="Y-m-d H:i",###}
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        {$vo.over_time|date="Y-m-d H:i",###}
+                    </td>
+                    <td style="border: 1px solid #dedede ;">
+                        <if condition="$vo.tqj_status eq 1"><font color="#fc8936" >进行中</font><else/><font color="#009900" >已结束</font></if>
+                    </td>
+                </tr>
+            </volist>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

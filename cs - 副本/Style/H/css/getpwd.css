@@ -1,0 +1,63 @@
+/* getpwd */
+
+
+.main_title{padding:18px 0 0;}
+.main_title .main_tab{border-bottom:1px solid #D9D9D9;height:39px;padding-left:462px;background:url(/data/images/bg_tab.png) repeat-x 0 0;}
+.main_title .main_tab span{position:relative;float:left;margin-right:12px;border:1px solid #d9d9d9;padding:0 35px;font-size:14px;line-height:38px;color:#323232;}
+.main_title .main_tab span:hover{background:rgb(255,47,47);color:#fff;text-decoration:none;cursor:pointer;}
+.main_title .main_tab .current,
+.main_title .main_tab span.current:hover{background:#fafafa;border-bottom-color:#fafafa; cursor:default;color:#323232; text-decoration:none;*top:1px;font-weight:bold;cursor:default;}
+
+
+
+
+element.style {
+    display: block;
+    width: 980px;
+}
+.t40 {
+    margin-top: 10px;
+}
+.conbox {
+    background: none repeat scroll 0 0 #fff;
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 980px;
+}
+
+
+.regist_bor {
+    background: none repeat scroll 0 0 #fff;
+}
+
+
+table.reg_tab td.tex_left {
+    color: #666666;
+    padding-right: 10px;
+    text-align: right;
+}
+table.reg_tab td {
+    font-size: 14px;
+    vertical-align: middle;
+	line-height:50px;
+}
+
+
+.input_getpwd {
+    background: none repeat scroll 0 0 rgb(255,47,47);
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: 微软雅黑;
+    font-size: 13px;
+    height: 35px;
+    line-height: 33px;
+    text-align: center;
+    width: 100px;
+}
+
+
+
+
+

@@ -1,0 +1,164 @@
+<include file="Public:_header" />
+<script type="text/javascript" src="__ROOT__/Style/My97DatePicker/WdatePicker.js" language="javascript"></script>
+
+<tagLib name="htmlA" />
+<script type="text/javascript">
+    var isSearchHidden = 1;
+    var searchName = "添加众筹红包";
+
+    function dosearchadd() {
+        if(isSearchHidden == 1) {
+            $("#search_div").slideDown();
+            $(".search_action").html("添加完毕");
+            isSearchHidden = 0;
+        }else {
+            $("#search_div").slideUp();
+            $(".search_action").html(searchName);
+            isSearchHidden = 1;
+        }
+    }
+    var isSearchtime = 1;
+
+</script>
+<div class="so_main">
+    <div class="page_tit">众筹红包设置</div>
+    <div class="Toolbar_inbox">
+        <htmlA:commonBtn type="jsfun" action="dosearchadd();" value="添加众筹红包" style="search_action" />
+    </div>
+
+    <div id="search_div" style="display:none">
+        <div class="form2">
+            <form method="post" action="__URL__/doadd" onsubmit="return subcheck();" enctype="multipart/form-data">
+                <dl class="lineD">
+                    <dt>使用条件：</dt>
+                    <dd>
+                        <input name="crowd_money" style="width:190px" id="crowd_money" type="text" onkeyup="value=changestr(value)" >
+                        <span>（元）*再投金额满足这个条件即可使用赠送金额</span>
+                    </dd>
+                </dl>
+
+                <dl class="lineD"><dt>开始时间(开始)：</dt><dd><htmlA:timer id="start_time" tip='*' arg="{maxDate:'#F{$dp.$D(\\\\'end_time\\\\')||\\\\'2020-10-01\\\\'}',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true}"  class="Wdate" value="{$bidtime.start_time}"/></dd></dl>
+                <dl class="lineD"><dt>结束时间(结束)：</dt><dd><htmlA:timer id="end_time" tip='*' arg="{minDate:'#F{$dp.$D(\\\\'start_time\\\\')}',maxDate:'2020-10-01',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true}" class="Wdate" value="{$bidtime.end_time}"/></dd></dl>
+
+
+                <dl class="lineD">
+                    <dt>赠送金额：</dt>
+                    <dd>
+                        <input name="donate_money" style="width:190px" id="donate_money" type="text" onkeyup="value=changestr(value)" value="{$search.realname}">
+                        <span>*（只可众筹，不可提现）</span>
+                    </dd>
+                </dl>
+                <dl class="lineD">
+                    <dt>使用期限：</dt>
+                    <dd>
+                        <input name="deadline" style="width:190px" id="deadline" type="text" onkeyup="value=changestr(value)" value="{$search.customer_name}">
+                        <span>（天）*从领取之日往后推迟指定的天数</span>
+                    </dd>
+                </dl>
+
+                <div class="page_btm">
+                    <input type="submit" class="btn_b" value="确定" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="list" >
+        <table style="width: 100%">
+            <tr class="Toolbar_inbox" >
+                <td width="200px">ID</td>
+                <td  width="300px">使用条件(在投金额)</td>
+                <td  width="200px">赠送金额</td>
+                <td  width="200px">活动领取开始时间</td>
+                <td  width="200px">活动领取结束时间</td>
+                <td  width="200px">使用期限</td>
+                <td width="200px">状态</td>
+            </tr>
+            <volist name="count" id="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.pay_money}</td>
+                    <td>{$vo.donate_money}</td>
+
+                    <td>{$vo.begin_time}</td>
+                    <td>{$vo.over_time}</td>
+
+                    <td>{$vo.count}天</td>
+
+                    <td class="dd">{$vo.status}</td>
+
+                    <!--<td><a href="__URL__/amend?id={$tqj.id}">修改</a>/<a href="#"  class="del" id="{$tqj.id}" >删除</a></td>-->
+                </tr>
+            </volist>
+        </table>
+        <div class="page right">{$pagebar}</div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+    function changestr(para){
+
+        para = para.replace(/^[^1-9]/g,'');
+
+        para = para.replace(/[^0-9]/g,'');
+
+        return para;
+    }
+
+
+    $(".btn_t").click(function(){
+        var start_time=$('#start_time').val();
+        var end_time=$('#end_time').val();
+        if(start_time.length==0){
+            alert("开始时间不能为空");
+            return false;
+        }
+        if(end_time.length==0){
+            alert("结束时间不能为空");
+            return false;
+        }
+    });
+    var status_btn_b = false;
+    $(".btn_b").click(function(){
+        if(status_btn_b){
+            alert("请不要重复提交，如网速慢，请等待！");
+            return false;
+        }
+        var crowd_money=$('#crowd_money').val();
+        var donate_money=$('#donate_money').val();
+        var deadline=$('#deadline').val();
+        var start_time=$('#start_time').val();
+        var end_time=$('#end_time').val();
+
+
+
+        if(crowd_money.length==0){
+            alert("在投金额不能为空");
+            return false;
+        }
+        if(donate_money.length==0){
+            alert("赠送金额不能为空");
+            return false;
+        }
+        if(deadline.length==0){
+            alert("使用期限不能为空");
+            return false;
+        }
+        if(start_time.length==0){
+            alert("开始时间不能为空");
+            return false;
+        }
+        if(end_time.length==0){
+            alert("结束时间不能为空");
+            return false;
+        }
+        status_btn_b=true;
+
+    });
+
+</script>

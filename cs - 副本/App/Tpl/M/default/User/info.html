@@ -1,0 +1,25 @@
+﻿<include file="Pub:header" />
+<!-- 标题 start-->
+<div class="header"><a class="back" href="/M/User/index"><返回</a>个人资料</div>
+<!-- 标题 end-->
+<div class="main">
+ <div class="box7">
+   <table cellpadding="0" cellspacing="0" border="0">
+    <tr align="left" height="28"><td>用户名：</td><td>{$minfo.user_name}</td></tr>
+    <tr align="left" height="28"><td>投资等级：</td><td>{$minfo.integral|getInvestLeveIco=###,3}</td></tr>
+    <tr align="left" height="28"><td>信用额度：</td><td>{$minfo.credit_cuse|Fmoney=###} </td></tr>
+    <tr align="left" height="28"><td>信用等级：</td><td>{$minfo.credits|getLeveIco=###,2}</td></tr>
+    <tr align="left" height="28"><td>VIP期限：</td><td>
+        <if condition="$minfo.user_leve eq 0"> 您还未申请VIP
+                  <elseif condition="$minfo.time_limit gt time()"/>
+                  {$minfo.time_limit|date="Y-m-d",###}到期
+                  <else/>
+                  您的VIP已于{$minfo.time_limit|date="Y-m-d",###}到期 </if>
+    </td></tr>
+    <tr align="left" height="28"><td>您的客服：</td><td>{$kflist[$minfo['customer_id']]}</td></tr>
+   </table>
+ </div>
+ 
+</div>
+﻿<include file="Pub:footer" /> 
+

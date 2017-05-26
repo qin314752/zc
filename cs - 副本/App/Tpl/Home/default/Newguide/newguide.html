@@ -1,0 +1,29 @@
+<if condition="$web_close.isopen eq 2">
+    <div class="web_close" style="text-align: center;font-size: 30px;margin-top:200px;">
+        <span>{$web_close.title}</span>
+    </div>
+    <else/>
+<include file="Public:header_new"/>
+<title>新手指引-{$glo.web_name}</title>
+<meta http-equiv="keywords" content="{$glo.web_keywords}"/>
+<meta http-equiv="description" content="{$glo.web_descript}"/>
+<link rel="stylesheet" href="__ROOT__/Style/H/css/invest.css"/>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/fancybox/jquery.fancybox-1.3.2.css" media="screen"/>
+<div class="width-100" style="height: 451px;background: #23a6d2 url('/Style/H/images/profile/newguide_banner.jpg') no-repeat scroll center center;min-width: 1200px;">
+</div>
+<div class="width-100" style="_height:500px;min-height: 500px;float: left;background: #f1edd1">
+        <div class="width1200" style="margin: 0 auto;background: #f1edd1 url('/Style/H/images/profile/newguide01.gif') no-repeat scroll center center;height: 496px;">
+        </div>
+    <div class="width1200" style="margin: 0 auto;background: #f1edd1 url('/Style/H/images/profile/newguide02.gif') no-repeat scroll center center;height: 556px;">
+    </div>
+    <div class="width1200" style="margin: 0 auto;background: #f1edd1 url('/Style/H/images/profile/newguide03.gif') no-repeat scroll center center;height: 116px;">
+    </div>
+</div>
+<div class="clear"></div>
+<div class="width-100" style="height: 180px;background: #ff6400;min-width: 1200px;">
+        <div class="width1200" style="margin: 0 auto;padding-top: 50px">
+            <div style="height: 80px;width: 280px;background: url('/Style/H/images/profile/guide_my.jpg') no-repeat;display: block;cursor: pointer;color: #cc0a00;font-size: 26px;text-align: center;line-height: 70px;margin: 0 auto;" onclick="javascript:window.location.href='/crowdinvest/index'">我要众筹</div>
+        </div>
+</div>
+<div class="clear"></div>
+<include file="Public:bottom"/></if>

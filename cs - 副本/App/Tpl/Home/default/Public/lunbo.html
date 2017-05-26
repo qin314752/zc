@@ -1,0 +1,113 @@
+<title>{$glo.index_title}</title>
+<meta http-equiv="keywords" content="{$glo.web_keywords}" />
+<meta http-equiv="description" content="{$glo.web_descript}" />
+<script  type="text/javascript" src="__ROOT__/Style/H/js/index.js"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/js/common.js" language="javascript"></script>
+<script type="text/javascript" src="__ROOT__/Style/H/js/jquery.kinMaxShow-1.0.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        $("#kinMaxShow").kinMaxShow({
+            //设置焦点图高度(单位:像素) 必须设置 否则使用默认值 500
+            height:440,
+            //设置焦点图 按钮效果
+            button:{
+                //设置按钮上面不显示数字索引(默认也是不显示索引)
+                showIndex:false,
+                //按钮常规下 样式设置 ，css写法，类似jQuery的 $('xxx').css({key:value,……})中css写法。
+                //【友情提示：可以设置透明度哦 不用区分浏览器 统一为 opacity，CSS3属性也支持哦 如：设置按钮圆角、投影等，只不过IE8及以下不支持】
+                normal:{background:'#FFFFFF',marginRight:'8px',border:'0',right:'50%',bottom:'20px'},
+                //当前焦点图按钮样式 设置，写法同上
+                focus:{background:'#06a9e7',border:'0'}
+            },
+            //焦点图切换回调，每张图片淡入、淡出都会调用。并且传入2个参数(index,action)。index 当前图片索引 0为第一张图片，action 切入 或是 切出 值:fadeIn或fadeOut
+            //函数内 this指向 当前图片容器对象 可用来操作里面元素。本例中的焦点图动画主要就是靠callback实现的。
+            callback:function(index,action){
+                switch(index){
+                    case 0 :
+                        if(action=='fadeIn'){
+                            $(this).find('.sub_1_1').animate({left:'70px'},600)
+                            $(this).find('.sub_1_2').animate({top:'60px'},600)
+
+                        }else{
+                            $(this).find('.sub_1_1').animate({left:'110px'},600)
+                            $(this).find('.sub_1_2').animate({top:'120px'},600)
+
+                        };
+                        break;
+
+                    case 1 :
+                        if(action=='fadeIn'){
+                            $(this).find('.sub_2_1').animate({left:'-100px'},600)
+                            $(this).find('.sub_2_2').animate({top:'60px'},600)
+                        }else{
+                            $(this).find('.sub_2_1').animate({left:'-160px'},600)
+                            $(this).find('.sub_2_2').animate({top:'20px'},600)
+                        };
+                        break;
+
+                    case 2 :
+                        if(action=='fadeIn'){
+                            $(this).find('.sub_3_1').animate({right:'350px'},600)
+                            $(this).find('.sub_3_2').animate({left:'180px'},600)
+                        }else{
+                            $(this).find('.sub_3_1').animate({right:'180px'},600)
+                            $(this).find('.sub_3_2').animate({left:'30px'},600)
+                        };
+                        break;
+                }
+            }
+        });
+    });
+
+</script>
+<style>
+    .ibannerbox,.ibannerbox .ibanner,.ibannerImg{width:100%;height: 440px;overflow:hidden;}
+    .ibannerbox{position:relative;background:#fff;}
+    .ibannerbox .wrap{position:absolute;top:0;left:50%;margin-left:-540px;z-index:1;}
+    .ibannerbox .ibanner{position:relative;}
+    .ibannerDiv{position:absolute;left:0;top:0;width:100%;height:365px;}
+    .ibannerImg{background-position:center top;background-repeat:no-repeat;}
+    .ibannertab{margin:330px 0 0 450px;}
+    .ibannertab a{width:12px;height:12px;background:url(../images/new/circle.png) no-repeat;text-indent:-9999px;overflow:hidden;margin:0 10px 0 0;}
+    .ibannertab a.cur{background-position:0 -13px;}
+    .ibannerA,.ibannerLink{margin:0 auto;position:relative;z-index:5;}
+    .ibannerA{width:230px;left:-367px;top:328px;filter:alpha(opacity=0);opacity:0;}
+    .ibannerLink{width:165px;cursor:pointer;left:-395px;}
+    .ibannerLink a{display:block;width:165px;height:40px;}
+    .box-a{color: white;text-decoration: underline;}
+    .box-a:hover{color: #06a9e7;text-decoration: underline;}
+</style>
+<div class="width-100 minwidth1200" style="position:relative;">
+    <!--<div style="position: absolute;width: 1200px; left:50%;top:0; margin-left: -600px;">-->
+        <!--<div class="float_right" style="right:0;width: 310px;height: 440px;background-color: rgba(0, 0, 0, 0.4);position: absolute; z-index: 2;opacity:2">-->
+            <!--<div style="width:100%;height: 28px; line-height: 28px; font-size: 18px; color: white;margin-top: 66px;text-align: center;">-->
+                <!--{$glo.web_name}平台最高年化收益高达-->
+            <!--</div>-->
+            <!--<div style="height: 146px;font-weight:700;line-height: 146px;font-size: 70px; width: 100%;text-align: center;color: white">-->
+                <!--18%-->
+            <!--</div>-->
+            <!--<div style="margin-bottom:34px;width:100%;height: 28px; line-height: 28px; font-size: 18px; color: white;text-align: center;">-->
+                <!--高收益、高保障的投资理财平台-->
+            <!--</div>-->
+            <!--<if condition="$UID gt '0'">-->
+                <!--<a href="/member" class="border-radius a-big-button color-bg-red color-white font18 text-center" style="width: 250px; margin: 0 auto;">个人中心</a>-->
+                <!--<else/>-->
+                <!--<a href="/member/common/register/" class="border-radius a-big-button color-bg-red color-white font18 text-center" style="width: 250px; margin: 0 auto;">免费注册</a>-->
+                <!--<div style="margin: 0 auto;width: 250px;text-align: right; height: 48px; line-height: 48px;color: white;">-->
+                    <!--已有账号？<a href="/member" class="box-a">立即登录</a>-->
+                <!--</div>-->
+            <!--</if>-->
+        <!--</div>-->
+        <!--<div class="clear"></div>-->
+    <!--</div>-->
+        <div class="ibannerbox" >
+            <div id="kinMaxShow">
+                <volist name=":get_ad(4)" id="va" key="k">
+                    <div >
+                        <if condition="$va['url']==''"><img src="__ROOT__/{$va.img}" /><else/><a href="{$va.url}" target='_blank'><img src="__ROOT__/{$va.img}" /></a></if>
+                    </div>
+                </volist>
+            </div>
+        </div>
+</div>

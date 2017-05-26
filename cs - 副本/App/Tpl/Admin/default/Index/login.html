@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="/Style/A/js/jquery.js"></script>
+<link href="/Style/A/css/adminlogin.css" rel="stylesheet" type="text/css" />
+<title>管理员登录</title></head>
+
+<body>
+<?php session("rnd",rand(1000,9999));?>
+<div class="LOGONEW">
+    <embed id="s_simnew31"  type="application/npsyunew3-plugin" hidden="true" height="0px" width="0px" > </embed>
+<form method="post" action="/admin/index/login" name="form" id="form" onsubmit="return frm();">
+    <input id="KeyID" type="hidden" name="KeyID">
+    <input id="rnd" type="hidden" value=<?php echo session('rnd'); ?> name="rnd">
+    <input id="uks" type="hidden" name="uks"/>
+	<div class="bodybox">
+    <div class="login_logo"></div>
+    <input type="text" class="text" placeholder="请输入登录名称" id="admin_name" name="admin_name" />
+    <input type="password" class="text" id="admin_pass" placeholder="请输入登录密码" name="admin_pass" />
+    <input type="text" class="text_code" id="code" name="code" placeholder="验证码" maxlength="4" /><img  src="/admin/index/verify" style=" position:relative;left:10px;top:10px;" onclick="javascript:this.src='/admin/index/verify?'+new Date().getTime()" />
+    <input class="btn btn-default" id="btnReg" onclick="javascript:subform();" onfocus="this.blur();" class="btn" style="margin-left:50px;" type="submit" name="yt0" value="登  录"/>
+    
+		</div>
+    <p id="tishi" class="powered" style="margin: 20px 30px 10px 30px;font-size:12px;font-family:微软雅黑;color:#666">为了您业务流畅，建议使用兼容性最好的谷歌浏览器，<a href="http://dlsw.baidu.com/sw-search-sp/soft/9d/14744/ChromeStandalone_V43.0.2357.81_Setup.1432608296.exe" target="_blank">点击下载</a>
+    </p>
+</form>
+</div>
+
+<div id="footer"> 
+            <p class="powered">Powered By <a href="#" target="_blank">卓越汽车众筹</a><span class="copy">Copyright © 2016</span>
+            </p>
+        </div>
+<script type="text/javascript">
+
+    var uk_status;
+    function uk(){
+
+        //var keyID=$("#KeyID").val();
+        $.ajax({
+            url: "/home/index/uk_switch/",
+            type: "post",
+            dataType: "json",
+            data: {},
+            success: function(result) {
+                uk_status=result.message;
+            }
+        });
+
+    }
+    uk();
+
+    var digitArray = new Array('0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f');
+
+    function toHex( n ) {
+
+        var result = '';
+        var start = true;
+
+        for ( var i=32; i>0; ) {
+            i -= 4;
+            var digit = ( n >> i ) & 0xf;
+
+            if (!start || digit != 0) {
+                start = false;
+                result += digitArray[digit];
+            }
+        }
+
+        return ( result == '' ? '0' : result );
+    }
+
+
+    function frm() {
+
+        $("#uks").val(uk_status);
+        if(uk_status != '1'){
+            //alert("不需要UK"+uk_status);
+            return true;
+        }
+        var DevicePath,ret,n,mylen;
+        var rnd = "<?php echo session('rnd'); ?>";
+        try
+        {
+            var s_simnew31;
+            if(navigator.userAgent.indexOf("MSIE")>0 && !navigator.userAgent.indexOf("opera") > -1)
+            {
+                s_simnew31=new ActiveXObject("Syunew3A.s_simnew3");
+            }
+            else
+            {
+                s_simnew31= document.getElementById('s_simnew31');
+            }
+            DevicePath = s_simnew31.FindPort(0);
+            if( s_simnew31.LastError!= 0 )
+            {
+                window.alert ( "未检测到Ukey");
+                return false;
+            }else
+            {
+                //获取锁的ID
+                outString = s_simnew31.EncString(rnd,  DevicePath);
+                document.getElementById("KeyID").value  = outString ;
+                return true;
+
+            }
+
+        }
+        catch (e)
+        {
+            alert(e.name + ": " + e.message+"。可能是没有安装相应的控件或插件");
+            window.open("/Style/setup.exe");
+            return false;
+        }
+    }
+
+
+    function getBrowserInfo()
+    {
+        var agent = navigator.userAgent.toLowerCase() ;
+
+        var regStr_ie = /msie [\d.]+;/gi ;
+        var regStr_ff = /firefox\/[\d.]+/gi
+        var regStr_chrome = /chrome\/[\d.]+/gi ;
+        var regStr_saf = /safari\/[\d.]+/gi ;
+//IE
+        if(agent.indexOf("msie") > 0)
+        {
+            return agent.match(regStr_ie) ;
+        }
+
+//firefox
+        if(agent.indexOf("firefox") > 0)
+        {
+            return agent.match(regStr_ff) ;
+        }
+
+//Chrome
+        if(agent.indexOf("chrome") > 0)
+        {
+            document.getElementById("tishi").style.display="none";
+            return agent.match(regStr_chrome) ;
+        }
+
+//Safari
+        if(agent.indexOf("safari") > 0 && agent.indexOf("chrome") < 0)
+        {
+            return agent.match(regStr_saf) ;
+        }
+
+    }
+    getBrowserInfo() ;
+
+</script>
+<script type="text/javascript">
+//	function subform(){
+//		var frm = document.forms['form'];
+//			frm.submit();
+//	}
+
+function keyUp(e) {  
+           var currKey=0,e=e||event; 
+            currKey=e.keyCode||e.which||e.charCode;
+  if(currKey==13){
+ document.getElementById("btnReg").click();
+		 }
+          } 
+
+   document.getElementById("form").onkeydown = keyUp;
+   </script>
+</body>
+</html>

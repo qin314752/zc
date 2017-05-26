@@ -32,7 +32,7 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="" data-title="系统设置" href="{:U('System/index')}">系统设置</a></li>
+					<li><a data-href="" data-title="" href="{:U('System/index')}">系统设置</a></li>
 					
 				</ul>
 			</dd>
@@ -41,7 +41,7 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 众筹<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="" data-title="系统设置" href="{:U('Crowd/index')}">发起项目</a></li>
+					<li><a data-href="" data-title="" href="{:U('Crowd/index')}">发起项目</a></li>
 					
 				</ul>
 			</dd>

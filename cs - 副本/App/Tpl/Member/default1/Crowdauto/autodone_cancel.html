@@ -1,0 +1,63 @@
+<tagLib name="htmlA" />
+<style type="text/css">
+    .fontred { color: #ef5c52; }
+    .infolist { margin: 5px 0 10px 20px; border: solid 1px #ddd; padding: 2px; width: 715px; text-align: left; }
+    .infolist table td { height: 28px; }
+    .infolist .myfont { color: #ff6500; font-weight: bold; }
+    #pager a.current { background-color: #ddd; border: solid 1px #ccc; color: #fff; }
+    #pager a:hover { background-color: #ddd; border: solid 1px #ccc; color:#fc8936; }
+    .tdHeard, .tdContent { border: solid 1px #ccc; text-align: center !important;}
+    .tdContent a { text-decoration: underline; }
+    .tdHeard { background-image: url(__ROOT__/Style/H/images/thbg.jpg); height: 29px; }
+    .divtitle { height: 20px; line-height: 30px; text-align: left; padding-left: 20px; font-size: 12px; text-indent: 25px; margin-top: 8px; margin-bottom: 1PX; }
+    #noinfotip .tdContent{width:auto}
+    #noinfotip a{text-decoration:none}
+</style>
+<div style="margin: 10px 0px; overflow: hidden; text-align: left; clear: both; float: left;width:900px;">
+    <table id="content" style="width: 985px;margin-left: 20px; border-collapse: collapse;" cellspacing="0">
+        <tbody>
+        <tr style="height:30px; background:#F6F6F6; font-weight:bold;">
+            <th class="tdHeard">ID</th>
+            <th class="tdHeard">预约金额</th>
+            <th class="tdHeard">已用金额</th>
+            <th class="tdHeard">剩余金额</th>
+            <th class="tdHeard">添加时间</th>
+            <th class="tdHeard">状态</th>
+        </tr>
+        <volist name="list" id="vo">
+            <tr>
+                <td class="tdContent">{$vo.id}</td>
+                <td class="tdContent">{$vo.auto_money}元</td>
+                <td class="tdContent">{$vo.employ_money}元</td>
+                <td class="tdContent">{$vo.surplus_money}元</td>
+                <td class="tdContent">{$vo.add_time|date="Y-m-d H:i:s",###}</td>
+                <td class="tdContent"><if condition="$vo.status eq 0"><font style="color: #008000">已完成</font><else /><font style="color: red">手动取消</font></if></td>
+            </tr>
+        </volist>
+        </tbody></table>
+    <div data="fragment-5" id="pager" style="float: right; text-align: right; width: 500px; padding-right: 0px;" class="yahoo2 ajaxpagebar">{$page}</div>
+</div>
+<div style="clear: both;">
+</div>
+
+<script type="text/javascript">
+    $('.ajaxpagebar a').click(function(){
+        try{
+            var geturl = $(this).attr('href');
+            var id = $(this).parent().attr('data');
+            var x={};
+            $.ajax({
+                url: geturl,
+                data: x,
+                timeout: 5000,
+                cache: false,
+                type: "get",
+                dataType: "json",
+                success: function (d, s, r) {
+                    if(d) $("#"+id).html(d.html);//更新客户端竞拍信息 作个判断，避免报错
+                }
+            });
+        }catch(e){};
+        return false;
+    })
+</script>

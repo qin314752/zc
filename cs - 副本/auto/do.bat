@@ -1,0 +1,1 @@
+D:/xampp/htdocs/juchuang.petope.com/auto/wget.exe -O - -q -t 1 http://juchuang.petope.com/CrowdAutoDeadline/deadline

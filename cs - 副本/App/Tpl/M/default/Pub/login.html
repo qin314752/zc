@@ -1,0 +1,38 @@
+﻿<include file="Pub:header" />
+<!-- 标题 start-->
+<div class="header"><a class="back" href="javascript:;" onclick="javascript:history.go(-1)"><返回</a>登录</div>
+<!-- 标题 end-->
+<div class="main">
+<form  action="" method="post" name="loginForm" id="loginForm">
+<div class="login">
+ <div class="name"><input type="text" name='username' placeholder="请输入用户名" id="username" value="" class="wbk_user" /></div>
+ <div class="name"><input type="password" name="password" placeholder="请输入您的密码" value="" id="password" class="wbk_pass" /></div>
+ <div class="name"><input type="text" name="verify" id="verify" placeholder="请输入验证码" class="wbk_code" value="" style="width: 100px;" />
+ <img src='/M/Pub/verify'  class="verify" onclick="this.src=this.src+'?t='+Math.random()"/>
+ </div>  
+    <div style="clear: both;"></div>
+ <div class="button"><span class="butt">登&nbsp;录</span></div>
+ <div style="text-align: center; height: 50px; line-height: 50px;color:#eba102 ">没有账号？<a href="{:U('M/pub/regist')}"><font color="#eba102">免费注册</font></a></div>
+</div> 
+</form>
+</div>
+<script language="javascript">
+$(function(){
+    $(".butt").click(function(){
+        if($.trim($("#username").val())==''){
+            Apprise('<font color=red>请输入用户名！</font>');
+            return false;
+        }
+        if($.trim($("#password").val())==''){
+            Apprise('<font color=red>请输入密码！</font>'); 
+            return false;
+        }
+        if($.trim($("#verify").val())==''){
+            Apprise('<font color=red>请输入验证码！</font>'); 
+            return false;
+        }
+        $("#loginForm").submit();
+    })
+})
+</script>
+﻿<include file="Pub:footer_innner" />

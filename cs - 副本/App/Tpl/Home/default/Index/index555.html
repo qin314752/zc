@@ -1,0 +1,576 @@
+﻿<if condition="$web_close.isopen eq 2">
+<div class="web_close" style="text-align: center;font-size: 30px;margin-top:200px;">
+    <span>{$web_close.title}</span>
+</div>
+<else/>
+<include file="Public:header_new"/>
+<include file="Public:lunbo_new"/>
+
+	<div class="projectTrailer-box">
+		<span class="projectMore"><a href="/fgonggao/index.html">更多&gt;&gt;</a></span>
+		<span class="projectTrailer">项目预告</span>
+		<span class="projectTrailer-title">
+			<volist name="fabiaoList.list" id="gg">
+			<a href="{$gg.arturl}">{$gg.title|cnsubstr=###,16}</a>
+			</volist>
+		</span></div>
+	 <div class="ptsj">
+    	<div class="ptsj-box1"><span>累计成交金额（￥）</span><br>
+    	<strong>{:Fmoney($all_turn_volume)}</strong></div>
+		<div class="ptsj-box2"><span>累计分红金额（￥）</span><br>
+		<strong>{:Fmoney($user_count_money)}</strong></div>
+		<div class="ptsj-box3"><span>已回款金额（￥）</span><br>
+		<strong>{:Fmoney($all_crowd_money)}</strong></div>
+		<div class="ptsj-box4"><span>已处置项目（个数） </span><br>
+		<strong>{$succ_count}</strong></div>
+		<div class="ptsj-box5"><span>注册用户（人数）</span><br>
+		<strong>{$members}</strong></div>
+    </div>
+	
+	
+	<div class="guide">
+			<div class="guide-box">
+				<div class="guide-box-1">
+					<a href="">
+					<div class="guide-box-1-left">
+						
+					</div>
+					</a>
+					<div class="guide-box-1-right">
+						<h1><a href="">门槛低，收益高</a>	</h1>
+						<p>起投100元</p>
+						
+					</div>
+					
+				</div>
+				<div class="guide-box-2">
+					<a href="">
+					<div class="guide-box-2-left">
+						
+					</div>
+					</a>
+					<div class="guide-box-2-right">
+						<h1><a href="">多重安全保障</a></h1>
+						
+						<p>优质实物资产保障</p>
+					</div>
+					
+				</div>
+				<div class="guide-box-3">
+					<a href="">
+					<div class="guide-box-3-left">
+						
+					</div>
+					</a>
+					<div class="guide-box-3-right">
+						<h1><a href="">律师事务所</a></h1>
+						<p>法律尽调</p>
+						<p>项目监督</p>
+					</div>
+					
+				</div>
+			</div>
+
+			
+		</div>
+	<div class="contain">
+		<div class="contain-box">
+			<div class="contain-box-left">
+			<div class="tyb">
+							<div class="tyb-img">
+								<h1 class="tyb-leftbox-title">众筹预告&gt;</h1>
+								<p class="tyb-leftbox-p">财富增值，智慧之选！<br>
+								</p>
+							</div>
+							<div class=" tyb-right">
+								<h1 class="tyb-rightbox-title"><a href="{$votelist.id|getCrowdInvestUrl=###}">{$votelist.crowd_name|cnsubstr=###,20}</a><!-- <div class="tyb-xiantou">限投1万元</div> --></h1>
+							<table class=" tyb-table">
+												<tbody><tr>
+													<td class="tyb-td2">{$votelist.max_duration}月</td>
+													<td class="tyb-td3">{$votelist.crowd_money}元</td>
+												</tr>
+													<tr style="height: 35px;">
+													
+													<td>预计周期</td>
+													<td class="tyb-td4">投资金额</td>
+												</tr>
+												
+												
+	
+												 <tr style="height: 65px;">
+													<td colspan="3" class="progress-tyb">
+														<div class="progress-box tyb-progress-box">
+															<span class="progress-text">项目投资进度:</span>
+															<div class="progress progress-tyb-span">
+																<span style="width: {$votelist.rate}%;"></span>
+															</div>
+															<span class="progress-text">{$votelist.rate}%</span>
+														</div>
+														<div class="wyzq-btn tyb-wyzq-btn"><a href="{$votelist.id|getCrowdInvestUrl=###}">我要赚钱</a></div>
+													</td>
+									
+												</tr>
+												<tr>
+													<td colspan="3">开始时间 <?php if($votelist['start_time']=="1970-01-01"){
+													
+													}else{
+													echo $votelist['start_time'];
+													}?>
+													
+													</td>									  
+												</tr>
+					
+											</tbody></table>
+								
+							</div>
+				</div>
+				<div class="hot-porject-title-box">
+					<span class="hot-porject-title">热门项目</span>
+					<ul class="hot-porject-menu">
+						<li data-id="porject-box-all" class="porject-active"><a>全部项目<span>{$count_all}</span></a></li>
+						<li data-id="porject-box-tzz"><a>众筹中<span>{$count_zhong}</span></a></li>
+						<li data-id="porject-box-czz"><a>出售中<span>{$count_shou}</span></a></li>
+						<li data-id="porject-box-yfh"><a>己出售<span>{$count_yishou}</span></a></li>
+					</ul>
+				</div>
+				<div class="porject porject-box-all">
+				<!-- 全部 -->
+				<volist name="list3" id="ls" >
+						<div class="porject-box">
+								<div class="porject-box-left">
+									<a href="{$ls.id|getCrowdInvestUrl=###}">
+									<img src="{$ls['img'][0]['img']}" alt="{$ls.crowd_name|cnsubstr=###,15}" height="251" width="381">
+									
+									</a>
+									<!-- <span class="handle">汽车处置</span> -->
+								</div>
+								<div class="porject-box-right">
+									<h1><a href="{$ls.id|getCrowdInvestUrl=###}">{$ls.crowd_name|cnsubstr=###,15}</a></h1>
+									<table class="porject-table">
+										<tbody><tr>
+											<!--<td class="porject-table-td1">{$ls.back_rate}%</td>-->
+											<td class="porject-table-td2">{$ls.max_duration}月</td>
+											<td class="porject-table-td3">{$ls.crowd_money}元</td>
+										</tr>
+											<tr style="height: 35px;">
+											<!--<td>预计年化收益率<a class="porject-icon" title="实际收益以最终获得的收益为准。"></a></td>-->
+											<td>预计周期<a class="porject-icon" title="可提前回款"></a></td>
+											<td class="porject-table-td4">投资金额</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td5" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td>目标份额：{$ls.fenshu}份</td>
+											<td></td>
+											<td class="porject-table-td6">起投金额：{$ls.min_money}元</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td7" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td class="countdown-td" colspan="3">
+											   <div class="djs">项目众筹时间：</div>
+												<div id="">
+													<span>{$ls.crowd_duration}天</span>
+											   </td>
+											   <!--<div class="djs">距投资时间结束还有：</div>
+												<div id="code_160812094416664097"><span>0</span> 天 <span>22</span> 时 <span>23</span> 分  <span>3</span> 秒</div>
+												   <input id="time_160812094416664097" value="80583" type="hidden">
+											   </td>-->
+											
+										</tr>
+										 <tr style="height: 35px;">
+											<td colspan="3">
+												<div class="progress-box">
+													<span class="progress-text">项目投资进度:</span>
+													<div class="progress">
+														<span style="width: {$ls.rate}%;"></span>
+													</div>
+													<span class="progress-text">{$ls.rate}%</span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>招标时间:{$ls.start_time}</td>
+											<td></td>
+										  <td> <span class="wyzq-btn"><a href="{$ls.id|getCrowdInvestUrl=###}">我要赚钱</a></span></td>
+										  </tr>
+			
+									</tbody></table>
+									
+							
+									
+								</div>
+							</div>
+						</volist>	
+					 </div>     
+                <div class="porject porject-box-tzz">
+                    <!-- 投资中 -->
+				<volist name="list4" id="ls" >
+						<div class="porject-box">
+								<div class="porject-box-left">
+									<a href="{$ls.id|getCrowdInvestUrl=###}">
+									<img src="{$ls['img'][0]['img']}" alt="{$ls.crowd_name|cnsubstr=###,15}" height="251" width="381">
+									
+									</a>
+									<!-- <span class="handle">汽车处置</span> -->
+								</div>
+								<div class="porject-box-right">
+									<h1><a href="{$ls.id|getCrowdInvestUrl=###}">{$ls.crowd_name|cnsubstr=###,15}</a></h1>
+									<table class="porject-table">
+										<tbody><tr>
+											<!--<td class="porject-table-td1">{$ls.back_rate}%</td>-->
+											<td class="porject-table-td2">{$ls.max_duration}月</td>
+											<td class="porject-table-td3">{$ls.crowd_money}元</td>
+										</tr>
+											<tr style="height: 35px;">
+											<!--<td>预计年化收益率<a class="porject-icon" title="实际收益以最终获得的收益为准。"></a></td>-->
+											<td>预计周期<a class="porject-icon" title="可提前回款"></a></td>
+											<td class="porject-table-td4">投资金额</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td5" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td>目标份额：{$ls.fenshu}份</td>
+											<td></td>
+											<td class="porject-table-td6">起投金额：{$ls.min_money}元</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td7" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td class="countdown-td" colspan="3">
+											   <div class="djs">项目众筹时间：</div>
+												<div id="">
+													<span>{$ls.crowd_duration}天</span>
+											   </td>
+											   <!--<div class="djs">距投资时间结束还有：</div>
+												<div id="code_160812094416664097"><span>0</span> 天 <span>22</span> 时 <span>23</span> 分  <span>3</span> 秒</div>
+												   <input id="time_160812094416664097" value="80583" type="hidden">
+											   </td>-->
+											
+										</tr>
+										 <tr style="height: 35px;">
+											<td colspan="3">
+												<div class="progress-box">
+													<span class="progress-text">项目投资进度:</span>
+													<div class="progress">
+														<span style="width: {$ls.rate}%;"></span>
+													</div>
+													<span class="progress-text">{$ls.rate}%</span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>招标时间:{$ls.start_time}</td>
+											<td></td>
+										  <td> <span class="wyzq-btn"><a href="{$ls.id|getCrowdInvestUrl=###}">我要赚钱</a></span></td>
+										  </tr>
+			
+									</tbody></table>
+									
+							
+									
+								</div>
+							</div>
+						</volist>
+							
+					   </div>  
+				<div class="porject porject-box-czz">
+                      <!-- 处置中 -->
+					<volist name="list5" id="ls" >
+						<div class="porject-box">
+								<div class="porject-box-left">
+									<a href="{$ls.id|getCrowdInvestUrl=###}">
+									<img src="{$ls['img'][0]['img']}" alt="{$ls.crowd_name|cnsubstr=###,15}" height="251" width="381">
+									
+									</a>
+									<!-- <span class="handle">汽车处置</span> -->
+								</div>
+								<div class="porject-box-right">
+									<h1><a href="{$ls.id|getCrowdInvestUrl=###}">{$ls.crowd_name|cnsubstr=###,15}</a></h1>
+									<table class="porject-table">
+										<tbody><tr>
+											<!--<td class="porject-table-td1">{$ls.back_rate}%</td>-->
+											<td class="porject-table-td2">{$ls.max_duration}月</td>
+											<td class="porject-table-td3">{$ls.crowd_money}元</td>
+										</tr>
+											<tr style="height: 35px;">
+											<!--<td>预计年化收益率<a class="porject-icon" title="实际收益以最终获得的收益为准。"></a></td>-->
+											<td>预计周期<a class="porject-icon" title="可提前回款"></a></td>
+											<td class="porject-table-td4">投资金额</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td5" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td>目标份额：{$ls.fenshu}份</td>
+											<td></td>
+											<td class="porject-table-td6">起投金额：{$ls.min_money}元</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td7" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td class="countdown-td" colspan="3">
+											   <div class="djs">项目众筹时间：</div>
+												<div id="">
+													<span>{$ls.crowd_duration}天</span>
+											   </td>
+											   <!--<div class="djs">距投资时间结束还有：</div>
+												<div id="code_160812094416664097"><span>0</span> 天 <span>22</span> 时 <span>23</span> 分  <span>3</span> 秒</div>
+												   <input id="time_160812094416664097" value="80583" type="hidden">
+											   </td>-->
+											
+										</tr>
+										 <tr style="height: 35px;">
+											<td colspan="3">
+												<div class="progress-box">
+													<span class="progress-text">项目投资进度:</span>
+													<div class="progress">
+														<span style="width: {$ls.rate}%;"></span>
+													</div>
+													<span class="progress-text">{$ls.rate}%</span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>招标时间:{$ls.start_time}</td>
+											<td></td>
+										  <td> <span class="wyzq-btn"><a href="{$ls.id|getCrowdInvestUrl=###}">我要赚钱</a></span></td>
+										  </tr>
+			
+									</tbody></table>
+									
+							
+									
+								</div>
+							</div>
+						</volist>
+							
+					   </div>
+                    <div class="porject porject-box-yfh">
+                    <!-- 已处置 -->
+						<volist name="list6" id="ls" >
+						<div class="porject-box">
+								<div class="porject-box-left">
+									<a href="{$ls.id|getCrowdInvestUrl=###}">
+									<img src="{$ls['img'][0]['img']}" alt="{$ls.crowd_name|cnsubstr=###,15}" height="251" width="381">
+									
+									</a>
+									<!-- <span class="handle">汽车处置</span> -->
+								</div>
+								<div class="porject-box-right">
+									<h1><a href="{$ls.id|getCrowdInvestUrl=###}">{$ls.crowd_name|cnsubstr=###,15}</a></h1>
+									<table class="porject-table">
+										<tbody><tr>
+											<!--<td class="porject-table-td1">{$ls.back_rate}%</td>-->
+											<td class="porject-table-td2">{$ls.max_duration}月</td>
+											<td class="porject-table-td3">{$ls.crowd_money}元</td>
+										</tr>
+											<tr style="height: 35px;">
+											<!--<td>预计年化收益率<a class="porject-icon" title="实际收益以最终获得的收益为准。"></a></td>-->
+											<td>预计周期<a class="porject-icon" title="可提前回款"></a></td>
+											<td class="porject-table-td4">投资金额</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td5" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td>目标份额：{$ls.fenshu}份</td>
+											<td></td>
+											<td class="porject-table-td6">起投金额：{$ls.min_money}元</td>
+										</tr>
+										<tr style="height: 1px;">
+			
+											<td class="porject-table-td7" colspan="3"></td>
+										</tr>
+										<tr style="height: 35px;">
+											<td class="countdown-td" colspan="3">
+											   <div class="djs">项目众筹时间：</div>
+												<div id="">
+													<span>{$ls.crowd_duration}天</span>
+											   </td>
+											   <!--<div class="djs">距投资时间结束还有：</div>
+												<div id="code_160812094416664097"><span>0</span> 天 <span>22</span> 时 <span>23</span> 分  <span>3</span> 秒</div>
+												   <input id="time_160812094416664097" value="80583" type="hidden">
+											   </td>-->
+											
+										</tr>
+										 <tr style="height: 35px;">
+											<td colspan="3">
+												<div class="progress-box">
+													<span class="progress-text">项目投资进度:</span>
+													<div class="progress">
+														<span style="width: {$ls.rate}%;"></span>
+													</div>
+													<span class="progress-text">{$ls.rate}%</span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>招标时间:{$ls.start_time}</td>
+											<td></td>
+										  <td> <span class="wyzq-btn"><a href="{$ls.id|getCrowdInvestUrl=###}">我要赚钱</a></span></td>
+										  </tr>
+			
+									</tbody></table>
+									
+							
+									
+								</div>
+							</div>
+						</volist>
+							</div>
+			<a href="/crowdinvest/index"> <div class="hot-porject-more">查看更多项目</div></a>
+			</div>
+			
+			<div class="contain-box-right">
+				<div class="notice">
+				 
+					<h1>
+						<span data-id="0" class="notice-title contain-right-toggle">
+							<a href="/gonggao/index.html">最新公告</a>
+						</span>
+						<span data-id="1" class="bbs-title contain-right-toggle"><a href="/product_news/index.html">发标公告</a></span>
+					</h1>
+					<div class="contain-right-toggle-text">
+					<volist name="noticeList.list" id="gg">
+						<p><a href="{$gg.arturl}">{$gg.title|cnsubstr=###,16}</a></p>
+					</volist>
+					</div>
+					<div style="display: none;" class="contain-right-toggle-text">
+					<volist name="fabiaoList2.list" id="gg">
+						<p><a href="{$gg.arturl}">{$gg.title|cnsubstr=###,16}</a></p>
+					</volist>
+					</div>
+				</div>
+				
+
+				<div class="revenue">
+					<div class="revenue-title">
+						<div style="height: 16px;"></div>
+						<h1>年化收益对比</h1>
+					</div>
+					<img src="__ROOT__/Style/H/che/images/revenue.jpg" alt="">
+				</div>
+
+
+				<div class="consultation">
+					<h1>
+						<span data-id="0" class="consultation-title contain-right-toggle2"><a href="/news/index.html">新闻动态</a></span>
+						<span data-id="1" class="school-title contain-right-toggle2"><a href="/crowdinvest/index">项目动态</a></span>
+					</h1>
+					<div class="contain-right-toggle2-text">
+					<volist name="NnoticeList.list" id="gg">
+					
+						<p><a href="{$gg.arturl}">{$gg.title|cnsubstr=###,16}</a></p>
+					</volist>
+					</div>
+					<div style="display: none;" class="contain-right-toggle2-text">
+					<volist name="productlist.list" id="gg">
+					
+						<p><a href="{$gg.arturl}">{$gg.title|cnsubstr=###,16}</a></p>
+					</volist>
+					</div>
+				</div>
+				
+				<div class="company-news">
+					<div>
+						<div style="height: 15px;"></div>
+						<div class="company-news-h1-div"><h1><a href="fgonggao/index.html"><span class="company-news-more">更多&gt;&gt;</span></a>运营报告</h1></div>
+					</div>
+					<div class="company-news-box">
+						<volist name="yunyinglist.list" id="gg">
+					   <a href="{$gg.arturl}"><img src="{$gg.art_img}" alt="{$gg.title|cnsubstr=###,16}"></a>
+							<p><a href="{$gg.arturl}">{$gg.title|cnsubstr=###,16}</a></p>
+                       </volist>
+				   </div>
+				</div>
+
+			</div>
+		</div>
+
+<div class="partner">
+			<h1>友情链接</h1>
+			<div class="partner-box">
+				<div class="partner-box-left"><a class="arrow-left"></a></div>
+				<div class="partner-box-center">
+					<ul style="left: -163px;">
+						<volist id="vo" name="link_img">
+						<li><a href="{$vo.link_href}"><img src="{$vo.link_img}" alt=""></a></li>
+						</volist>
+					</ul>
+				</div>
+				<div class="partner-box-right"><a class="arrow-right"></a></div>
+				
+			</div>
+</div>
+
+	</div>
+   <!-- qq客服开始 --> 
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Style/H/new/css/kefu.css">
+    <script type="text/javascript" src="__ROOT__/Style/H/new/js/kefu.js"></script>
+    <div id="floatTools" class="float0831">
+      <div class="floatL">
+        <a style="display:block" id="aFloatTools_Show" class="btnOpen" title="查看在线客服" onclick="javascript:$('#divFloatToolsView').animate({width: 'show', opacity: 'show'}, 'normal',function(){ $('#divFloatToolsView').show();kf_setCookie('RightFloatShown', 0, '', '/', 'www.16sucai.com'); });$('#aFloatTools_Show').attr('style','display:none');$('#aFloatTools_Hide').attr('style','display:block');" href="javascript:void(0);">展开</a>
+
+        <a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" onclick="javascript:$('#divFloatToolsView').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#divFloatToolsView').hide();kf_setCookie('RightFloatShown', 1, '', '/', 'www.16sucai.com'); });$('#aFloatTools_Show').attr('style','display:block');$('#aFloatTools_Hide').attr('style','display:none');" href="javascript:void(0);" style="display:none">收缩</a>
+      </div>
+      <div id="divFloatToolsView" class="floatR" style="display: none;">
+        <div class="tp"></div>
+        <div class="cn">
+          <ul style="list-style:none;">
+            <li class="top1">
+              <h3 class="titZx">QQ咨询</h3>
+            </li>
+            <li><span class="icoZx">在线咨询</span> </li>
+
+        <volist name="qq1" id="vo">
+            <li>
+               <a class="icoTc" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$vo.qq_num}&site=qq&menu=yes">{$vo.qq_title}</a>
+            </li>
+        </volist>
+
+
+
+          </ul>
+          <ul>
+            <li>
+              <span class="icoZx">官方交流群</span>
+            </li>
+           
+            <li>
+              <p><span style="color:rgb(102, 102, 102);font-family:微软雅黑, 宋体;font-size:14px;">{$qun['qq_num']}</span></p>
+            </li>
+
+          </ul>
+          <ul>
+            <li>
+              <h3 class="titDh">电话咨询</h3>
+            </li>
+            <li style="width:105px;">{$tel.qq_num} </li>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript" src="__ROOT__/Style/H/new/js/siteHome.js"></script>
+    </div>
+<!-- qq客服结束-->
+
+
+
+
+
+
+
+<include file="default:Public:bottom" group="Home"/>
+</if>

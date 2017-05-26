@@ -1,0 +1,214 @@
+<style type="text/css">
+body { margin: 0; _height: 100%; }
+.tdTitle { text-align: right; padding-left: 10px; font-size: 12px; height: 40; line-height: 40px; vertical-align: middle; width: 160px; font-weight: bold; background-color: #F9F9F9; border: #E9E8E7 solid 1px; }
+.tdContent { text-align: left; padding-left: 10px; font-size: 12px; height: 40; line-height: 40px; vertical-align: middle; border: #E9E8E7 solid 1px; }
+.alertDiv_pin { margin: 0px auto; background-color: #f1f1f1; border: 1px solid #ef5c52; line-height: 25px; background-position: 20px 4px; background-repeat: no-repeat; }
+.alertDiv_pin li { margin: 5px 0; list-style-type: decimal; color: #ef5c52; padding: 0px; line-height: 20px; }
+.alertDiv_pin ul { text-align: left; list-style-type: decimal; display: block; padding: 0px; margin: 0px 0px 0px 75px; }
+.font666 { color: #666; }
+.dv_header_8 { background-image: url(); }
+.dv_account_0 { margin-top: 8px; }
+.editWay{cursor: pointer;}
+</style>
+<script type="text/javascript">
+function showErr_pin() {
+	$(".alertDiv_pin").css("display", "");
+}
+function clearErr_pin() {
+	$(".alertDiv_pin ul").html("");
+}
+function addErr_pin(err) {
+	$(".alertDiv_pin ul").append("<li>" + err + "</li>");
+}
+function hideErr_pin() {
+	$(".alertDiv_pin").css("display", "none");
+}
+function hasErr_pin() {
+	return $(".alertDiv_pin ul li").length > 0;
+}
+</script>
+<div style="width: 766px; display: none;" class="alertDiv_pin">
+	<ul style="display: block;">
+	</ul>
+</div>
+<div class="top_account_bg">
+	<img src="__ROOT__/Style/H/images/ministar.gif" style="margin-right: 5px;">
+	您可以通过经常性修改支付密码更好的保护您的账号安全，以避免您受到意外损失
+</div>
+<div style="padding: 15px 0 0 50px; text-align: left; line-height: 24px;">
+	1、经常性修改支付密码能有效的保护您的帐号安全<br>
+	2、涉及到您的资金安全，请勿设置简单的支付密码，不要设置和其它网站相同的支付密码
+</div>
+<div style="width: 100%; height: 167px; margin-top: 15px;">
+	<table style="width: 900px; float: left; margin: 0px 20px;padding: 0px; border-collapse: collapse; text-align: left;" id="formTb" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="tdTitle">
+                        用户名：
+                    </td>
+                    <td class="tdContent">
+                        <span id="name">
+                            {:session('u_user_name')}
+                        </span>
+                    </td>
+		</tr>
+                <tr>
+                    <td class="tdTitle">
+                        选择修改方式：
+                    </td>
+                    <td class="tdContent">
+                        <input type="radio" id="editWay1" name="editWay" style="width:15px;height:15px;cursor:pointer;" checked="checked" value="1" onchange="change(1)"/>&nbsp;<label for="editWay1" class="editWay">输入原密码修改</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="editWay2"  name="editWay" style="width:15px;height:15px;cursor:pointer;"  value="2" onchange="change(2)"/>&nbsp;<label for="editWay2" class="editWay">手机验证码修改</label>
+                    </td>
+		</tr>
+		<tr id="oldPass" style="display:;">
+                    <td class="tdTitle">
+                        请输入原支付密码：
+                    </td>
+                    <td class="tdContent">
+                        <input id="oldpassword_pin" name="oldpassword_pin" class="text2" type="password"><span class="font666">(如未修改过，则与原登录密码相同)</span>
+                    </td>
+		</tr>
+                <tr style="display:none;" id="yzm">
+                    <td class="tdTitle">
+                        请输入手机验证码：
+                    </td>
+                    <td class="tdContent">
+                        <input class="text2" id="phone_code" type="text" style="width:100px;"><span id="sendSMSTip"><a href="javascript:;" onclick="sendMobileValidSMSCode()" id="btnSendMsg">获取验证码</a></span>
+                    </td>
+		</tr>
+		<tr>
+                    <td class="tdTitle">
+                        请输入新支付密码：
+                    </td>
+                    <td class="tdContent">
+                        <input id="newpassword_pin" name="newpassword_pin" class="text2" type="password">
+                        <span class="font666">(输入您的新支付密码)</span>
+                    </td>
+		</tr>
+		<tr>
+                    <td class="tdTitle">
+                        请再输入新支付密码：
+                    </td>
+                    <td class="tdContent">
+                        <input id="newpassword_pin1" name="newpassword_pin1" class="text2" type="password">
+                        <span class="font666">(再输入一次您的新支付密码)</span>
+                    </td>
+		</tr>
+            </tbody>
+        </table>
+</div>
+<div style="text-align: left; width: 740px; height: 100px; margin: 50px 0px 0px 180px;">
+    <span class="member-button font14 color-white border-radius" onclick="UpdatePwd_pin()">提交更新</span>
+</div>
+<script type="text/javascript">
+	var newTitle = '{$glo.web_name}提醒您：';
+
+	function UpdatePwd_pin() {
+		var oldpwd = $("#oldpassword_pin").val();
+		var newspwd1 = $("#newpassword_pin").val();
+		var newspwd2 = $("#newpassword_pin1").val();
+                var editWay = $('input:radio[name=editWay]:checked').val();
+                var phone_code = $("#phone_code").val();
+		clearErr_pin();
+		hideErr_pin();
+                if(editWay == 1){
+                    if (oldpwd == '') {
+			addErr_pin('原支付密码必须填写！');
+                    } 
+                }else{
+                    if (phone_code == '') {
+			addErr_pin('手机验证码不允许为空！');
+                    }  
+                }
+		
+		if (newspwd1 == '') {
+			addErr_pin('新支付密码必须填写！');
+		}
+		if (newspwd2 == '') {
+			addErr_pin('确认新支付密码必须填写！');
+		}
+		if (newspwd2 != newspwd1) {
+			addErr_pin('两次支付密码不一致！');
+		}
+		if (hasErr_pin()) {
+			showErr_pin();
+			return false;
+		}
+		else {
+			$.ajax({
+				url: "__URL__/changepin/",
+				type: "post",
+				dataType: "json",
+				data: {"oldpwd":oldpwd,"newpwd1":newspwd1,"newpwd2":newspwd2,"editWay":editWay,"phone_code":phone_code},
+				success: function(d) {
+					if (d.status == "2") {
+						addErr_pin(d.message);
+						showErr_pin();
+						return;
+					} else if (d.status == "1") {
+						$.jBox.tip('恭喜，支付密码修改成功！','success');
+					} else {
+						$.jBox.tip(d.message,'fail');
+					}
+                    setTimeout('window.location.reload()',1000);
+				}
+			})
+		}
+	}
+</script>
+<script type="text/javascript">
+    //切换修改方式
+    function change(id){
+        if(id==1){
+            document.getElementById("oldPass").style.display = "";
+            document.getElementById("yzm").style.display = "none";
+        }else{
+            document.getElementById("oldPass").style.display = "none";
+            document.getElementById("yzm").style.display = "";
+        }
+    }
+</script>
+<script type="text/javascript">
+var timer = null;
+var leftsecond = 60; //倒计时
+var msg = "";
+//发送验证码
+function sendMobileValidSMSCode() {
+    $('#sendSMSTip').html("短信发送中...");
+    $.ajax({
+        url: "__URL__/sendphone/",
+        type: "post",
+        dataType: "json",
+        success: function(d) {
+            leftsecond = 60;
+            if (d.status == 1) {
+                //$.jBox.tip(d.message, 'success');
+                msg = "发送成功，";
+                clearInterval(timer);
+                timer = setInterval(setLeftTime, 1000, "1");
+            }else if (d.status == 2){
+                $('#sendSMSTip').html(d.message);
+            }else{
+                $('#sendSMSTip').html(d.message);
+            }
+        }
+    });
+	
+}
+
+function setLeftTime() {
+    //倒计时
+    var second = Math.floor(leftsecond);
+    $("#sendSMSTip").html(msg + second + "秒后可重新发送！");
+    leftsecond--;
+    if (leftsecond < 1) {
+            $("#sendSMSTip").html('<a href="javascript:;" onclick="sendMobileValidSMSCode()" id="btnSendMsg">获取验证码</a>');
+            clearInterval(timer);
+            try {
+                $("#sendSMSTip").html('<a href="javascript:;" onclick="sendMobileValidSMSCode()" id="btnSendMsg">获取验证码</a>');
+            } catch (E) { }
+            return;
+    }
+}
+</script> 
+

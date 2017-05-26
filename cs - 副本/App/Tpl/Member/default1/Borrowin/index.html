@@ -1,0 +1,41 @@
+<include file="Public:_header_common" />
+<title>我的账户-- {$glo.web_name}</title>
+<include file="default:Public:_header_main" group="Home"/>
+<!--中部开始-->
+<div class="wrap2">
+	<div id="hy_left">
+		<include file="Public:_left" />
+	</div>
+	<div id="hy_right">
+            <div class="box">
+				<div class="Menubox1" id="rotate">
+					<ul class="menu ajaxdata">
+                        <li><a id="mx2" href="#fragment-2" ajax_href="__URL__/borrowing/">发标中借款</a></li>
+                        <li><a id="mx3" href="#fragment-3" ajax_href="__URL__/borrowpaying/">偿还中借款</a></li>
+                        <li><a id="mx4" href="#fragment-4" ajax_href="__URL__/borrowbreak/">逾期借款</a></li>
+                        <li><a id="mx5" href="#fragment-5" ajax_href="__URL__/borrowfail/">失败的借款</a></li>
+                        
+                        <li><a id="mx8" href="#fragment-8" ajax_href="__URL__/borrowdone/">已还清的借款</a></li>
+					</ul>
+				</div> 
+				<div class="contentright">
+                    <div id="fragment-2" style="display:none">
+                        <!--升级会员-->
+                    </div>
+                    <div id="fragment-3" style="display:none">
+                        <!--升级会员-->
+                    </div>
+                    <div id="fragment-4" style="display:none">
+                        <!--升级会员-->
+                    </div>
+                    <div id="fragment-5" style="display:none">
+                        <!--升级会员-->
+                    </div>
+                    <div id="fragment-8" style="display:none">
+                        <!--升级会员-->
+                    </div>
+                   </div>
+			</div>
+    </div>
+</div>
+<include file="default:Public:_footer" group="Home" />

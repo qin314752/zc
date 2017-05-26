@@ -9,30 +9,22 @@ class SystemController extends CommonController {
     }
     public function data()
     {
+        echo 1;
+        var_dump($_POST);die;
     	$data = I();
-    	var_dump($data);
-    	$arr = [];
-    	foreach ($data as $key => $value) {
-    		if(empty($value)){unset($key);}else{
+    	// $arr = [];
+    	// foreach ($data as $key => $value) {
+    	// 	if(empty($value)){unset($key);}else{
 
-    		$arr[$key]=$value;
-    		}
-    	}
-    	    L('SMTP_Port',$arr['SMTP_Port']);
-    	var_dump(L('SMTP_Port'));
-    	var_dump($arr);
+    	// 	$arr[$key]=$value;
+    	// 	}
+    	// }
+    	//     L('SMTP_Port',$arr['SMTP_Port']);
+    	// var_dump(L('SMTP_Port'));
+    	// var_dump($arr);
 
     }
-    public function upload()
-    {
-      upload();
-    } 
-   
-   public function upload_del()
-   {
-     upload_del($_GET['src']);   
-
-   }
+    
 }
 
 

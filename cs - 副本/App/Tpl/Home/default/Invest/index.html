@@ -1,0 +1,128 @@
+<include file="Public:header_new"/>
+<title>我要投资-{$glo.web_name}</title>
+<meta http-equiv="keywords" content="{$glo.web_keywords}"/>
+<meta http-equiv="description" content="{$glo.web_descript}"/>
+<link rel="stylesheet" href="__ROOT__/Style/H/css/invest.css"/>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Style/fancybox/jquery.fancybox-1.3.2.css" media="screen"/>
+<div class="width1200 marbottom_10">
+    {:get_ad(27)}
+</div>
+<div class="width-100 invest_index_bgcolor height280 marbottom_30 martop_20">
+    <div class="width1200 height280">
+        <div class="height50 padtop_30">
+            <div class="pull-left firstdiv font16 height50 lineheight30">标的类型:</div>
+            <php>foreach($searchMap['borrow_type'] as $key=>$v){</php>
+            <php>if($key==$searchUrl['borrow_type']['cur']){</php>
+            <div class="conditiondiv pull-left font16 invest_header"><a class="trans_btn on invest-index-bg-color border-radius">{$v}</a></div>
+            <php>}else{</php>
+            <div class="conditiondiv pull-left font16 invest_header1"><a class="trans_btn border_radius" href="__URL__/index.html?type=search&{$searchUrl.borrow_type.url}&borrow_type={$key}">{$v}</a></div>
+            <php>}</php>
+            <php>}</php>
+            <div class="both_clear"></div>
+        </div>
+        <div class="height50 padtop_5">
+            <div class="pull-left firstdiv font16 height50 lineheight30">标的状态:</div>
+            <php>foreach($searchMap['borrow_status'] as $key=>$v){</php>
+            <php>if($key==$searchUrl['borrow_status']['cur']){</php>
+            <div class="conditiondiv pull-left font16 invest_header"><a class="trans_btn on invest-index-bg-color border-radius">{$v}</a></div>
+            <php>}else{</php>
+            <div class="conditiondiv pull-left font16 invest_header1"><a class="trans_btn border_radius" href="__URL__/index.html?type=search&{$searchUrl.borrow_status.url}&borrow_status={$key}">{$v}</a></div>
+            <php>}</php>
+            <php>}</php>
+            <div class="both_clear"></div>
+        </div>
+        <div class="height50 padtop_5">
+            <div class="pull-left firstdiv font16 height50 lineheight30">借款期限:</div>
+            <php>foreach($searchMap['borrow_duration'] as $key=>$v){</php>
+            <php>if($key==$searchUrl['borrow_duration']['cur']){</php>
+            <div class="conditiondiv pull-left font16 invest_header"><a class="trans_btn on invest-index-bg-color border-radius">{$v}</a></div>
+            <php>}else{</php>
+            <div class="conditiondiv pull-left font16 invest_header1"><a class="trans_btn border_radius" href="__URL__/index.html?type=search&{$searchUrl.borrow_duration.url}&borrow_duration={$key}">{$v}</a></div>
+            <php>}</php>
+            <php>}</php>
+            <div class="both_clear"></div>
+        </div>
+        <div class="height50 padtop_5">
+            <div class="pull-left ">
+                <ul style="border-bottom:none;" class="pull-left">
+                    <form name="searchform" action="__URL__/index" method="get" id="myfrom">
+                        <li  class="pull-left firstdiv font16 height50 lineheight30">关键词:</li>
+                        <li style="width:152px;" class="pull-left">
+                            <input name="searchkeywords" class="width-75 input-control " type="text"  onfocus="if(this.placeholder=='输入项目标题') {this.value='';}" onblur="if(this.value=='') {this.placeholder='输入项目标题';}" placeholder="输入项目标题"/>
+                        </li>
+                    </form>
+                </ul>
+            </div>
+            <div class="pull-right text-left width-75">
+                <span  name="btnSubmit" id="btnSubmit"  class="trans_btn on invest-index-bg-color border-radius color-white pull-left pointer" onclick="myformsub()">查询</span>
+                <!--<a href="/tools/tool2.html"><span  class="invest-index-bg-color border-radius color-white pointer inline-block padleft_40 padright_20 invest_jisuanqi marleft_20">投资计算器</span></a>-->
+            </div>
+        </div>
+
+        <script>
+            function myformsub(){
+                $('#myfrom').submit();
+            }
+        </script>
+    </div>
+</div>
+<!--/*借款列表*/-->
+<volist name="list.list" id="vb">
+    <div class="width1200 marbottom_30 color-bg-grey index-borrow-box invest">
+        <div class="index_pro_img pull-left">
+            <if condition="$vb.project_pic_thumb neq ''">
+                <img src="/{$vb.project_pic_thumb}" alt=""/>
+                <else />
+                <img src="__ROOT__/Style/H/images/invest/default_index.jpg" alt=""/>
+            </if>
+        </div>
+        <div class="index-borrow-content float_right">
+            <div class="martop_20 marbottom_10">
+                <a href="{$vb.id|getInvestUrl=###}" class="font16 color-black">{:getIco($vb)}{$vb.borrow_name|cnsubstr=###,20}</a>{:getRewardIco($vb)}
+                <div class="clear"></div>
+            </div>
+            <div class="float_left width155">年化利率</div>
+            <div class="float_left width155">借款总额</div>
+            <div class="float_left width155">项目期限</div>
+            <div class="float_left width155">起投金额</div>
+            <div class="float_left width155">发标时间</div>
+            <div class="float_left">
+                <if condition="$vb.borrow_status eq 3">
+                    <a href="{$vb.id|getInvestUrl=###}" class="a-small-button invest_bg_color_black color-white text-center font16 invest-a">已流标</a>
+                    <elseif condition="$vb.borrow_status eq 4"/>
+                    <a href="{$vb.id|getInvestUrl=###}" class="a-small-button invest_bg_color_black color-white text-center font16 invest-a">复审中</a>
+                    <elseif condition="$vb.borrow_status eq 6"/>
+                    <a href="{$vb.id|getInvestUrl=###}" class="a-small-button invest_bg_color_black color-white text-center font16 invest-a">还款中</a>
+                    <elseif condition="$vb.borrow_status gt 6"/>
+                    <a href="{$vb.id|getInvestUrl=###}" class="a-small-button invest_bg_color_black color-white text-center font16 invest-a">已完成</a>
+                    <else/>
+                    <a href="{$vb.id|getInvestUrl=###}" class="a-small-button color-bg-red color-white text-center font16 invest-a">立即加入</a>
+                </if>
+
+            </div>
+            <div class="clear"></div>
+            <div class="float_left width155 color-95"><font class="font22 color-red">{$vb.borrow_interest_rate}</font>%</div>
+            <div class="float_left width155 color-95"><font class="font22 color-orange">{$vb.borrow_money|getMoneyFormt=###}</font>元</div>
+            <div class="float_left width155 color-95"><font class="font22 color-black">{$vb.borrow_duration}</font> <if condition="$vb['repayment_type'] eq 1">天
+                <else/>
+                个月</if></div>
+            <div class="float_left width155 color-95"><font class="font22 color-black">{$vb.borrow_min}</font>元</div>
+            <div class="float_left width155 color-95">{$vb.first_verify_time|date="Y-m-d H:i",###}</div>
+            <div class="float_left color-95">
+                <span class="progress invest_index_bggray martop_10" style="width: 120px;">
+                        <span class="precent pbprecent color-bg-red" style="width:{$vb.progress}%;">
+                        </span>
+                        </span>
+                {$vb.progress}%
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</volist>
+<div class="width1200 text-center height50 invest_page">
+    <div style="margin:0 auto">
+        {$list.page}
+    </div>
+</div>
+<include file="Public:bottom"/>

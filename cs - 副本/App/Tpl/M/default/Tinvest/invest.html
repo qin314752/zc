@@ -1,0 +1,70 @@
+﻿<include file="Pub:header" /> 
+<div class="main">
+ <div class="box7">
+  <div class="box7_title"><a href="javascript:history.go(-1);" target="_blank"><img src="/style/mobile/images/table_but.png"/></a>立即投标</div>
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tr align="left" height="28"><td>可用余额：</td><td>{$user_info.money|MFormt=###} 元</td></tr>
+    <tr align="left" height="28"><td>年利率：</td><td>{$vo.borrow_interest_rate}%</td></tr>
+    <tr align="left" height="28"><td>融资金额：</td><td>{$vo.borrow_money|getMoneyFormt=###}元</td></tr>
+    <tr align="left" height="28"><td>总投资份数：</td><td>{$vo.transfer_total|default=0}份</td></tr>
+    <tr align="left" height="28"><td>可投资份数：</td><td>{$vo['transfer_total']-$vo['transfer_out']}份</td></tr>
+    <tr align="left" height="28"><td>最小投资金额：</td><td>{$vo.per_transfer}元</td></tr>
+    <tr align="left" height="28"><td>最大购买份数：</td><td>
+        <if condition="$vo.borrow_max eq 0">没有限制
+                  <else/>
+                  {$vo.borrow_max}份</if></td></tr>
+     
+    <tr align="left" height="28">
+    <td>投资：</td>
+        <td>
+        <input type="button" name="minus" id="minus" value="-" class="bt1">
+        <input type="text" name="tnum" id="tnum" value="1份" class="box7_wbk" style="width:55px;" />
+        <input type="button" name="plus" id="plus" value="+" class="bt1">
+        </td>
+    </tr>
+    <tr align="left" height="28">
+        <td>还款方式：</td>
+        <td><input type="radio" id="repay_type1" name="repay_type" style="width:15px;height:15px;cursor:pointer;" checked="checked"  value="4">&nbsp;<label for="repay_type1">按月还息</label>&nbsp;&nbsp;<input type="radio" id="repay_type2" name="repay_type" style="width:15px;height:15px;cursor:pointer;" value="6">&nbsp;<label for="repay_type2">利息复投</label></td>
+    </tr>
+    <tr align="left" height="28"><td>支付密码：</td><td>
+        <notempty name="paypass"><input type="password" name="paypass" id="paypass" class="box7_wbk" /> 
+        <else /> <a href="{:U('M/user/setpaypass')}">请先设置支付密码</a></notempty>
+        <font color=red>*</font></td></tr>
+    <tr align="center" height="54"><td colspan="2"><input type="submit" id='dobutton' class="box7_but" value="确认付款"/></td></tr>
+   </table> 
+ </div>
+ 
+</div>
+<script language="javascript">
+$(function() {
+    $("#dobutton").click(function() {
+        var num = $("#tnum").val().replace(/[^0-9]/ig, "");
+        var cnum = parseInt(num);
+        var paypass = $("#paypass").val();
+        var repay_type = $('input:radio[name=repay_type]:checked').val();
+        if(repay_type == ""){
+            Apprise("<font color=red>请选择还款方式！</font>");
+            return false;
+        }
+        r = "cnum=" + cnum + "&paypass=" + paypass + "&repay_type=" +repay_type;
+        if ($.trim(paypass) == "") 
+        {
+            Apprise("<font color=red>请输入支付密码！</font>");
+            return false;
+        }
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: r,
+            success: function(e) {
+                e == "TRUE" ? (Apprise("恭喜您投资成功！"), $("#apprise-btn-confirm").click(function() {
+                    window.location.href = "{:U('M/user/index')}"
+                })) : Apprise("<font color=red>" + e + "</font>")
+            },
+            error: function(e) {
+                Apprise("<font color=red>提交发生错误！请重试</font>")
+            }
+        })
+    })
+})
+</script>

@@ -1,0 +1,30 @@
+<volist name="list" id="vo">
+    <if condition="$status eq 1">
+        <div class="packet-red bg-left inline-block">
+            <div class="packet-content color-yellow font-12">
+                <div class="font-18 packet-title"><span class="font-22">{$vo['bid_money']*100/100}</span>元</div>
+                <div class="left">满{$vo['pay_money']*100/100}可用</div>
+                <div class="left">到期：{$vo.end_time|date='Y-m-d',###}</div>
+            </div>
+        </div>
+    <elseif condition="$status eq 2"/>
+        <div class="packet-grey bg-left inline-block">
+            <div class="packet-content color-grey font-12">
+                <div class="font-18 packet-title"><span class="font-22">{$vo['bid_money']*100/100}</span>元</div>
+                <div class="left">满{$vo['pay_money']*100/100}可用</div>
+                <div class="left">到期：{$vo.end_time|date='Y-m-d',###}</div>
+            </div>
+            <div class="packet-used"></div>
+        </div>
+    <elseif condition="$status eq 3"/>
+        <div class="packet-dark bg-left inline-block">
+            <div class="packet-content color-grey font-12">
+                <div class="font-18 packet-title"><span class="font-22">{$vo['bid_money']*100/100}</span>元</div>
+                <div class="left">满{$vo['pay_money']*100/100}可用</div>
+                <div class="left">到期：{$vo.end_time|date='Y-m-d',###}</div>
+            </div>
+            <div class="packet-overdue"></div>
+        </div>
+    </if>
+</volist>
+<div class="page-box">{$page}</div>

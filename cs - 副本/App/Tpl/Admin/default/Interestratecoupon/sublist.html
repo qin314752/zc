@@ -1,0 +1,57 @@
+<include file="Public:_header" />
+<tagLib name="htmlA" />
+<script type="text/javascript">
+	var delUrl = '__URL__/doDel';
+	var addUrl = '__URL__/add';
+</script>
+
+<div class="so_main">
+  <div class="page_tit">加息券详情</div>
+  <div class="Toolbar_inbox">
+    <div class="page right">{$pagebar}</div>
+      <htmlA:commonBtn type="href" action="__URL__/add" value="添加加息券" />
+  </div>
+  <div class="list">
+    <table id="area_list" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th style="width:30px;"> <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+          <label for="checkbox"></label>
+        </th>
+        <th class="line_l">ID</th>
+          <th class="line_l">加息券名称</th>
+          <th class="line_l">年化利率</th>
+          <th class="line_l">投资期限范围(单位)</th>
+          <th class="line_l">最低投资金额(单位)</th>
+        <th class="line_l">开始时间</th>
+          <th class="line_l">终止时间</th>
+          <th class="line_l">使用时间</th>
+          <th class="line_l">持有人</th>
+      </tr>
+      <volist id="vo" name="list">
+        <tr overstyle='on' id="list_{$vo.id}">
+            <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.title}</td>
+            <td>{$vo.interest_rate}</td>
+            <td>{$vo.min_duration}-{$vo.max_duration}（月）</td>
+            <td>{$vo.min_invest_money}（元）</td>
+            <td>{$vo.online_time|date="Y-m-d H:i",###}</td>
+            <td>{$vo.deadline|date="Y-m-d H:i",###}</td>
+            <td>
+                <if condition="$vo['online_time'] gt 0">
+                    {$vo.online_time|date="Y-m-d H:i",###}
+                    <else/>
+                    未使用
+                </if>
+            </td>
+            <td>{$vo.user_name}</td>
+        </tr>
+      </volist>
+    </table>
+  </div>
+  <div class="Toolbar_inbox">
+    <div class="page right">{$pagebar}</div>
+    <htmlA:commonBtn type="href" action="__URL__/add" value="添加加息券" />
+  </div>
+</div>
+<include file="Public:_footer" />

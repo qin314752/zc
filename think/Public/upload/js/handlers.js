@@ -146,7 +146,7 @@ function uploadError(file, errorCode, message) {
 }
 
 function addImage(src) {
-    var newElement = "<li><img class='content'  src='/" + src + "' style=\"width:100px;height:100px;\"><img class='button' src=" + "/Public/upload/images/fancy_close.png></li>";
+    var newElement = "<li><input type='hidden' name=\"car_img[]\" value='/" + src + "' ><img class='content'  src='/" + src + "' style=\"width:100px;height:100px;\"><img class='button' src=" + "/Public/upload/images/fancy_close.png></li>";
    
     if(file_queue_limit == 1){
         $("#pic_list").html(newElement);

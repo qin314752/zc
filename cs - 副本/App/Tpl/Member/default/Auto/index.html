@@ -1,0 +1,32 @@
+<include file="Public:_header_common" />
+<title>自动投标-- {$glo.web_name}</title>
+<include file="default:Public:_header_main" group="Home"/>
+<!--中部开始-->
+<div class="wrap2">
+	<div id="hy_left">
+		<include file="Public:_left" />
+	</div>
+	<div id="hy_right">
+            <div class="box">
+				<div class="Menubox1" id="rotate">
+					<ul class="menu ajaxdata">
+						<li class="ui-tabs-selected" ><a href="#fragment-1" ajax_href="__URL__/auto/">自动投标</a></li>
+						<!--<li style="width:auto"><a id="x2" href="#fragment-2" ajax_href="__URL__/autolong/">普通标自动投标设置</a></li>-->
+                        <li style="width:auto"><a id="x3" href="#fragment-3" ajax_href="__URL__/autotransferindex/">优计划自动投标设置</a></li>
+					</ul>
+				</div> 
+				<div class="contentright">
+					<div id="fragment-1" style="display:none">
+						<!--自动投标-->
+					</div>
+					<div id="fragment-2" style="display:none">
+					<!--长担贷自动投标设置-->
+				</div>
+				<div id="fragment-3" style="display:none">
+					<!--流转贷自动投标设置-->
+				</div>
+				</div>
+			</div>
+    </div>
+</div>
+<include file="default:Public:_footer" group="Home" />

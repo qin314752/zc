@@ -1,0 +1,52 @@
+
+<div style="clear:both; height:0px; width:300px; _display:inline;"></div>
+<div class="friend">
+    <h2>友情链接</h2>
+    <ul>
+        <volist id="vo" name="glo.friendList">
+            <li><a href="{$vo.link_href}" target="_blank">
+                <!--<img src="__ROOT__/{$vo.link_img}">-->
+                {$vo.link_txt}</a></li>
+        </volist>
+    </ul>
+</div>
+<div style="clear:both; height:0px; width:300px; _display:inline;"></div>
+<div class="footer">
+    
+  <div class="footer_con">
+    <div class="footer_p">{:get_ad(8)}</div>
+    <div class="footer_ul footer_gy">
+      <h2>关于我们</h2>
+      <ul>
+        <li><a href="__ROOT__/aboutus/intro.html">公司简介</a></li>
+        <li><a href="__ROOT__/aboutus/team.html">运营团队</a></li>
+        <li><a href="__ROOT__/aboutus/tariff.html">资费说明</a></li>
+        <li><a href="__ROOT__/aboutus/invite.html">招贤纳士</a></li>
+      </ul>
+    </div>
+    <div class="footer_ul footer_gy">
+      <h2>投资工具</h2>
+      <ul>
+        <li><a href="__ROOT__/tools/tool2.html">收益计算</a></li>
+        <li><a href="__ROOT__/member/promotion#fragment-1">推广返利</a></li>
+        <li><a href="__ROOT__/member/auto/index.html">自动投标</a></li>
+        <li><a href="__ROOT__/member/capital#fragment-2">资金记录</a></li>
+      </ul>
+    </div>
+    <div class="footer_ul footer_help">
+      <h2>帮助信息</h2>
+      <ul>
+        <li><a href="__ROOT__/helpcenter/index.html">帮助中心</a></li>
+        <li><a href="__ROOT__/bangzhu/borrow.html">我要借款</a></li>
+        <li><a href="__ROOT__/bangzhu/tender.html">我要理财</a></li>
+        <li><a href="__ROOT__/bangzhu/safe.html">安全保障</a></li>
+      </ul>
+    </div>
+    <div class="footer_p footer_last">{:get_ad(9)}</div>
+	<div style="clear:both; height:10px; width:300px; _display:inline;"></div>
+	 <div class="last_last">
+    {$glo.bottom}
+	</div>
+  </div>
+</div>
+</body></html>
