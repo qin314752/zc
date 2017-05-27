@@ -1,6 +1,7 @@
 <?php 
 
-$a =10000;
-var_dump($a % 100 == 0);
-
+$a ='dsfssgwertgfdbsadetywerhwdfgwrtyhqdhaery2qefgbaer';
+ $c = serialize($a);
+ var_dump($c);
+ var_dump(unserialize($c));
  ?>

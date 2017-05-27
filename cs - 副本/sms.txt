@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?><returnsms>
- <returnstatus>Success</returnstatus>
- <message>ok</message>
- <remainpoint>11935</remainpoint>
- <taskID>22526792</taskID>
- <successCounts>1</successCounts></returnsms>

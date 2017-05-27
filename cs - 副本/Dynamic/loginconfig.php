@@ -1,2 +1,0 @@
-<?php
-return array ( 'qq' => array ( 'enable' => '0', 'id' => '', 'key' => '', ), 'sina' => array ( 'enable' => '0', 'akey' => '', 'skey' => '', ), 'uc' => array ( 'enable' => '0', 'UC_KEY' => '', 'UC_API' => '', 'UC_CHARSET' => '', 'UC_IP' => '', 'UC_APPID' => '', 'UC_DBHOST' => '', 'UC_DBUSER' => '', 'UC_DBPW' => '', 'UC_DBNAME' => '', 'UC_DBCHARSET' => '', 'UC_DBTABLEPRE' => '', ), 'cookie' => array ( 'key' => '13231hgfhfhfh131s3dfsd', ), ); ?>

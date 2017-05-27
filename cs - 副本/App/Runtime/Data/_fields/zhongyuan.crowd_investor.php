@@ -1,2 +1,0 @@
-<?php
-return array ( 0 => 'id', 1 => 'crowd_id', 2 => 'user_id', 3 => 'crowd_money', 4 => 'capital', 5 => 'ratio', 6 => 'add_time', 7 => 'add_ip', 8 => 'status', 9 => 'type', '_autoinc' => true, '_pk' => 'id', ); ?>

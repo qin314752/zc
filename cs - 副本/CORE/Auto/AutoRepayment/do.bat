@@ -1,1 +1,0 @@
-D:/xampp/htdocs/v5.petope.com/CORE/Auto/AutoRepayment/wget.exe -O - -q -t 1 http://v5.petope.com/auto/autorepayment?key=fadsffasd4eeee

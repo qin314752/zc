@@ -1,3 +1,0 @@
-<?php
-//000012960000a:2:{s:7:"ad_type";s:1:"1";s:7:"content";a:4:{i:0;a:3:{s:3:"img";s:39:"Static/Uploads/Ad/20161012152731811.jpg";s:4:"info";s:0:"";s:3:"url";s:39:"http://www.baishengzc.com/news/347.html";}i:1;a:3:{s:3:"img";s:39:"Static/Uploads/Ad/20161215135331435.jpg";s:4:"info";s:0:"";s:3:"url";s:39:"http://www.baishengzc.com/news/347.html";}i:2;a:3:{s:3:"img";s:39:"Static/Uploads/Ad/20170308114238360.jpg";s:4:"info";s:0:"";s:3:"url";s:0:"";}i:3;a:3:{s:3:"img";s:39:"Static/Uploads/Ad/20170308171959153.jpg";s:4:"info";s:0:"";s:3:"url";s:0:"";}}}
-?>

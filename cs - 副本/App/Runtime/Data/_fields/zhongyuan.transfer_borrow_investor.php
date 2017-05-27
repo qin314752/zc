@@ -1,2 +1,0 @@
-<?php
-return array ( 0 => 'id', 1 => 'status', 2 => 'borrow_id', 3 => 'investor_uid', 4 => 'borrow_uid', 5 => 'investor_capital', 6 => 'investor_interest', 7 => 'invest_fee', 8 => 'receive_capital', 9 => 'receive_interest', 10 => 'add_time', 11 => 'deadline', 12 => 'is_auto', 13 => 'reward_money', 14 => 'transfer_num', 15 => 'transfer_month', 16 => 'back_time', 17 => 'final_interest_rate', 18 => 'is_jijin', '_autoinc' => true, '_pk' => 'id', ); ?>

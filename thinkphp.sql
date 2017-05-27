@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-05-12 10:29:31
+Date: 2017-05-27 15:43:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -217,6 +217,35 @@ INSERT INTO `zc_node` VALUES ('15', 'admin_role_edit', '编辑', '1', null, null
 INSERT INTO `zc_node` VALUES ('16', 'del', '删除', '1', null, null, '5', '3');
 INSERT INTO `zc_node` VALUES ('17', 'suop', '停用/启用', '1', null, null, '5', '3');
 INSERT INTO `zc_node` VALUES ('18', 'admin_add_node', '添加', '1', null, null, '6', '3');
+
+-- ----------------------------
+-- Table structure for zc_project
+-- ----------------------------
+DROP TABLE IF EXISTS `zc_project`;
+CREATE TABLE `zc_project` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `new_project_name` varchar(255) NOT NULL COMMENT '众筹项目名称',
+  `new_initiator` varchar(255) NOT NULL COMMENT '发起人',
+  `crowd_dealer` varchar(255) NOT NULL COMMENT '发布车商',
+  `project_money` int(50) NOT NULL COMMENT '项目金额',
+  `status` int(10) NOT NULL COMMENT '上线',
+  `new_project_time` varchar(255) NOT NULL COMMENT '开始时间',
+  `new_money_time` varchar(255) NOT NULL COMMENT '集资期限',
+  `money_size` int(10) NOT NULL COMMENT '众筹最小金额',
+  `time_longest` int(10) NOT NULL COMMENT '最长持有期限',
+  `profit_ratio` varchar(255) NOT NULL COMMENT '分红比例',
+  `premium_ratio` varchar(255) NOT NULL COMMENT '溢价回购利率',
+  `vehicle_model` varchar(255) NOT NULL COMMENT '车型',
+  `car_img` varchar(255) NOT NULL COMMENT '车辆图片路径',
+  `car_parameters` varchar(255) NOT NULL COMMENT '车辆参数',
+  `project_brief` varchar(255) NOT NULL COMMENT '项目简介',
+  `project_pact` varchar(255) NOT NULL COMMENT '合同',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zc_project
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for zc_role

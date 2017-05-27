@@ -1,2 +1,0 @@
-<?php
-return array ( 'BANK' => array ( 0 => array ( 'bank' => '工商银行', 'payee' => '冯琳', 'account' => '6212261611003072918', 'address' => '聊城市中柳园路分理处', ), ), 'BANK_INFO' => '汇款时请提前告知客服，汇款后请及时通知客服。', ); ?>

@@ -1,2 +1,0 @@
-<?php
-return array ( 'baofuwap' => array ( 'enable' => '0', 'MemberID' => '100000178', 'TerminalID' => '100000916', 'pkey' => '100000178_204500', ), 'kuaiqian' => array ( 'enable' => '0', 'merchantId' => '104110045112012', 'pkey' => 'vpos123', ), 'allinpaywap' => array ( 'enable' => '0', 'feerate' => '0', 'merchantId' => '100020091218001', 'pkey' => '1234567890', ), ); ?>
