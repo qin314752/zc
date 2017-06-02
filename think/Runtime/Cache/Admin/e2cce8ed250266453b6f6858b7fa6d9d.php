@@ -100,7 +100,8 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="" data-title="" href="<?php echo U('System/index');?>">系统设置</a></li>
+					<li><a data-href="" data-title="" href="<?php echo U('Notice/index');?>">通知信息接口</a></li>
+					<li><a data-href="" data-title="" href="<?php echo U('NoticeTemplate/index');?>">通知信息模板</a></li>
 					
 				</ul>
 			</dd>
@@ -130,14 +131,14 @@
 				<div id="tab-system" class="HuiTab">
 					<div class="tabBar cl"><span>添加众筹</span></div>
 			 <div class="tabCon" >
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">众筹项目名称:</label>
 					<span class="formControls col-xs-3 col-sm-3" >
 						<input style="height: 25px" type="text" name="new_project_name" value="第1期项目-" class="input-text">
 					</span>
 					<span class="c-orange">*</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">发起人:</label>
 					<span class="formControls col-xs-3 col-sm-2" >
 						<select class="select" name="new_initiator" >
@@ -149,7 +150,7 @@
 					</span>
 					<span class="c-orange">*</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">发布车商:</label>
 					<span class="formControls col-xs-3 col-sm-2" >
 						<select class="select" name="crowd_dealer" >
@@ -163,14 +164,14 @@
 				</div>
 
 				
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">项目金额:</label>
 					<span class="formControls col-xs-3 col-sm-3" >
 						<input style="height: 25px" name="project_money" type="text" value="" class="input-text"></span>
 					<span class="c-orange">*元</span>
 				</div>
 
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">上线:</label>
 					<span class="formControls col-xs-3 col-sm-3" >
 						<div class="formControls skin-minimal">
@@ -187,7 +188,7 @@
 				</div>
 
 
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">开始时间:</label>
 					<span class="formControls col-xs-3 col-sm-2" >
 						
@@ -201,7 +202,7 @@
 					</span>
 					<span class="c-orange">*月</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
 					<label class="form-label col-xs-3 col-sm-2">集资期限:</label>
 					<span class="formControls col-xs-3 col-sm-2" >
 					<select class="select" name="new_money_time" >
@@ -220,7 +221,7 @@
 					</span>
 					<span class="c-orange">*天</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
 					<label class="form-label col-xs-3 col-sm-2">众筹最小金额:</label>
 					<span class="formControls col-xs-3 col-sm-2" >
 					<select class="select" name="money_size" >
@@ -231,7 +232,7 @@
 					</span>
 					<span class="c-orange">*元</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
 					<label class="form-label col-xs-3 col-sm-2">最长持有期限:</label>
 					<span class="formControls col-xs-3 col-sm-2" >
 					<select class="select" name="time_longest" >
@@ -255,14 +256,14 @@
 				</div>
 
 				
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">分红比例:</label>
 					<span class="formControls col-xs-3 col-sm-3" >
 						<input style="height: 25px" name="profit_ratio" type="text" value="" class="input-text">
 					</span>
 					<span class="c-orange">*(该比例为投资人所分红比例,若填写10表示，该次众筹总收益的10%由投资人所分配，90%归平台所有)</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">溢价回购利率:</label>
 					<span class="formControls col-xs-3 col-sm-3" >
 						<input style="height: 25px" type="text" name="premium_ratio" value="" class="input-text">
@@ -270,7 +271,7 @@
 					<span class="c-orange">*(溢价回购比率溢价回购投资人所得收益为：投资本金*(溢价率/12)*该众筹最长持有期限)，溢价率即为年化收益率)</span>
 				</div>
 				
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">车型:</label>
 					<span class="formControls col-xs-3 col-sm-2" >
 					<select class="select" name="vehicle_model" >
@@ -285,19 +286,19 @@
 					</span>
 					<span class="c-orange">*</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">车辆参数:</label>
 					<span class="formControls col-xs-3 col-sm-5" >
 					<script id="editor" type="text/plain" name="car_parameters" style="width:100%;height:250px;"></script></span>
 					<span class="c-orange">*</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">项目简介:</label>
 					<span class="formControls col-xs-3 col-sm-5" >
 						<script id="editor1" type="text/plain" name="project_brief" style="width:100%;height:250px;"></script></span>
 					</span>
 				</div>
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">车辆图片:</label>
 					<span class="formControls col-xs-3 col-sm-4" >
 
@@ -352,7 +353,7 @@
 					<span class="c-orange">*文件的类型(小于2M) .jpg .png .gif .bmp </span>
 				</div>
 				
-				<div class="row cl" style="border-bottom: 1px dashed #E2E2E2;margin-top:-1px;padding-top:2px;padding-bottom:5px;">
+				<div class="row cl dashed" >
 					<label class="form-label col-xs-3 col-sm-2">合同:</label>
 					<span class="formControls col-xs-3 col-sm-5" >
 						<script id="editor2" name="project_pact" type="text/plain" style="width:100%;height:250px;"></script></span>
@@ -364,7 +365,7 @@
 			</div>
 
 		</div>
-		<div class="row cl">
+		<div class="row cl ">
 			<div class="col-xs-3 col-sm-3 col-xs-offset-3 col-sm-offset-2">
 				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>

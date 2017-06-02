@@ -127,15 +127,15 @@ function upload()
                 exit;
             }
             // 将数组的输出存起来以供查看
-           $fileName = __ROOT__.'Upload/test.txt';
-           $postData = var_export($file_info, true);
-           $file     = fopen('' . $fileName, "w");
-           fwrite($file,$postData);
-           fclose($file);
+           // $fileName = __ROOT__.'Upload/test.txt';
+           // $postData = var_export($file_info, true);
+           // $file     = fopen('' . $fileName, "w");
+           // fwrite($file,$postData);
+           // fclose($file);
         }
         exit;
 } 
-// 上传文件删除
+// 上传图片删除
 function upload_del($src)
 {
     
@@ -147,26 +147,20 @@ function upload_del($src)
 function txt($path,$content,$name)
 {
     if (!is_dir($path)){
-        mkdir($path,0777);  // 创建文件夹test,并给777的权限（所有权限）
+        mkdir($path,0777);  // 创建文件夹,并给777的权限（所有权限）
     }
     $file = $path.$name;    // 写入的文件
     return file_put_contents($file,$content);  // 最简单的快速的以追加的方式写入写入方法， 
 }
 //发起项目中项目金额为100倍数 验证
 function project_money($project_money)
-        {
-            if($project_money % 100 == 0){
-                return true;
-            }else{
-                return false;
-            }
-        }
-
-
-
-
-
-
+{
+    if($project_money % 100 == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 
 

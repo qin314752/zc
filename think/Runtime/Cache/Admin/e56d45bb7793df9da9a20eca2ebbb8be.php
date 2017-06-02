@@ -100,7 +100,8 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="" data-title="系统设置" href="<?php echo U('System/index');?>">系统设置</a></li>
+					<li><a data-href="" data-title="" href="<?php echo U('Notice/index');?>">通知信息接口</a></li>
+					<li><a data-href="" data-title="" href="<?php echo U('NoticeTemplate/index');?>">通知信息模板</a></li>
 					
 				</ul>
 			</dd>
@@ -109,7 +110,7 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 众筹<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="" data-title="系统设置" href="<?php echo U('Crowd/index');?>">发起项目</a></li>
+					<li><a data-href="" data-title="" href="<?php echo U('Crowd/index');?>">发起项目</a></li>
 					
 				</ul>
 			</dd>

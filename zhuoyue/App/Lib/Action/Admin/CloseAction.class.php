@@ -8,6 +8,8 @@
 class CloseAction extends ACommonAction {
 
     public function index(){
+        var_dump($_POST);
+        die;
         if($_POST['isopen']){
             $website=json_encode($_POST);
             file_put_contents("website.txt",$website);

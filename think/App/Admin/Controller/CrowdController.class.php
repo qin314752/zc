@@ -1,8 +1,5 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
-use Org\Util\Rbac;
-use Org\Util\Mail;
 class CrowdController extends CommonController {
     public function index(){
         $this->display();

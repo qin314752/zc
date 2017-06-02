@@ -1,6 +1,5 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
 class RoleController extends CommonController {
 	//角色列表
     public function admin_role(){

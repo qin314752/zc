@@ -1,7 +1,5 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
-use Org\Util\Rbac;
 class SysDataController extends CommonController {
     public function index(){
          $M = M();

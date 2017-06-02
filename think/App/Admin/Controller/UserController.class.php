@@ -1,6 +1,5 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
 class UserController extends CommonController { 
    	
    	//管理员列表

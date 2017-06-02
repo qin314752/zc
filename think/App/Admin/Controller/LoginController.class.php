@@ -1,7 +1,5 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
-use Org\Util\Rbac;
 class LoginController extends Controller {
     public function index(){
         $this->display();

@@ -1,6 +1,5 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
 class NodeController extends CommonController {
 	// 权限列表
     public function admin_node(){
