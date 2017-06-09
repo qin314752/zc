@@ -1,0 +1,67 @@
+<include file="Base:header" />
+
+<div class="head_title"><!-- HEAD TITLE -->
+    <div class="container_12">
+        <div class="grid_12">
+
+        </div>
+    </div>
+</div><!-- HEAD TITLE -->
+
+<div class="breadcrumbs"><!-- BREADCRUMBS -->
+    <div class="container_12">
+        <div class="grid_12">
+            <a href="__APP__">{$Think.lang.T_HOME}</a>
+            <a href="#" class="icon_meta">{$info.page_name}</a>
+            <form id="search" action="#" />
+            <fieldset>
+                <input type="text" name="search" />
+                <input type="submit" value="" />
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div><!-- END BREADCRUMBS -->
+
+<div class="main"><!-- MAIN -->
+    <div class="container_12">
+
+        <div class="grid_3"><!-- SIDEBAR -->
+            <div id="sidebar">
+
+                <div class="sideblock">
+                    <h3 class="title">{$info.page_name}</h3>
+
+                    <div class="list-type-sidebar">
+                        <ul>
+                            <volist name="catlist" id="vo">
+                            <li><a href='{:U("page/index",array("name"=>$vo["unique_id"]))}'>{$vo.page_name}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- END SIDEBAR -->
+
+        <div class="grid_9">
+<notempty name="subcatlist">
+            <dl class="group"><!-- CATEGORY FILTER -->
+                <dd>
+                    <ul class="filter group">
+                        <volist name="subcatlist" id="vo">
+                        <li>
+                            <a href='{:U("page/index",array("name"=>$vo["unique_id"]))}'>{$vo.page_name}</a>
+                        </li>
+                        </volist>
+                    </ul>
+                </dd>
+            </dl><!-- END CATEGORY FILTER -->
+</notempty>
+            <div class="container">
+            {$info['content']}
+            </div>
+        </div>
+    </div>
+</div><!-- END MAIN -->
+<include file="Base:footer" />

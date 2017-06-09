@@ -43,11 +43,14 @@ class CommonController extends Controller {
         //         }
         //     }
         // }
-
-
-
-
+        $this->assign("menu", $this->show_menu()['menu_top']);
+        $this->assign("sub_menu", $this->show_menu()['menu_left']);
     }
+
+
+
+
+
 
 
     /**
@@ -56,64 +59,16 @@ class CommonController extends Controller {
       +----------------------------------------------------------
      */
     private function show_menu() {
-        $cache = C('admin_big_menu');
-        $model=M('model')->where('is_inner=0')->field('tbl_name,menu_name')->select();
-        foreach ($model as $key => $value) {
-          $k=ucwords(str_replace(C('DB_PREFIX'),'', $value['tbl_name']));
-          $cache[$k]=$value['menu_name'];
-        }
-        $count = count($cache);
-        $i = 1;
-        $menu = "";
-        foreach ($cache as $url => $name) {
-            if ($i == 1) {
-                $css = $url == CONTROLLER_NAME || !$cache[CONTROLLER_NAME] ? "fisrt_current" : "fisrt";
-                $menu.='<li class="' . $css . '"><span><a href="' . U($url . '/index') . '">' . $name . '</a></span></li>';
-            } else if ($i == $count) {
-                $css = $url == CONTROLLER_NAME ? "end_current" : "end";
-                $menu.='<li class="' . $css . '"><span><a href="' . U($url . '/index') . '">' . $name . '</a></span></li>';
-            } else {
-                $css = $url == CONTROLLER_NAME ? "current" : "";
-                $menu.='<li class="' . $css . '"><span><a href="' . U($url . '/index') . '">' . $name . '</a></span></li>';
-            }
-            $i++;
-        }
-        return $menu;
-    }
-
-    /**
-      +----------------------------------------------------------
-     * 显示二级菜单
-      +----------------------------------------------------------
-     */
-    private function show_sub_menu() {
-        $big = CONTROLLER_NAME == "Index" ? "Common" : CONTROLLER_NAME;
-        $cache = C('admin_sub_menu');       
-        if($mo=C($big)){
-          $model[$big]=array();
-          foreach ($mo['sub_menu'] as $value) {
-              if(!$value['hidden']){
-                  foreach ($value['item'] as $k => $v) {
-                    $kv=explode('/', $k);
-                    $model[$big][$kv[1]]=$v;
-                  }
-              }
+      $data = array();
+        require(C('WEB_ROOT')."App/Admin/Common/menu.inc.php");
+            foreach ($menu_left as $key => $value) {
+              $data['menu_top']  .= '<li class="dropDown dropDown_hover" ><a class="dropDown_A" href="javascript:;" class="'.$value[1].'" onclick="clic(\''.$value[1].'\')">'.$value[0].'</a></li>';
+              $data['menu_left'][$key] = $value;
           }
-          $cache=array_merge($cache,$model);
-        }
-        $sub_menu = array();
-        if ($cache[$big]) {
-            $cache = $cache[$big];
-            foreach ($cache as $url => $title) {
-                $url = $big == "Common" ? $url : "$big/$url";
-                $sub_menu[] = array('url' => U("$url"), 'title' => $title);
-            }
-            return $sub_menu;
-        } else {
-            return $sub_menu[] = array('url' => '#', 'title' => "该菜单组不存在");
-        }
+          return $data; 
     }
 
+  
 
     
     

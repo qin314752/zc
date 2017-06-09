@@ -9,11 +9,13 @@ class IndexController extends CommonController {
 	$aa->sendMail();
 }
 	
-	public function del(){
-		$a = Rmall(C('Runtime'));
-		if($a)
-		{
-			echo 1;
+	public function cache(){
+		$cache = Rmall(C('Runtime'));
+		if($cache){
+			$this->success('已清除缓存',U('index'));
+		}else{
+			$this->error('清除缓存失败',U('index'));
+
 		}
 
 	}

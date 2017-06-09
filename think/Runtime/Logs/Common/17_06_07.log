@@ -1,0 +1,18 @@
+[ 2017-06-07T14:41:02+08:00 ] 127.0.0.1 /%7Bconfig.templateskin%7D/images/class_title.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000307s ]
+ERR: 无法加载模块:{config.templateskin}
+
+[ 2017-06-07T14:41:11+08:00 ] 127.0.0.1 /%7Bconfig.templateskin%7D/images/class_title.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000605s ]
+ERR: 无法加载模块:{config.templateskin}
+
+[ 2017-06-07T14:41:18+08:00 ] 127.0.0.1 /%7Bconfig.templateskin%7D/images/class_title.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000355s ]
+ERR: 无法加载模块:{config.templateskin}
+

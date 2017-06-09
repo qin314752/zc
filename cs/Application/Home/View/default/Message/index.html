@@ -1,0 +1,58 @@
+<include file="Base:header" />
+<div class="map_container"><!-- MAP CONTAINER -->
+    <iframe width="100%" height="355" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=q&amp;source=embed&amp;hl=zh-CN&amp;geocode=&amp;q={:urlencode($site['address'])}&amp;output=embed"></iframe><br /><small><a href="http://ditu.google.cn/maps?f=q&amp;source=embed&amp;hl=zh-CN&amp;geocode=&amp;q={:urlencode($site['address'])}" style="color:#0000FF;text-align:left">查看大图</a></small>    <div class="container_12">
+        <div class="grid_12">
+            <a href="__APP__">{$Think.lang.T_HOME}</a>
+            <a href="#" class="icon_meta">{$Think.lang.T_MESSAGE}</a>
+            <form id="search" action="#" />
+            <fieldset>
+                <input type="text" name="search" />
+                <input type="submit" value="" />
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div><!-- END BREADCRUMBS -->
+<div class="main"><!-- MAIN -->
+    <div class="container_12">
+        <div class="grid_3"><!-- SIDEBAR -->
+            <div id="sidebar">
+                <div class="sideblock">
+                    <h3 class="title">{$Think.lang.T_MESSAGE}</h3>
+
+                    <div class="list-type-sidebar">
+                        <ul>
+                            <volist name="catlist" id="vo">
+                            <li><a href='{:U("page/index",array("name"=>$vo["unique_id"]))}'>{$vo.page_name}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- END SIDEBAR -->
+
+        <div class="grid_9">
+            <div>
+                <form action="{:U('message/add')}" id="contact_form" method="post" />
+                <p>{$Think.lang.T_NAME}：<br /><input type="text" name="username" id="name" value="" class="requiredField" /> <label><span class="required">*</span></label></p>
+
+                <p>{$Think.lang.T_EMAIL}：<br /><input type="text" name="email" id="email" value="" class="requiredField email" /><label><span class="required">*</span></label></p>
+
+                <p>{$Think.lang.T_MOBILE}：<br /><input type="text" name="moblie" id="moblie" value="" /></p>
+
+                <p>
+                    {$Think.lang.T_MESSAGE_CONTENT}：<br /><textarea name="content" id="message" style="width: 280px; height: 80px;"  class="requiredField"></textarea></p>
+                <p>{$Think.lang.T_CODE}：<br />
+                    <input class="input" name="verify_code" id="verify_code" type="text" size="20" value="" />
+                    <img src="{:U('Base/verify_code')}"  title="看不清？单击此处刷新" onclick="this.src+='?rand='+Math.random();"  style="cursor: pointer; vertical-align: middle;"/>
+                </p>
+                <p><input name="submitted" id="submitted" value="提交" class="submit" type="submit" /></p>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div><!-- END MAIN -->
+<include file="Base:footer" />

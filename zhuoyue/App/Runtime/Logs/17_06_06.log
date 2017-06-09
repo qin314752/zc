@@ -1,0 +1,6 @@
+[ 2017-06-06T10:07:35+08:00 ] /admin/welcome/index.html | ERR: Cron:cron_1 Runat 2017-06-06 10:07:35 Use 0.000151 s
+
+[ 2017-06-06T10:08:42+08:00 ] /Admin/index/index | ERR: Cron:cron_1 Runat 2017-06-06 10:08:42 Use 0.000157 s
+
+[ 2017-06-06T10:17:45+08:00 ] /admin/global/websetting.html | ERR: Cron:cron_1 Runat 2017-06-06 10:17:45 Use 0.000264 s
+

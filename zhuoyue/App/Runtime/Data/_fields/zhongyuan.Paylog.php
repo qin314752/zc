@@ -1,2 +1,0 @@
-<?php
-return array ( 0 => 'id', 1 => 'uid', 2 => 'nid', 3 => 'money', 4 => 'fee', 5 => 'way', 6 => 'status', 7 => 'add_time', 8 => 'add_ip', 9 => 'tran_id', 10 => 'off_bank', 11 => 'off_way', 12 => 'deal_user', 13 => 'deal_uid', 14 => 'payimg', '_autoinc' => true, '_pk' => 'id', ); ?>

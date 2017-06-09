@@ -1,0 +1,1 @@
+<div class="footer"> &copy; 2012-2013 <a href="http://www.uc22.net" target="_blank">www.uc22.net</a> 永不言弃 </div>

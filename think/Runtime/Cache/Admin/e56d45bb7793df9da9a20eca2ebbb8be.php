@@ -33,10 +33,7 @@
 			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav class="nav navbar-nav">
 				<ul class="cl">
-					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"> 新增 </a>
-					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"> 新增 </a>
-					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"> 新增 </a>
-					</li>
+				<?php echo ($menu); ?>
 				</ul>
 			</nav>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
@@ -65,48 +62,83 @@
 			}
 		} );
 	}
-</script> -->
+</script> 
 <!--_menu 作为公共模版分离出去-->
 <aside class="Hui-aside">
 	
 
-	<div class="menu_dropdown bk_2">
-		<dl id="menu-admin">
-<div style="margin-left: 10%;"><?php echo ($a); ?></php></div>
-		<dl id="menu-admin">
-			
+<div class="menu_dropdown bk_2">
+	<dl id="menu-admin">
+	<?php
+ foreach ($sub_menu as $value) { foreach ($value['low_title'] as $key => $menu) { ?>
+			<dl >
+				<dt <?php if($value[2]==1){echo "class='$value[1]'";} ?> >
+					<?php echo $menu[0] ?>
+					<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+				</dt>
+				<dd>
+					<ul >
+					<?php foreach ($value[$key] as $v) {?>
+							<li><a href="<?php echo $v[1]?>" ><?php echo $v[0]?></a></li>
+					<?php }?>
+					</ul>
+				</dd>
+			</dl>
+			<?php
+ } } ?>
+		<script type="text/javascript">
+
+			window.onload=function(){
+				 $('.shouye').parent('dl').addClass('aa');
+        		 $('.shouye').parent('dl').siblings().css("display", "none");
+        		 $('.aa').siblings('.aa').css("display", "block");
+        		 $('.aa').removeClass('aa');
+			}
+
+		</script> 
+		<script type="text/javascript">
+		function clic(id){
+				var clas= $('.' + id);
+				 clas.parent('dl').addClass('aa');
+        		 clas.parent('dl').siblings().css("display", "none");
+        		 $('.aa').siblings('.aa').css("display", "block");
+        		 $('.aa').removeClass('aa');
+		}
+
+		</script>
+<!-- 
+		 <dl >
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a href="<?php echo U('Role/admin_role');?>" title="角色管理">角色管理</a></li>
 					<li><a href="<?php echo U('Node/admin_node');?>" title="权限管理">权限管理</a></li>
-					<li><a href="<?php echo U('User/admin_user_list');?>" title="管理员列表">管理员列表</a></li>
+					<li><a href="<?php echo U('User/admin_user_list');?>" title="管理员列表管理员列表">管理员列表</a></li>
 
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-tongji">
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 数据库管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a href="<?php echo U('SysData/index');?>" title="角色管理">数据库信息</a></li>
-					<li><a href="<?php echo U('Node/admin_node');?>" title="权限管理">备份数据库</a></li>
-					<li><a href="<?php echo U('User/admin_user_list');?>" title="管理员列表">清空数据</a></li>
+					
 
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-system">
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a data-href="" data-title="" href="<?php echo U('Notice/index');?>">通知信息接口</a></li>
-					<li><a data-href="" data-title="" href="<?php echo U('NoticeTemplate/index');?>">通知信息模板</a></li>
+					<li><a data-href="" data-title="" href="<?php echo U('Notice/template');?>">通知信息模板</a></li>
 					
 				</ul>
 			</dd>
 		</dl>
-<dl >
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 众筹<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
@@ -114,10 +146,10 @@
 					
 				</ul>
 			</dd>
-		</dl>
+		</dl> -->
 
-</dl>
-		
+	</dl>
+		 
 </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
